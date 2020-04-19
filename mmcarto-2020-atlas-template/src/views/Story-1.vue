@@ -18,6 +18,7 @@
 
     </v-navigation-drawer>
     <Map_1/>
+
     <!-- Add other other components as appropriate -->
   </v-container>
 
@@ -29,10 +30,12 @@
 // @ is an alias to /src
 import Map_1 from '@/components/Story-1/Map-1.vue'
 
+
 export default {
   name: 'Story-1',
   components: {
     Map_1
+
   },
   data () {
     return {
