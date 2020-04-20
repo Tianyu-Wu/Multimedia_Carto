@@ -1,15 +1,33 @@
 <template>
-  <v-container fill-height align="center">
-    <h2 class="display-2 font-weight-bold mb-3">ABOUT US</h2>
-    <v-row cols="12">
-      <v-col cols="8">
-        <div id="map" class="map pad2">Map</div>
+  <div fill-height color="#F3EBE3">
+    <v-container>
+      <div class="py-12"></div>
+
+      <h2 class="display-3 font-weight-bold mb-3">The booming cities</h2>
+      <div class="py-5"></div>
+    </v-container>
+
+    <v-row fluid no-gutters align="center">
+      <v-col cols="12" md="8">
+        <div id="map">Map</div>
       </v-col>
-      <v-col cols="4">
-        <div class="sidebar pad2">Listing</div>
+      <v-col cols="6" md="4">
+        <v-card class="d-flex flex-column justify-center" shaped height="600">
+          <v-card-text class="display-2 font-weight-bold"
+            >Over half of the world’s population live in urban
+            areas</v-card-text
+          >
+          <div class="py-5"></div>
+
+          <v-card-text
+            >In 2018, 4.2 billion people, 55 percent of the world’s population,
+            lived in cities. By 2050, the urban population is expected to reach
+            6.5 billion.</v-card-text
+          >
+        </v-card>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -31,47 +49,6 @@ export default {
         center: [-77.034084, 38.909671],
         zoom: 2
       });
-      this.map.on('load', function() {
-      this.map.addSource('population', {
-          type: 'geojson',
-          data: 'data/urban/UrbanPop.geojson'
-          });
-      this.map.addLayer(
-            {'id': 'urbanPop',
-            'source': 'population',
-            'source-layer': 'UrbanPop',
-            'minzoom': 2,
-            'type': 'fill',
-            //'filter': ['==', 'isCounty', true],
-            'paint': {
-            'fill-color': [
-             /* 'interpolate',
-              ['linear'],
-              ['get', 'population'],
-              0,
-              '#F2F12D',
-              100,
-              '#EED322',
-              1000,
-              '#E6B71E',
-              5000,
-              '#DA9C20',
-              10000,
-              '#CA8323',
-              50000,
-              '#B86B25',
-              100000,
-              '#A25626',
-              500000,
-              '#8B4225',
-              1000000,*/
-              '#723122'
-              ],
-              'fill-opacity': 0.75
-              }
-              },
-              'waterway-label');
-          });
     }
   },
   mounted() {
@@ -81,20 +58,8 @@ export default {
 </script>
 
 <style>
-/* The page is split between map and sidebar - the sidebar gets 1/3, map
-gets 2/3 of the page. You can adjust this to your personal liking. */
-/* .sidebar {
-  width: 33.3333%;
-} */
 #map {
   width: 100%;
-  height: 700px;
+  height: 600px;
 }
-
-/* .pad2 {
-  padding: 20px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-} */
 </style>

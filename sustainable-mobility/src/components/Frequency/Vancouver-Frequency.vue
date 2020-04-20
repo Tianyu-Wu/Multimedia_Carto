@@ -1,29 +1,59 @@
 <template>
-  <v-container>
-    <div class="sidebar pad2">Listing</div>
-    <div id="map" class="map pad2">Map</div>
-  </v-container>
+  <div fill-height color="#F3EBE3">
+    <v-container>
+      <div class="py-12"></div>
+
+      <h2 class="display-3 font-weight-bold mb-3">Vancouver - North America</h2>
+      <div class="py-5"></div>
+    </v-container>
+
+    <v-row fluid no-gutters align="center">
+      <v-col cols="12" md="8">
+        <div id="van-frequency">Map</div>
+      </v-col>
+      <v-col cols="6" md="4">
+        <v-card class="d-flex flex-column justify-center" shaped height="600">
+          <v-card-text class="display-2 font-weight-bold"
+            >Frequency</v-card-text
+          >
+          <div class="py-5"></div>
+
+          <v-card-text>Some Stats Here.</v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>
 import { mapboxgl } from "@/main";
 
 export default {
-  name: "Vancouver-Frequency",
+  name: "VancouverFrequency",
   data: () => ({
     map: null
   }),
   methods: {
     initMap: function() {
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoibW1jYXJ0b2cwMSIsImEiOiJjazk2bHZlbW8wOW5xM250Y2ZkbXNnZGdjIn0.QS71DsIq1oSDNUgEmfA3kg";
-
-      this.map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/mapbox/light-v10",
-        center: [-77.034084, 38.909671],
-        zoom: 14
+      let self = this;
+      self.map = new mapboxgl.Map({
+        container: "van-frequency",
+        style: "mapbox://styles/mmcartog01/ck98marof00vr1io3vqd4ehlb/draft",
+        center: [-122.949603, 49.224873],
+        zoom: 9.5
       });
+
+      // self.map.on("load", function() {
+      //   self.map.addLayer({
+      //     id: "vancouver-boarding",
+      //     type: "circle",
+      //     source: {
+      //       type: "vector",
+      //       url: "mapbox://mmcartog01.0tmwze2x"
+      //     },
+      //     "source-layer": "vancouver_boarding-dyq3tk"
+      //   });
+      // });
     }
   },
   mounted() {
@@ -33,34 +63,8 @@ export default {
 </script>
 
 <style>
-body {
-  background: #404040;
-  color: #f8f8f8;
-  font: 500 20px/26px "Helvetica Neue", Helvetica, Arial, Sans-serif;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* The page is split between map and sidebar - the sidebar gets 1/3, map
-gets 2/3 of the page. You can adjust this to your personal liking. */
-.sidebar {
-  width: 33.3333%;
-}
-
-.map {
-  border-left: 1px solid #fff;
-  position: absolute;
-  left: 33.3333%;
-  width: 66.6666%;
-  top: 0;
-  bottom: 0;
-}
-
-.pad2 {
-  padding: 20px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+#van-frequency {
+  width: 100%;
+  height: 600px;
 }
 </style>
