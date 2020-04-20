@@ -13,26 +13,24 @@
         <v-toolbar-title class="font-weight-black headline">Sustainable Mobility</v-toolbar-title>
       </div>
       <v-spacer></v-spacer>
-      <v-btn href="." target="_blank" text>
+      <v-btn @click="$vuetify.goTo('#background')" text>
         <span class="mr-2">Background</span>
       </v-btn>
-      <v-btn href="." target="_blank" text>
+      <v-btn @click="$vuetify.goTo('#statements')" text>
         <span class="mr-2">Statement</span>
       </v-btn>
-      <v-btn href="." target="_blank" text>
+      <v-btn @click="$vuetify.goTo('#current-status')" text>
         <span class="mr-2">Current Status</span>
       </v-btn>
-      <v-btn href="." target="_blank" text>
+      <v-btn @click="$vuetify.goTo('#case-studies')" text>
         <span class="mr-2">Case Studies</span>
       </v-btn>
-      <v-btn href="." target="_blank" text>
+      <v-btn @click="$vuetify.goTo('#outlook')" text>
         <span class="mr-2">Outlook</span>
       </v-btn>
     </v-app-bar>
     <v-content>
       <section id="landing">
-        <!-- <landing /> -->
-
         <v-parallax
           height="700"
           :min-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
@@ -71,13 +69,16 @@
       <section id="background">
         <Population />
         <Demand />
-        <Liability />
+        <Livability />
       </section>
       <section id="statements">
         <Statements />
       </section>
       <section id="current-status">
         <CurrentStatus />
+      </section>
+      <section id="case-studies">
+        <CaseStudies />
       </section>
       <section id="outlook">
         <Outlook />
@@ -89,14 +90,13 @@
 <script>
 // import HelloWorld from "./components/HelloWorld";
 // import FrequencyVancouver from "./components/FrequencyVancouver";
-// import Structure from "./components/Structure";
 import Population from "./components/Population";
 import Demand from "./components/Demand";
-import Liability from "./components/Liability";
+import Livability from "./components/Livability";
 import Statements from "./components/Statements";
 import CurrentStatus from "./components/CurrentStatus";
+import CaseStudies from "./components/CaseStudies";
 import Outlook from "./components/Outlook";
-// import landing from "./components/landing";
 
 export default {
   name: "App",
@@ -104,11 +104,11 @@ export default {
   components: {
     Population,
     Demand,
-    Liability,
+    Livability,
     Statements,
     CurrentStatus,
+    CaseStudies,
     Outlook
-    // landing
   },
 
   data: () => ({
