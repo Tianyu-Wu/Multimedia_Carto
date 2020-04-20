@@ -101,12 +101,18 @@
         </v-hover>
       </v-col>
     </v-row>
+    <CaseStudyMap />
   </div>
 </template>
 
 <script>
+import CaseStudyMap from "./CaseStudyMap";
+
 export default {
-  name: "CaseStudies"
+  name: "CaseStudies",
+  components: {
+    CaseStudyMap
+  }
 };
 </script>
 
