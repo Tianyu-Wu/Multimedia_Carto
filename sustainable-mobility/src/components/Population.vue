@@ -1,6 +1,6 @@
 <template>
   <v-container fill-height align="center">
-    <h2 class="display-2 font-weight-bold mb-3">ABOUT ME</h2>
+    <h2 class="display-2 font-weight-bold mb-3">ABOUT US</h2>
     <v-row cols="12">
       <v-col cols="8">
         <div id="map" class="map pad2">Map</div>
@@ -31,6 +31,47 @@ export default {
         center: [-77.034084, 38.909671],
         zoom: 2
       });
+      this.map.on('load', function() {
+      this.map.addSource('population', {
+          type: 'geojson',
+          data: 'data/urban/UrbanPop.geojson'
+          });
+      this.map.addLayer(
+            {'id': 'urbanPop',
+            'source': 'population',
+            'source-layer': 'UrbanPop',
+            'minzoom': 2,
+            'type': 'fill',
+            //'filter': ['==', 'isCounty', true],
+            'paint': {
+            'fill-color': [
+             /* 'interpolate',
+              ['linear'],
+              ['get', 'population'],
+              0,
+              '#F2F12D',
+              100,
+              '#EED322',
+              1000,
+              '#E6B71E',
+              5000,
+              '#DA9C20',
+              10000,
+              '#CA8323',
+              50000,
+              '#B86B25',
+              100000,
+              '#A25626',
+              500000,
+              '#8B4225',
+              1000000,*/
+              '#723122'
+              ],
+              'fill-opacity': 0.75
+              }
+              },
+              'waterway-label');
+          });
     }
   },
   mounted() {

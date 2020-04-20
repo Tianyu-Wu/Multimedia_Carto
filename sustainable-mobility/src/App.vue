@@ -10,7 +10,9 @@
           width="70"
         />
 
-        <v-toolbar-title class="font-weight-black headline">Sustainable Mobility</v-toolbar-title>
+        <v-toolbar-title class="font-weight-black headline"
+          >Sustainable Mobility</v-toolbar-title
+        >
       </div>
       <v-spacer></v-spacer>
       <v-btn href="." target="_blank" text>
@@ -44,14 +46,24 @@
                 <v-row align="center" class="white--text" justify="center">
                   <v-col class="white--text text-center" cols="8" tag="h1">
                     <span
-                      :class="[$vuetify.breakpoint.smAndDown ? 'display-3': 'display-4']"
+                      :class="[
+                        $vuetify.breakpoint.smAndDown
+                          ? 'display-3'
+                          : 'display-4'
+                      ]"
                       class="font-weight-black"
-                    >Sustainable Mobility</span>
+                      >Sustainable Mobility</span
+                    >
                     <br />
 
-                    <p
-                      class="mx-auto title font-weight-light mb-8"
-                    >We live in a world of dynamics. Everyday, enumerous people and goods are transporting between cities and countries. With the development of urbanization and globalization, sustainable mobility has become the most important steps towards the development of sustainable cities and communities.</p>
+                    <p class="mx-auto title font-weight-light mb-8">
+                      We live in a world of dynamics. Everyday, enumerous people
+                      and goods are transporting between cities and countries.
+                      With the development of urbanization and globalization,
+                      sustainable mobility has become the most important steps
+                      towards the development of sustainable cities and
+                      communities.
+                    </p>
                     <v-btn
                       class="align-self-end"
                       fab
