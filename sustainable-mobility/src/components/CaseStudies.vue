@@ -7,7 +7,7 @@
       <div class="py-5"></div>
     </v-container>
     <v-row>
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" @click="$vuetify.goTo('#case-study-map')">
         <v-hover>
           <template v-slot:default="{ hover }">
             <v-parallax height="600" :src="require('../assets/zurich.jpg')">
@@ -38,7 +38,7 @@
           </template>
         </v-hover>
       </v-col>
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" @click="$vuetify.goTo('#case-study-map')">
         <v-hover>
           <template v-slot:default="{ hover }">
             <v-parallax height="600" :src="require('../assets/vancouver.jpg')">
@@ -69,7 +69,7 @@
           </template>
         </v-hover>
       </v-col>
-      <v-col cols="12" md="4">
+      <v-col cols="12" md="4" @click="$vuetify.goTo('#case-study-map')">
         <v-hover>
           <template v-slot:default="{ hover }">
             <v-parallax height="600" :src="require('../assets/singapore2.jpg')">
@@ -101,7 +101,7 @@
         </v-hover>
       </v-col>
     </v-row>
-    <CaseStudyMap />
+    <CaseStudyMap id="case-study-map" />
   </div>
 </template>
 
