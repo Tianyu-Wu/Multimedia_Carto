@@ -1,16 +1,22 @@
 <template>
   <div>
-    <VancouverFrequency />
+    <!--<ZurichGreen />-->
+    <SingaporeGreen />
+    <!--<VancouverGreen />-->
   </div>
 </template>
 
 <script>
-import VancouverFrequency from "./Frequency/Vancouver-Frequency";
+//import ZurichGreen from "./Green/Zurich-Green";
+import SingaporeGreen from "./Green/Singapore-Green";
+//import VancouverGreen from "./Green/Vancouver-Green";
 
 export default {
   name: "CaseStudyMap",
   components: {
-    VancouverFrequency
+    //ZurichGreen
+    SingaporeGreen
+    //VancouverGreen
   }
 };
 </script>
