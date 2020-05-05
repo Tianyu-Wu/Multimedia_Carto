@@ -3,7 +3,7 @@
     <h2 class="display-2 font-weight-bold mb-3">ABOUT US</h2>
     <v-row cols="12">
       <v-col cols="8">
-        <div id="map" class="map pad2">Map</div>
+        <div id="population" class="map pad2">Map</div>
       </v-col>
       <v-col cols="4">
         <div class="sidebar pad2">Listing</div>
@@ -25,11 +25,29 @@ export default {
       mapboxgl.accessToken =
         "pk.eyJ1IjoibW1jYXJ0b2cwMSIsImEiOiJjazk2bHZlbW8wOW5xM250Y2ZkbXNnZGdjIn0.QS71DsIq1oSDNUgEmfA3kg";
 
-      this.map = new mapboxgl.Map({
-        container: "map",
+      //this.map = new mapboxgl.Map({
+      //  container: "map",
+      //  style: "mapbox://styles/mapbox/light-v10",
+      //  center: [-77.034084, 38.909671],
+      //  zoom: 2
+      //});
+      let self = this;
+      self.map = new mapboxgl.Map({
+        container: "population",
         style: "mapbox://styles/mapbox/light-v10",
-        center: [-77.034084, 38.909671],
+        center: [0, 0],
         zoom: 2
+      });
+      self.map.on("load", function() {
+        self.map.addLayer({
+          id: "urbanpop",
+          type: "fill",
+          source: {
+            type: "vector",
+            url: "mapbox://mmcartog01.1r9ndcin"
+          },
+          "source-layer": "UrbanPop-bpv39k"
+        });
       });
     }
   },
@@ -45,7 +63,7 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 /* .sidebar {
   width: 33.3333%;
 } */
-#map {
+#population {
   width: 100%;
   height: 700px;
 }
