@@ -38,15 +38,17 @@ export default {
         center: [0, 0],
         zoom: 2
       });
+      //enter the years for the time slider
+
       self.map.on("load", function() {
         self.map.addLayer({
           id: "urbanpop",
-          type: "fill",
+          type: "circle",
           source: {
             type: "vector",
-            url: "mapbox://mmcartog01.1r9ndcin"
+            url: "mapbox://mmcartog01.4cpryxkp"
           },
-          "source-layer": "UrbanPop-bpv39k"
+          "source-layer": "UrbanPop_point-0dimja"
         });
       });
     }
