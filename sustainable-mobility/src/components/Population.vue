@@ -1,6 +1,6 @@
 <template>
   <v-container fill-height align="center">
-    <h2 class="display-2 font-weight-bold mb-3">ABOUT US</h2>
+    <h2 class="display-2 font-weight-bold mb-3">POPULATION</h2>
     <v-row cols="12">
       <v-col cols="8">
         <div id="population" class="map pad2">Map</div>

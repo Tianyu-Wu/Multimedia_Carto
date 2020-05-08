@@ -57,7 +57,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "sg-bikes",
+          id: "Bikes trails",
           type: "line",
           source: {
             type: "vector",
@@ -69,7 +69,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "sg-parks",
+          id: "Parks",
           type: "circle",
           source: {
             type: "vector",
@@ -81,7 +81,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "sg-skygreen",
+          id: "Sky green",
           type: "circle",
           source: {
             type: "vector",
@@ -91,10 +91,10 @@ export default {
         });
       });
       var toggleableLayerIds = [
-        "sg-parks",
-        "sg-bikes",
-        "sg-evChargers",
-        "sg-skygreen"
+        "Parks",
+        "Bikes trails",
+        "evChargers",
+        "Sky green"
       ];
 
       // set up the corresponding toggle button for each layer

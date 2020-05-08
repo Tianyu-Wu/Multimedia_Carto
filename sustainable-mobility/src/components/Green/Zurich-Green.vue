@@ -45,7 +45,7 @@ export default {
       });
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "zh-evChargers",
+          id: "evChargers",
           type: "circle",
           source: {
             type: "vector",
@@ -57,7 +57,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "zh-bikes",
+          id: "Bikes trails",
           type: "line",
           source: {
             type: "vector",
@@ -69,7 +69,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "zh-parks",
+          id: "Parks",
           type: "circle",
           source: {
             type: "vector",
@@ -78,7 +78,11 @@ export default {
           "source-layer": "Parks_ZH-dxjvdc"
         });
       });
-      var toggleableLayerIds = ["zh-parks", "zh-bikes", "zh-evChargers"];
+      var toggleableLayerIds = [
+        "Parks",
+        "Bikes trails",
+        "evChargers",
+      ];
 
       // set up the corresponding toggle button for each layer
       for (var i = 0; i < toggleableLayerIds.length; i++) {
