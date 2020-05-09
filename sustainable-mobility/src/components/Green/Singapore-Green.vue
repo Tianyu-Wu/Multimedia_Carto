@@ -28,6 +28,10 @@
 
 <script>
 import { mapboxgl } from "@/main";
+//import images for icons
+import evCharger from "@/assets/evCharger.png";
+import park from "@/assets/park.png";
+import skyGreen from "@/assets/skygreen.jpg";
 
 export default {
   name: "SingaporeGreen",
@@ -43,15 +47,36 @@ export default {
         center: [103.82, 1.35],
         zoom: 10.5
       });
+      /* Image: An image is loaded and added to the map. */
+      self.map.loadImage(park, function(error, image) {
+        if (error) throw error;
+        self.map.addImage("parks_1", image);
+      });
+      /* Image: An image is loaded and added to the map. */
+      self.map.loadImage(evCharger, function(error, image) {
+        if (error) throw error;
+        self.map.addImage("evCharger_1", image);
+      });
+      /* Image: An image is loaded and added to the map. */
+      self.map.loadImage(skyGreen, function(error, image) {
+        if (error) throw error;
+        self.map.addImage("skyGreen_1", image);
+      });
+
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "sg-evChargers",
-          type: "circle",
+          id: "evChargers",
+          type: "symbol",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.2civtuef"
           },
-          "source-layer": "EV_SG-92ckmd"
+          layout: {
+            "icon-image": "evCharger_1",
+            "icon-opacity":0.80
+          },
+          "source-layer": "EV_SG-92ckmd",
+          
         });
       });
 
@@ -70,10 +95,14 @@ export default {
       self.map.on("load", function() {
         self.map.addLayer({
           id: "Parks",
-          type: "circle",
+          type: "symbol",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.9w2305dg"
+          },
+          layout: {
+            "icon-image": "parks_1",
+            "icon-opacity":0.80
           },
           "source-layer": "Green_SG-b50ju0"
         });
@@ -82,10 +111,14 @@ export default {
       self.map.on("load", function() {
         self.map.addLayer({
           id: "Sky green",
-          type: "circle",
+          type: "symbol",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.1u0gf4d6"
+          },
+          layout: {
+            "icon-image": "skyGreen_1",
+            "icon-opacity":0.80
           },
           "source-layer": "SkyGreen_SG_WGS84-3fzuwg"
         });

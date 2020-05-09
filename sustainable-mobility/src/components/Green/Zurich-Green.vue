@@ -78,11 +78,7 @@ export default {
           "source-layer": "Parks_ZH-dxjvdc"
         });
       });
-      var toggleableLayerIds = [
-        "Parks",
-        "Bikes trails",
-        "evChargers",
-      ];
+      var toggleableLayerIds = ["Parks", "Bikes trails", "evChargers"];
 
       // set up the corresponding toggle button for each layer
       for (var i = 0; i < toggleableLayerIds.length; i++) {
