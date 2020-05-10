@@ -25,9 +25,13 @@
       </v-col>
     </v-row>
     <div class="py-5"></div>
-    <div class="display-1 font-weight-regular">
+    <div class="title font-weight-light mb-5">
       Creating sustainable transportation system is an important step towards
-      sustainable cities.
+      sustainable cities. As one of the SDGs proposed by United Nations, 'Sustainable Cities and 
+      Communities' highly depends on the pattern of urban mobility, which has direct influence on 
+      not only the urban environment, but also the urban livability. The question at stake here is if 
+      the current mode of urban mobility in a general sense aligns with the SDG we want to achieve in the 
+      future, and whether there exits some typical cases that could provide us with insights into it.
     </div>
   </v-container>
 </template>
