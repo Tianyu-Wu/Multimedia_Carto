@@ -1,25 +1,23 @@
 <template>
   <v-container>
     <div class="py-12"></div>
-    <h2 class="display-3 font-weight-bold mb-3">
-      Outlook
-    </h2>
+    <h2 class="display-3 font-weight-bold mb-3">Summary</h2>
     <div class="py-5"></div>
-    <v-card
-      class="d-flex flex-column justify-center"
-      shaped
-      height="400"
-      v-for="item in items"
-      :key="item.id"
-      v-html="item.content"
-    >
-    </v-card>
+    <v-container class="d-flex justify-center">
+      <iframe
+        width="640"
+        height="360"
+        src="https://www.youtube.com/embed/8Fj2ARn1WMY"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </v-container>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: "Outlook",
+  name: "Summary",
   data: () => ({
     items: [
       {

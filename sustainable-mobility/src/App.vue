@@ -10,9 +10,7 @@
           width="70"
         />
 
-        <v-toolbar-title class="font-weight-black headline"
-          >Sustainable Mobility</v-toolbar-title
-        >
+        <v-toolbar-title class="font-weight-black headline">Sustainable Mobility</v-toolbar-title>
       </div>
       <v-spacer></v-spacer>
       <v-btn @click="$vuetify.goTo('#background')" text>
@@ -50,8 +48,7 @@
                           : 'display-4'
                       ]"
                       class="font-weight-black"
-                      >Sustainable Mobility</span
-                    >
+                    >Sustainable Mobility</span>
                     <br />
 
                     <p class="mx-auto title font-weight-light mb-8">
@@ -92,8 +89,8 @@
       <section id="case-studies">
         <CaseStudies />
       </section>
-      <section id="outlook">
-        <Outlook />
+      <section id="summary">
+        <Summary />
       </section>
     </v-content>
   </v-app>
@@ -108,7 +105,7 @@ import Livability from "./components/Livability";
 import Statements from "./components/Statements";
 import CurrentStatus from "./components/CurrentStatus";
 import CaseStudies from "./components/CaseStudies";
-import Outlook from "./components/Outlook";
+import Summary from "./components/Summary";
 
 export default {
   name: "App",
@@ -120,7 +117,7 @@ export default {
     Statements,
     CurrentStatus,
     CaseStudies,
-    Outlook
+    Summary
   },
 
   data: () => ({
