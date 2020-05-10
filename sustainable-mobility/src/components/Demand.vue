@@ -15,13 +15,13 @@
       :src="require('../assets/automobile.png')"
     />
 
-
+<v-container> 
     <div class="title font-weight-light mb-5">From 1960s up to now, the car production has been increasing, which indicates
       the increasing demand of urban mobility. This is largely accounted by the 
       soaring urban population, which has facilitated both the expansion of urban area as well as 
       associated demand for a more capable network of transportation.
     </div>
-
+</v-container>
   </div>
 
 </template>
