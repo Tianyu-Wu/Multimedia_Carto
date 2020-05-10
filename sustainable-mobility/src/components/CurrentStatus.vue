@@ -1,4 +1,5 @@
 <template>
+  <!-- TBD, toggle for different background maps, hover functions -->
   <div>
     <v-container>
       <div class="py-12"></div>
