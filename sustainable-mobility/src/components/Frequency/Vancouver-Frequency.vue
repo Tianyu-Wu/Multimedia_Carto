@@ -7,7 +7,7 @@
       <v-col cols="6" md="4">
         <v-card class="d-flex flex-column justify-center" shaped height="600">
           <v-card-text>
-            <h2 class="display-2 font-weight-bold">Frequency</h2>
+            <h2 class="display-2 font-weight-bold">Passenger Volume</h2>
             <div class="py-5"></div>
 
             <span>The passenger volume of Vancouver bus stops is derived from the Transit Service Performance Review (TSPR) program of Translink (i.e. the public transportation operator of British Columbia) in 2018</span>
