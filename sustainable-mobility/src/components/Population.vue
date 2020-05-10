@@ -2,23 +2,26 @@
   <v-container fill-height align="center">
     <h2 class="display-2 font-weight-bold mb-3">POPULATION</h2>
     <v-row cols="12">
-      <v-col cols="1" md="1">
+      <v-col cols="1">
         <nav id="menuPop"></nav>
       </v-col>
 
-      <v-col cols="8" >
-        <div id="population" class="map pad2">
-          Map
-          
-        </div>
+      <v-col cols="8">
+        <div id="population" class="map pad2">Map</div>
+          <div class="legend-bar"></div>
+        
       </v-col>
       <v-col cols="3">
-         <v-card-text class="display-2 font-weight-bold"> Urban population through the years</v-card-text>
-         <v-card-text>
-            In the last few decades there has been a tendency to move from rural areas all around the world.
-            <br /><br />
-            This map shows this change is shown through the percentage of urban population.
-          </v-card-text>
+        <v-card-text class="display-2 font-weight-bold">
+          Percentage of Urban population through the years</v-card-text
+        >
+        <v-card-text>
+          In the last few decades there has been a tendency to move from rural
+          areas all around the world.
+          <br /><br />
+          This map shows this change is shown through the percentage of urban
+          population.
+        </v-card-text>
       </v-col>
     </v-row>
   </v-container>
@@ -207,7 +210,7 @@ export default {
         });
       });
 
-            self.map.on("load", function() {
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2000",
           type: "fill",
@@ -248,166 +251,6 @@ export default {
         });
       });
 
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2001",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2001"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2002",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2002"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-            self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2003",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2003"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-            self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2004",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2004"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
       self.map.on("load", function() {
         self.map.addLayer({
           id: "2005",
@@ -451,167 +294,6 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "2006",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2006"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-            self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2007",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2007"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-            
-        self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2008",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2008"],
-               2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2009",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2009"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-        self.map.on("load", function() {
-        self.map.addLayer({
           id: "2010",
           type: "fill",
           source: {
@@ -651,7 +333,7 @@ export default {
         });
       });
 
-        self.map.on("load", function() {
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2011",
           type: "fill",
@@ -692,8 +374,7 @@ export default {
         });
       });
 
-      
-        self.map.on("load", function() {
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2012",
           type: "fill",
@@ -734,8 +415,7 @@ export default {
         });
       });
 
-      
-        self.map.on("load", function() {
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2013",
           type: "fill",
@@ -775,8 +455,8 @@ export default {
           }
         });
       });
-      
-        self.map.on("load", function() {
+
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2014",
           type: "fill",
@@ -816,8 +496,8 @@ export default {
           }
         });
       });
-      
-        self.map.on("load", function() {
+
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2015",
           type: "fill",
@@ -857,8 +537,8 @@ export default {
           }
         });
       });
-      
-        self.map.on("load", function() {
+
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2016",
           type: "fill",
@@ -898,8 +578,8 @@ export default {
           }
         });
       });
-      
-        self.map.on("load", function() {
+
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2017",
           type: "fill",
@@ -939,8 +619,8 @@ export default {
           }
         });
       });
-      
-        self.map.on("load", function() {
+
+      self.map.on("load", function() {
         self.map.addLayer({
           id: "2018",
           type: "fill",
@@ -980,8 +660,24 @@ export default {
           }
         });
       });
- 
-      var toggleablePopIds = ["1960","1970", "1980","1990","2000","2005","2010","2011","2012","2013","2014","2015","2016","2017","2018"];
+
+      var toggleablePopIds = [
+        "1960",
+        "1970",
+        "1980",
+        "1990",
+        "2000",
+        "2005",
+        "2010",
+        "2011",
+        "2012",
+        "2013",
+        "2014",
+        "2015",
+        "2016",
+        "2017",
+        "2018"
+      ];
 
       // set up the corresponding toggle button for each layer
       for (var i = 0; i < toggleablePopIds.length; i++) {
@@ -1075,6 +771,22 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
   background: #e31a1c;
 }
 
+.legend-bar {
+  height: 10px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    #ffffcc,
+    #ffffcc,
+    #fed976,
+    #feb24c,
+    #fd8d3c,
+    #fc4e2a,
+    #e31a1c,
+    #bd0026,
+    #800026
+  );
+}
 #population {
   width: 100%;
   height: 700px;
