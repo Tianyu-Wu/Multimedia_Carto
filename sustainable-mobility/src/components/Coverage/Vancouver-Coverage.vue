@@ -20,8 +20,8 @@
 
           <v-card-text>The transport coverage in the downtown of Vancouver is significantly 
               higher than the remaining area, whereas the the density of stations in 
-              the other places are relatively low. This might also imply that private cars might
-              be more popular here.
+              the other places are relatively low. This also imply that private cars seem more pupular 
+              there given the low coverage of public transpot.
           </v-card-text>
         </v-card>
       </v-col>
