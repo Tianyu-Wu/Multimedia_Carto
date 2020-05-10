@@ -19,7 +19,25 @@
           <v-card-text class="display-2 font-weight-bold"> Green</v-card-text>
           <div class="py-5"></div>
 
-          <v-card-text>Some Stats Here.</v-card-text>
+          <v-card-text>
+            In broad terms Green Mobility is a way to reduce the impact of
+            mobility in differnt aspects:<br />
+            Greenhouse gas (GHG) emissions<br />
+            Air pollution<br />
+            Energy consume<br />
+            Noise<br />
+            Traffic congestion
+          </v-card-text>
+          <v-card-text>
+            Oe way to achieve it is the use of using differnt transpotation
+            methods like electric vehicles and bikes.<br />
+            In this map we will see part of the infrastructure that Singapore
+            has in the ambit of Green mobility.<br />
+            ELectric vehicle chargers<br />
+            Bike trials<br />
+            Green areas <br />
+            Sky green areas
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -94,7 +112,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "Parks",
+          id: "Green areas",
           type: "symbol",
           source: {
             type: "vector",
@@ -124,7 +142,7 @@ export default {
         });
       });
       var toggleableLayerIds = [
-        "Parks",
+        "Green areas",
         "Bikes trails",
         "evChargers",
         "Sky green"

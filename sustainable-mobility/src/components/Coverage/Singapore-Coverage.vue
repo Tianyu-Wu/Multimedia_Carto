@@ -13,16 +13,17 @@
       </v-col>
       <v-col cols="6" md="4">
         <v-card class="d-flex flex-column justify-center" shaped height="600">
-          <v-card-text class="display-2 font-weight-bold"
-            >Coverage</v-card-text
-          >
+          <v-card-text class="display-2 font-weight-bold">Coverage</v-card-text>
           <div class="py-5"></div>
 
-          <v-card-text>There transport coverage over the Singapore island is generally high, and there 
-              are also multiple transportation centers, which is kind of similar with Zurich. The high 
-              coverage of public transportation also results from the high population densities in this 
-              city-state, which is also a common feature in many Asian countries.
-        </v-card-text>
+          <v-card-text
+            >There transport coverage over the Singapore island is generally
+            high, and there are also multiple transportation centers, which is
+            kind of similar with Zurich. The high coverage of public
+            transportation also results from the high population densities in
+            this city-state, which is also a common feature in many Asian
+            countries.
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -46,7 +47,6 @@ export default {
         center: [103.824, 1.363],
         zoom: 10.0
       });
-
     }
   },
   mounted() {

@@ -19,7 +19,24 @@
           <v-card-text class="display-2 font-weight-bold"> Green</v-card-text>
           <div class="py-5"></div>
 
-          <v-card-text>Some Stats Here.</v-card-text>
+          <v-card-text>
+            In broad terms Green Mobility is a way to reduce the impact of
+            mobility in differnt aspects:<br />
+            Greenhouse gas (GHG) emissions<br />
+            Air pollution<br />
+            Energy consume<br />
+            Noise<br />
+            Traffic congestion
+          </v-card-text>
+          <v-card-text>
+            Oe way to achieve it is the use of using differnt transpotation
+            methods like electric vehicles and bikes.<br />
+            In this map we will see part of the infrastructure that Vancouver
+            has in the ambit of Green mobility.<br />
+            ELectric vehicle chargers<br />
+            Bike trials<br />
+            Green areas
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -88,7 +105,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "Parks",
+          id: "Green areas",
           type: "symbol",
           source: {
             type: "vector",
@@ -101,7 +118,7 @@ export default {
           "source-layer": "Parks_VA-b1d8hw"
         });
       });
-      var toggleableLayerIds = ["Parks", "Bikes trails", "evChargers"];
+      var toggleableLayerIds = ["Green areas", "Bikes trails", "evChargers"];
 
       // set up the corresponding toggle button for each layer
       for (var i = 0; i < toggleableLayerIds.length; i++) {
