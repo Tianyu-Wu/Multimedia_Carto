@@ -19,7 +19,25 @@
           <v-card-text class="display-2 font-weight-bold"> Green</v-card-text>
           <div class="py-5"></div>
 
-          <v-card-text>Some Stats Here.</v-card-text>
+          <v-card-text>
+            In broad terms Green Mobility is a way to reduce the impact of
+            mobility in differnt aspects:<br />
+            Greenhouse gas (GHG) emissions<br />
+            Air pollution<br />
+            Energy consume<br />
+            Noise<br />
+            Traffic congestion
+          </v-card-text>
+          <v-card-text>
+            Oe way to achieve it is the use of using differnt transpotation
+            methods like electric vehicles and bikes.<br />
+            In this map we will see part of the infrastructure that Singapore
+            has in the ambit of Green mobility.<br />
+            ELectric vehicle chargers<br />
+            Bike trials<br />
+            Green areas <br />
+            Sky green areas
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -31,7 +49,7 @@ import { mapboxgl } from "@/main";
 //import images for icons
 import evCharger from "@/assets/evCharger.png";
 import park from "@/assets/park.png";
-import skyGreen from "@/assets/skygreen.jpg";
+import skyGreen from "@/assets/skygreen.png";
 
 export default {
   name: "SingaporeGreen",
@@ -73,10 +91,9 @@ export default {
           },
           layout: {
             "icon-image": "evCharger_1",
-            "icon-opacity":0.80
+            "icon-allow-overlap": true
           },
-          "source-layer": "EV_SG-92ckmd",
-          
+          "source-layer": "EV_SG-92ckmd"
         });
       });
 
@@ -84,6 +101,7 @@ export default {
         self.map.addLayer({
           id: "Bikes trails",
           type: "line",
+          color: "#d8b365",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.59f7vld7"
@@ -94,7 +112,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "Parks",
+          id: "Green areas",
           type: "symbol",
           source: {
             type: "vector",
@@ -102,7 +120,7 @@ export default {
           },
           layout: {
             "icon-image": "parks_1",
-            "icon-opacity":0.80
+            "icon-allow-overlap": true
           },
           "source-layer": "Green_SG-b50ju0"
         });
@@ -118,13 +136,13 @@ export default {
           },
           layout: {
             "icon-image": "skyGreen_1",
-            "icon-opacity":0.80
+            "icon-allow-overlap": true
           },
           "source-layer": "SkyGreen_SG_WGS84-3fzuwg"
         });
       });
       var toggleableLayerIds = [
-        "Parks",
+        "Green areas",
         "Bikes trails",
         "evChargers",
         "Sky green"
@@ -205,12 +223,12 @@ export default {
 }
 
 #menu a.active {
-  background-color: #3887be;
+  background-color: #1a9641;
   color: #ffffff;
 }
 
 #menu a.active:hover {
-  background: #3074a4;
+  background: #a6d96a;
 }
 #sg-green {
   width: 100%;

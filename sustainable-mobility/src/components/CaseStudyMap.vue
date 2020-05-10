@@ -1,11 +1,17 @@
 <template>
   <div>
+<<<<<<< HEAD
     <!--<ZurichGreen  />-->
     <!-- <SingaporeGreen /> -->
     <!--<VancouverGreen  />-->
     <VancouverFrequency />
     <ZurichFrequency />
     <SingaporeFrequency />
+=======
+    <!--<VancouverGreen    />-->
+    <SingaporeGreen />
+    <!--<ZurichGreen   />-->
+>>>>>>> d41d03a8fdc067f72f7346a48a4387ee47e35b7d
   </div>
 </template>
 
