@@ -1,31 +1,42 @@
 <template>
   <div fill-height color="#F3EBE3">
-    <v-container>
-      <div class="py-12"></div>
-
-      <h2 class="display-3 font-weight-bold mb-3">Vancouver - North America</h2>
-      <div class="py-5"></div>
-    </v-container>
-
     <v-row fluid no-gutters align="center">
       <v-col cols="12" md="8">
         <div id="van-frequency">Map</div>
-        <div class="legend-color"></div>
       </v-col>
       <v-col cols="6" md="4">
         <v-card class="d-flex flex-column justify-center" shaped height="600">
-          <v-card-text class="display-2 font-weight-bold">Frequency</v-card-text>
-          <div class="py-5"></div>
+          <v-card-text>
+            <h2 class="display-2 font-weight-bold">Frequency</h2>
+            <div class="py-5"></div>
 
-          <v-card-text>Some Stats Here.</v-card-text>
+            <span>The passenger volume of Vancouver bus stops is derived from the Transit Service Performance Review (TSPR) program of Translink (i.e. the public transportation operator of British Columbia) in 2018</span>
+            <div class="py-3"></div>
+
+            <span>Compared to the other two cities, the passenger volume of Vancouver is relatively small, mostly smaller than 2500. A relatively distributed pattern can be recognized from the map. This map well demonstrates the typical mobility style in North America countries with low road density.</span>
+            <div class="py-5"></div>
+
+            <h2 class="font-weight-regular">Average Weekday Boardings</h2>
+            <v-row>
+              <v-col>
+                <div class="legend-row legend-color center"></div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <div class="legend-row labels d-flex justify-space-between">
+                  <div class="label">0</div>
+                  <div class="label">2500</div>
+                  <div class="label">5000</div>
+                  <div class="label">7500</div>
+                  <div class="label">10000+</div>
+                </div>
+              </v-col>
+            </v-row>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-    <!-- <v-row>
-      <v-col>
-        <div class="legend-color"></div>
-      </v-col>
-    </v-row>-->
   </div>
 </template>
 
@@ -44,19 +55,23 @@ export default {
         container: "van-frequency",
         style: "mapbox://styles/mapbox/light-v10",
         // style: "mapbox://styles/mmcartog01/ck98marof00vr1io3vqd4ehlb/draft",
-        center: [-122.949603, 49.224873],
-        zoom: 9.5
+        center: [-123.12, 49.26],
+        zoom: 11
       });
 
-      self.map.on("load", function() {
+      self.map.on("render", () => {
+        self.map.resize();
+      });
+
+      self.map.on("style.load", function() {
         self.map.addLayer({
           id: "vancouver-boarding",
           type: "circle",
           source: {
             type: "vector",
-            url: "mapbox://mmcartog01.0tmwze2x"
+            url: "mapbox://mmcartog01.bzx41qvn"
           },
-          "source-layer": "vancouver_boarding-dyq3tk",
+          "source-layer": "vancouver_boarding_clip-6ak42g",
           paint: {
             "circle-radius": [
               "interpolate",
@@ -101,8 +116,12 @@ export default {
   width: 100%;
   height: 600px;
 }
-.legend-color {
+.legend-row {
+  width: 90%;
   height: 12px;
+}
+
+.legend-color {
   background: linear-gradient(
     to right,
     #8ab9d6,

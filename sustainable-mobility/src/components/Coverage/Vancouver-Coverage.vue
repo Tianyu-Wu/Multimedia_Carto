@@ -1,12 +1,5 @@
 <template>
   <div fill-height color="#F3EBE3">
-    <v-container>
-      <div class="py-12"></div>
-
-      <h2 class="display-3 font-weight-bold mb-3">Vancouver - North America</h2>
-      <div class="py-5"></div>
-    </v-container>
-
     <v-row fluid no-gutters align="center">
       <v-col cols="12" md="8">
         <div id="van-coverage">Map</div>
@@ -16,8 +9,8 @@
           <v-card-text class="display-2 font-weight-bold">Coverage</v-card-text>
           <div class="py-5"></div>
 
-          <v-card-text
-            >The transport coverage in the downtown of Vancouver is
+          <v-card-text>
+            The transport coverage in the downtown of Vancouver is
             significantly higher than the remaining area, whereas the the
             density of stations in the other places are relatively low. This
             also imply that private cars seem more pupular there given the low
@@ -43,8 +36,12 @@ export default {
       self.map = new mapboxgl.Map({
         container: "van-coverage",
         style: "mapbox://styles/mmcartog01/ck9tms1dv0mtl1ipiy8fkgxsa",
-        center: [-123.11, 49.251],
-        zoom: 10.5
+        center: [-123.12, 49.26],
+        zoom: 11
+      });
+
+      self.map.on("render", () => {
+        self.map.resize();
       });
     }
   },

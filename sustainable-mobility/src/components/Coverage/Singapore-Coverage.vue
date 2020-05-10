@@ -1,12 +1,5 @@
 <template>
   <div fill-height color="#F3EBE3">
-    <v-container>
-      <div class="py-12"></div>
-
-      <h2 class="display-3 font-weight-bold mb-3">Singapore - Asia</h2>
-      <div class="py-5"></div>
-    </v-container>
-
     <v-row fluid no-gutters align="center">
       <v-col cols="12" md="8">
         <div id="sing-coverage">Map</div>
@@ -16,8 +9,8 @@
           <v-card-text class="display-2 font-weight-bold">Coverage</v-card-text>
           <div class="py-5"></div>
 
-          <v-card-text
-            >There transport coverage over the Singapore island is generally
+          <v-card-text>
+            There transport coverage over the Singapore island is generally
             high, and there are also multiple transportation centers, which is
             kind of similar with Zurich. The high coverage of public
             transportation also results from the high population densities in
@@ -44,8 +37,12 @@ export default {
       self.map = new mapboxgl.Map({
         container: "sing-coverage",
         style: "mapbox://styles/mmcartog01/ck9tms1dv0mtl1ipiy8fkgxsa",
-        center: [103.824, 1.363],
-        zoom: 10.0
+        center: [103.82, 1.35],
+        zoom: 10.5
+      });
+
+      self.map.on("render", () => {
+        self.map.resize();
       });
     }
   },

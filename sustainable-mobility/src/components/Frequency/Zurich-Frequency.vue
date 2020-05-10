@@ -1,31 +1,42 @@
 <template>
   <div fill-height color="#F3EBE3">
-    <v-container>
-      <div class="py-12"></div>
-
-      <h2 class="display-3 font-weight-bold mb-3">Zurich - Europe</h2>
-      <div class="py-5"></div>
-    </v-container>
-
     <v-row fluid no-gutters align="center">
       <v-col cols="12" md="8">
         <div id="zur-frequency">Map</div>
-        <div class="legend-color"></div>
       </v-col>
       <v-col cols="6" md="4">
-        <v-card class="d-flex flex-column justify-center" shaped height="600">
-          <v-card-text class="display-2 font-weight-bold">Frequency</v-card-text>
-          <div class="py-5"></div>
+        <v-card class="d-flex flex-column justify-center" height="600">
+          <v-card-text>
+            <h2 class="display-2 font-weight-bold">Frequency</h2>
+            <div class="py-5"></div>
 
-          <v-card-text>Some Stats Here.</v-card-text>
+            <span>The passenger volume of Zurich bus and tram stops are estimated with "Durchschnittlicher Werktagverkehr" (DWV)</span>
+            <div class="py-3"></div>
+
+            <span>As shown in the map, the stops with daily boardings over 10000 generally locates at the central region. The passenger volume declines while spreading out to the border of the city of Zurich</span>
+            <div class="py-5"></div>
+
+            <h2 class="font-weight-regular">Average Weekday Boardings</h2>
+            <v-row>
+              <v-col>
+                <div class="legend-row legend-color center"></div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <div class="legend-row labels d-flex justify-space-between">
+                  <div class="label">0</div>
+                  <div class="label">2500</div>
+                  <div class="label">5000</div>
+                  <div class="label">7500</div>
+                  <div class="label">10000+</div>
+                </div>
+              </v-col>
+            </v-row>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
-    <!-- <v-row>
-      <v-col>
-        <div class="legend-color"></div>
-      </v-col>
-    </v-row>-->
   </div>
 </template>
 
@@ -43,12 +54,16 @@ export default {
       self.map = new mapboxgl.Map({
         container: "zur-frequency",
         style: "mapbox://styles/mapbox/light-v10",
-        // style: "mapbox://styles/mmcartog01/ck98marof00vr1io3vqd4ehlb/draft",
-        center: [8.539852, 47.40397],
-        zoom: 9.5
+        center: [8.551, 47.378],
+        zoom: 11.0
       });
 
-      self.map.on("load", function() {
+      //   resize map
+      self.map.on("render", () => {
+        self.map.resize();
+      });
+
+      self.map.on("style.load", function() {
         self.map.addLayer({
           id: "zurich-boarding",
           type: "circle",
@@ -101,8 +116,13 @@ export default {
   width: 100%;
   height: 600px;
 }
-.legend-color {
+
+.legend-row {
+  width: 90%;
   height: 12px;
+}
+
+.legend-color {
   background: linear-gradient(
     to right,
     #8ab9d6,

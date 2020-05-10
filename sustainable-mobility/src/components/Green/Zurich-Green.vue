@@ -1,12 +1,5 @@
 <template>
   <div fill-height color="#F3EBE3">
-    <v-container>
-      <div class="py-12"></div>
-
-      <h2 class="display-3 font-weight-bold mb-3">Zurich - Europe</h2>
-      <div class="py-5"></div>
-    </v-container>
-
     <v-row fluid no-gutters align="center">
       <v-col cols="12" md="8">
         <div id="zh-green">
@@ -16,26 +9,26 @@
       </v-col>
       <v-col cols="6" md="4">
         <v-card class="d-flex flex-column justify-center" shaped height="600">
-          <v-card-text class="display-2 font-weight-bold"> Green</v-card-text>
+          <v-card-text class="display-2 font-weight-bold">Green</v-card-text>
           <div class="py-5"></div>
 
           <v-card-text>
             In broad terms Green Mobility is a way to reduce the impact of
-            mobility in differnt aspects:<br />
-            Greenhouse gas (GHG) emissions<br />
-            Air pollution<br />
-            Energy consume<br />
-            Noise<br />
-            Traffic congestion
+            mobility in differnt aspects:
+            <br />Greenhouse gas (GHG) emissions
+            <br />Air pollution
+            <br />Energy consume
+            <br />Noise
+            <br />Traffic congestion
           </v-card-text>
           <v-card-text>
-            Oe way to achieve it is the use of using differnt transpotation
-            methods like electric vehicles and bikes.<br />
-            In this map we will see part of the infrastructure that Zurich has
-            in the ambit of Green mobility.<br />
-            ELectric vehicle chargers<br />
-            Bike trials<br />
-            Green areas
+            One way to achieve it is the use of using differnt transpotation
+            methods like electric vehicles and bikes.
+            <br />In this map we will see part of the infrastructure that Zurich has
+            in the ambit of Green mobility.
+            <br />ELectric vehicle chargers
+            <br />Bike trials
+            <br />Green areas
           </v-card-text>
         </v-card>
       </v-col>
@@ -60,9 +53,10 @@ export default {
       self.map = new mapboxgl.Map({
         container: "zh-green",
         style: "mapbox://styles/mapbox/light-v10",
-        center: [8.534128, 47.389032],
-        zoom: 11.5
+        center: [8.551, 47.378],
+        zoom: 11.0
       });
+
       /* Image: An image is loaded and added to the map. */
       self.map.loadImage(park, function(error, image) {
         if (error) throw error;
@@ -74,7 +68,11 @@ export default {
         self.map.addImage("evCharger_1", image);
       });
 
-      self.map.on("load", function() {
+      self.map.on("render", () => {
+        self.map.resize();
+      });
+
+      self.map.on("style.load", function() {
         self.map.addLayer({
           id: "evChargers",
           type: "symbol",
@@ -90,7 +88,7 @@ export default {
         });
       });
 
-      self.map.on("load", function() {
+      self.map.on("style.load", function() {
         self.map.addLayer({
           id: "Bikes trails",
           type: "line",
@@ -103,7 +101,7 @@ export default {
         });
       });
 
-      self.map.on("load", function() {
+      self.map.on("style.load", function() {
         self.map.addLayer({
           id: "Green areas",
           type: "symbol",
@@ -118,6 +116,7 @@ export default {
           "source-layer": "Parks_ZH-dxjvdc"
         });
       });
+
       var toggleableLayerIds = ["Green areas", "Bikes trails", "evChargers"];
 
       // set up the corresponding toggle button for each layer
@@ -152,6 +151,12 @@ export default {
         var layers = document.getElementById("menu");
         layers.appendChild(link);
       }
+    },
+    resizeMap: () => {
+      let self = this;
+      self.map.on("load", () => {
+        self.map.resize();
+      });
     }
   },
   mounted() {
