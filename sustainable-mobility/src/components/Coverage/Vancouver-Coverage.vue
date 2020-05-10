@@ -13,15 +13,15 @@
       </v-col>
       <v-col cols="6" md="4">
         <v-card class="d-flex flex-column justify-center" shaped height="600">
-          <v-card-text class="display-2 font-weight-bold"
-            >Coverage</v-card-text
-          >
+          <v-card-text class="display-2 font-weight-bold">Coverage</v-card-text>
           <div class="py-5"></div>
 
-          <v-card-text>The transport coverage in the downtown of Vancouver is significantly 
-              higher than the remaining area, whereas the the density of stations in 
-              the other places are relatively low. This also imply that private cars seem more pupular 
-              there given the low coverage of public transpot.
+          <v-card-text
+            >The transport coverage in the downtown of Vancouver is
+            significantly higher than the remaining area, whereas the the
+            density of stations in the other places are relatively low. This
+            also imply that private cars seem more pupular there given the low
+            coverage of public transpot.
           </v-card-text>
         </v-card>
       </v-col>
@@ -43,10 +43,9 @@ export default {
       self.map = new mapboxgl.Map({
         container: "van-coverage",
         style: "mapbox://styles/mmcartog01/ck9tms1dv0mtl1ipiy8fkgxsa",
-        center: [-123.110, 49.251],
+        center: [-123.11, 49.251],
         zoom: 10.5
       });
-
     }
   },
   mounted() {

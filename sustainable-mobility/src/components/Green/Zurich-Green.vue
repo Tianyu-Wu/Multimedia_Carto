@@ -19,7 +19,24 @@
           <v-card-text class="display-2 font-weight-bold"> Green</v-card-text>
           <div class="py-5"></div>
 
-          <v-card-text>Some Stats Here.</v-card-text>
+          <v-card-text>
+            In broad terms Green Mobility is a way to reduce the impact of
+            mobility in differnt aspects:<br />
+            Greenhouse gas (GHG) emissions<br />
+            Air pollution<br />
+            Energy consume<br />
+            Noise<br />
+            Traffic congestion
+          </v-card-text>
+          <v-card-text>
+            Oe way to achieve it is the use of using differnt transpotation
+            methods like electric vehicles and bikes.<br />
+            In this map we will see part of the infrastructure that Zurich has
+            in the ambit of Green mobility.<br />
+            ELectric vehicle chargers<br />
+            Bike trials<br />
+            Green areas
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -28,6 +45,9 @@
 
 <script>
 import { mapboxgl } from "@/main";
+//import images for icons
+import evCharger from "@/assets/evCharger.png";
+import park from "@/assets/park.png";
 
 export default {
   name: "ZurichGreen",
@@ -43,13 +63,28 @@ export default {
         center: [8.534128, 47.389032],
         zoom: 11.5
       });
+      /* Image: An image is loaded and added to the map. */
+      self.map.loadImage(park, function(error, image) {
+        if (error) throw error;
+        self.map.addImage("parks_1", image);
+      });
+      /* Image: An image is loaded and added to the map. */
+      self.map.loadImage(evCharger, function(error, image) {
+        if (error) throw error;
+        self.map.addImage("evCharger_1", image);
+      });
+
       self.map.on("load", function() {
         self.map.addLayer({
           id: "evChargers",
-          type: "circle",
+          type: "symbol",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.14lqh0ef"
+          },
+          layout: {
+            "icon-image": "evCharger_1",
+            "icon-allow-overlap": true
           },
           "source-layer": "EV_ZH-47iw08"
         });
@@ -59,6 +94,7 @@ export default {
         self.map.addLayer({
           id: "Bikes trails",
           type: "line",
+          color: "#d8b365",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.axgin0r4"
@@ -69,16 +105,20 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "Parks",
-          type: "circle",
+          id: "Green areas",
+          type: "symbol",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.2sos3ike"
           },
+          layout: {
+            "icon-image": "parks_1",
+            "icon-allow-overlap": true
+          },
           "source-layer": "Parks_ZH-dxjvdc"
         });
       });
-      var toggleableLayerIds = ["Parks", "Bikes trails", "evChargers"];
+      var toggleableLayerIds = ["Green areas", "Bikes trails", "evChargers"];
 
       // set up the corresponding toggle button for each layer
       for (var i = 0; i < toggleableLayerIds.length; i++) {
@@ -126,7 +166,7 @@ export default {
   position: relative;
   z-index: 1;
   top: 0px;
-  right: 10px;
+  left: 20px;
   border-radius: 3px;
   width: 120px;
   border: 1px solid rgba(0, 0, 0, 0.4);
@@ -155,12 +195,12 @@ export default {
 }
 
 #menu a.active {
-  background-color: #3887be;
+  background-color: #1a9641;
   color: #ffffff;
 }
 
 #menu a.active:hover {
-  background: #3074a4;
+  background: #a6d96a;
 }
 #zh-green {
   width: 100%;
