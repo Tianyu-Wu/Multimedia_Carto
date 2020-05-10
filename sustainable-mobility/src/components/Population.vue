@@ -4,6 +4,7 @@
     <v-row cols="12">
       <v-col cols="8">
         <div id="population" class="map pad2">Map</div>
+        
       </v-col>
       <v-col cols="4">
         <div class="sidebar pad2">Listing</div>
@@ -39,6 +40,8 @@ export default {
         zoom: 2
       });
 
+ 
+
       self.map.on("load", function() {
         self.map.addLayer({
           id: "1960",
@@ -68,6 +71,7 @@ export default {
           }
         });
       });
+
     }
   },
   mounted() {
@@ -77,6 +81,7 @@ export default {
 </script>
 
 <style>
+
 /* The page is split between map and sidebar - the sidebar gets 1/3, map
 gets 2/3 of the page. You can adjust this to your personal liking. */
 /* .sidebar {

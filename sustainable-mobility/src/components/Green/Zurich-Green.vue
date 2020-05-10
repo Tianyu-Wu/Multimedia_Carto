@@ -28,6 +28,9 @@
 
 <script>
 import { mapboxgl } from "@/main";
+//import images for icons
+import evCharger from "@/assets/evCharger.png";
+import park from "@/assets/park.png";
 
 export default {
   name: "ZurichGreen",
@@ -43,13 +46,28 @@ export default {
         center: [8.534128, 47.389032],
         zoom: 11.5
       });
+      /* Image: An image is loaded and added to the map. */
+      self.map.loadImage(park, function(error, image) {
+        if (error) throw error;
+        self.map.addImage("parks_1", image);
+      });
+      /* Image: An image is loaded and added to the map. */
+      self.map.loadImage(evCharger, function(error, image) {
+        if (error) throw error;
+        self.map.addImage("evCharger_1", image);
+      });
+
       self.map.on("load", function() {
         self.map.addLayer({
           id: "evChargers",
-          type: "circle",
+          type: "symbol",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.14lqh0ef"
+          },
+          layout: {
+            "icon-image": "evCharger_1",
+            "icon-allow-overlap": true
           },
           "source-layer": "EV_ZH-47iw08"
         });
@@ -59,6 +77,7 @@ export default {
         self.map.addLayer({
           id: "Bikes trails",
           type: "line",
+          color: "#d8b365",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.axgin0r4"
@@ -70,10 +89,14 @@ export default {
       self.map.on("load", function() {
         self.map.addLayer({
           id: "Parks",
-          type: "circle",
+          type: "symbol",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.2sos3ike"
+          },
+          layout: {
+            "icon-image": "parks_1",
+            "icon-allow-overlap": true
           },
           "source-layer": "Parks_ZH-dxjvdc"
         });
@@ -155,12 +178,12 @@ export default {
 }
 
 #menu a.active {
-  background-color: #3887be;
+  background-color: #1a9641;
   color: #ffffff;
 }
 
 #menu a.active:hover {
-  background: #3074a4;
+  background: #a6d96a;
 }
 #zh-green {
   width: 100%;

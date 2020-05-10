@@ -31,7 +31,7 @@ import { mapboxgl } from "@/main";
 //import images for icons
 import evCharger from "@/assets/evCharger.png";
 import park from "@/assets/park.png";
-import skyGreen from "@/assets/skygreen.jpg";
+import skyGreen from "@/assets/skygreen.png";
 
 export default {
   name: "SingaporeGreen",
@@ -73,10 +73,9 @@ export default {
           },
           layout: {
             "icon-image": "evCharger_1",
-            "icon-opacity":0.80
+            "icon-allow-overlap": true
           },
-          "source-layer": "EV_SG-92ckmd",
-          
+          "source-layer": "EV_SG-92ckmd"
         });
       });
 
@@ -84,6 +83,7 @@ export default {
         self.map.addLayer({
           id: "Bikes trails",
           type: "line",
+          color: "#d8b365",
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.59f7vld7"
@@ -102,7 +102,7 @@ export default {
           },
           layout: {
             "icon-image": "parks_1",
-            "icon-opacity":0.80
+            "icon-allow-overlap": true
           },
           "source-layer": "Green_SG-b50ju0"
         });
@@ -118,7 +118,7 @@ export default {
           },
           layout: {
             "icon-image": "skyGreen_1",
-            "icon-opacity":0.80
+            "icon-allow-overlap": true
           },
           "source-layer": "SkyGreen_SG_WGS84-3fzuwg"
         });
@@ -205,12 +205,12 @@ export default {
 }
 
 #menu a.active {
-  background-color: #3887be;
+  background-color: #1a9641;
   color: #ffffff;
 }
 
 #menu a.active:hover {
-  background: #3074a4;
+  background: #a6d96a;
 }
 #sg-green {
   width: 100%;
