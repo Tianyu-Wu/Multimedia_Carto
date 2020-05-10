@@ -1,6 +1,6 @@
 <template>
   <v-container fill-height align="center">
-    <h2 class="display-2 font-weight-bold mb-3">ABOUT US</h2>
+    <h2 class="display-2 font-weight-bold mb-3">POPULATION</h2>
     <v-row cols="12">
       <v-col cols="8">
         <div id="population" class="map pad2">Map</div>
@@ -38,17 +38,34 @@ export default {
         center: [0, 0],
         zoom: 2
       });
-      //enter the years for the time slider
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "urbanpop",
-          type: "circle",
+          id: "1960",
+          type: "fill",
           source: {
             type: "vector",
-            url: "mapbox://mmcartog01.4cpryxkp"
+            url: "mapbox://mmcartog01.bheykam9"
           },
-          "source-layer": "UrbanPop_point-0dimja"
+          "source-layer": "urbanPopPercentage-3dmf08",
+          paint: {
+            "fill-color": [
+              "interpolate",
+              ["linear"],
+              ["get", "1960"],
+              2.077,
+              "#ffffb2",
+              26.56,
+              "#fecc5c",
+              51.04,
+              "#fd8d3c",
+              70,
+              "#f03b20",
+              90,
+              "#bd0026"
+            ],
+            "fill-opacity": 0.86
+          }
         });
       });
     }

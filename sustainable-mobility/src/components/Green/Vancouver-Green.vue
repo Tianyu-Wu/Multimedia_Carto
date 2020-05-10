@@ -45,7 +45,7 @@ export default {
       });
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "va-evChargers",
+          id: "evChargers",
           type: "circle",
           source: {
             type: "vector",
@@ -57,7 +57,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "va-bikes",
+          id: "Bikes trails",
           type: "line",
           source: {
             type: "vector",
@@ -69,7 +69,7 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "va-parks",
+          id: "Parks",
           type: "circle",
           source: {
             type: "vector",
@@ -78,7 +78,7 @@ export default {
           "source-layer": "Parks_VA-b1d8hw"
         });
       });
-      var toggleableLayerIds = ["va-parks", "va-bikes", "va-evChargers"];
+      var toggleableLayerIds = ["Parks", "Bikes trails", "evChargers"];
 
       // set up the corresponding toggle button for each layer
       for (var i = 0; i < toggleableLayerIds.length; i++) {
