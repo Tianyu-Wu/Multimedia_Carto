@@ -18,8 +18,10 @@
         <h3 class="font-weight-black mb-4 text-uppercase">Air poulltion</h3>
 
         <div class="title font-weight-light mb-5">
-          Around one-quarter of global CO2 emissions come from the
-          transportation of people and goods (WWF, 2020).
+          The development of urban mobility has significant influence on urban
+          mobility. A good example is the its impacts on global warming.
+          According to WWF (2020), around one-quarter of global CO2 emissions
+          come from the transportation of people and goods.
         </div>
       </v-col>
       <v-col cols="12" md="5">
@@ -35,8 +37,10 @@
         </h3>
 
         <div class="title font-weight-light mb-5">
-          Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor
-          est, vitae tincidunt risus. Sed sodales vestibulum nibh.
+          Meanwhile, the traffic congestion is another well known side effect
+          with the expansion of urban transportation network, which is common
+          over many emerging urban areas on our planet. How to solve the issue
+          is tightly related to the livability of cities.
         </div>
       </v-col>
     </v-row>

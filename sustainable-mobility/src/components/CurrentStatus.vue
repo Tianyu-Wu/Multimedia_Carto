@@ -11,14 +11,15 @@
     </v-container>
 
     <div id="map_GHG">Map</div>
-
-    <div class="title font-weight-light mb-5">
-      This map displays the transpot-related carbon emission per capita. It can
-      be seen that the GHG per capita in developed countries is generally higher
-      than what it is in developing countries. However, it is interesting that
-      GHG per capita in North America is significantly higher than Europe,
-      despite that both are developed regions.
-    </div>
+    <v-container>
+      <div class="title font-weight-light mb-5">
+        This map displays the transpot-related carbon emission per capita. It
+        can be seen that the GHG per capita in developed countries is generally
+        higher than what it is in developing countries. However, it is
+        interesting that GHG per capita in North America is significantly higher
+        than Europe, despite that both are developed regions.
+      </div>
+    </v-container>
   </div>
 </template>
 
