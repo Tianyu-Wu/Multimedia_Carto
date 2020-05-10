@@ -8,8 +8,7 @@
 
       <v-col cols="8">
         <div id="population" class="map pad2">Map</div>
-          <div class="legend-bar"></div>
-        
+        <div class="legend-bar"></div>
       </v-col>
       <v-col cols="3">
         <v-card-text class="display-2 font-weight-bold">
