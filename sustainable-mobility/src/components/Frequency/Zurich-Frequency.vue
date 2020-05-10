@@ -10,10 +10,18 @@
             <h2 class="display-2 font-weight-bold">Passenger Volume</h2>
             <div class="py-5"></div>
 
-            <span>The passenger volume of Zurich bus and tram stops are estimated with "Durchschnittlicher Werktagverkehr" (DWV)</span>
+            <span
+              >The passenger volume of Zurich bus and tram stops are estimated
+              with "Durchschnittlicher Werktagverkehr" (DWV)</span
+            >
             <div class="py-3"></div>
 
-            <span>As shown in the map, the stops with daily boardings over 10000 generally locates at the central region. The passenger volume declines while spreading out to the border of the city of Zurich</span>
+            <span
+              >As shown in the map, the stops with daily boardings over 10000
+              generally locates at the central region. The passenger volume
+              declines while spreading out to the border of the city of
+              Zurich</span
+            >
             <div class="py-5"></div>
 
             <h2 class="font-weight-regular">Average Weekday Boardings</h2>

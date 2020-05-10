@@ -10,18 +10,40 @@
 
       <v-col cols="8">
         <div id="population" class="map pad2">Map</div>
-        <div class="legend-bar"></div>
       </v-col>
       <v-col cols="3">
-        <v-card-text
-          class="display-2 font-weight-bold"
-        >Percentage of Urban population through the years</v-card-text>
+        <v-card-text class="display-2 font-weight-bold"
+          >Urban population through the years</v-card-text
+        >
         <v-card-text>
           In the last few decades there has been a tendency to move from rural
           areas all around the world.
           <br />
-          <br />This map shows this change is shown through the percentage of urban
+          <br />This map shows this change through the percentage of urban
           population.
+          <div class="py-5"></div>
+
+          <h2 class="font-weight-regular">
+            Percentage of Urban Population (%)
+          </h2>
+          <v-row>
+            <v-col>
+              <div class="legend-row legend-bar center"></div>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <div class="legend-row labels d-flex justify-space-between">
+                <div class="label">0</div>
+                <div class="label">25</div>
+                <div class="label">50</div>
+                <div class="label">75</div>
+                <div class="label">100</div>
+              </div>
+            </v-col>
+          </v-row>
+          <div class="py-3"></div>
+          <span>Note: the countries in black do not have available data.</span>
         </v-card-text>
       </v-col>
     </v-row>
@@ -772,6 +794,10 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
   background: #e31a1c;
 }
 
+.legend-row {
+  width: 90%;
+  height: 12px;
+}
 .legend-bar {
   height: 10px;
   width: 100%;

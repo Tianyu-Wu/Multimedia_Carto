@@ -10,7 +10,9 @@
           width="70"
         />
 
-        <v-toolbar-title class="font-weight-black headline">Sustainable Mobility</v-toolbar-title>
+        <v-toolbar-title class="font-weight-black headline"
+          >Sustainable Mobility</v-toolbar-title
+        >
       </div>
       <v-spacer></v-spacer>
       <v-btn @click="$vuetify.goTo('#background')" text>
@@ -25,8 +27,8 @@
       <v-btn @click="$vuetify.goTo('#case-studies')" text>
         <span class="mr-2">Case Studies</span>
       </v-btn>
-      <v-btn @click="$vuetify.goTo('#outlook')" text>
-        <span class="mr-2">Outlook</span>
+      <v-btn @click="$vuetify.goTo('#summary')" text>
+        <span class="mr-2">Summary</span>
       </v-btn>
     </v-app-bar>
     <v-content>
@@ -48,7 +50,8 @@
                           : 'display-4'
                       ]"
                       class="font-weight-black"
-                    >Sustainable Mobility</span>
+                      >Sustainable Mobility</span
+                    >
                     <br />
 
                     <p class="mx-auto title font-weight-light mb-8">

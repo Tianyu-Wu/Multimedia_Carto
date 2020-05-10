@@ -10,8 +10,8 @@
           <div class="py-5"></div>
 
           <v-card-text>
-            The public transport in Zurich covers almost every place of the
-            city with a similar density. The kernel density of stations in the
+            The public transport in Zurich covers almost every place of the city
+            with a similar density. The kernel density of stations in the
             downtown is slightly higher than the remaining area, and There are
             multiple transport centers in Zurich.
           </v-card-text>

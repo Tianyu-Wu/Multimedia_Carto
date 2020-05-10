@@ -10,10 +10,21 @@
             <h2 class="display-2 font-weight-bold">Passenger Volume</h2>
             <div class="py-5"></div>
 
-            <span>The passenger volume of Vancouver bus stops is derived from the Transit Service Performance Review (TSPR) program of Translink (i.e. the public transportation operator of British Columbia) in 2018</span>
+            <span
+              >The passenger volume of Vancouver bus stops is derived from the
+              Transit Service Performance Review (TSPR) program of Translink
+              (i.e. the public transportation operator of British Columbia) in
+              2018</span
+            >
             <div class="py-3"></div>
 
-            <span>Compared to the other two cities, the passenger volume of Vancouver is relatively small, mostly smaller than 2500. A relatively distributed pattern can be recognized from the map. This map well demonstrates the typical mobility style in North America countries with low road density.</span>
+            <span
+              >Compared to the other two cities, the passenger volume of
+              Vancouver is relatively small, mostly smaller than 2500. A
+              relatively distributed pattern can be recognized from the map.
+              This map well demonstrates the typical mobility style in North
+              America countries with low road density.</span
+            >
             <div class="py-5"></div>
 
             <h2 class="font-weight-regular">Average Weekday Boardings</h2>

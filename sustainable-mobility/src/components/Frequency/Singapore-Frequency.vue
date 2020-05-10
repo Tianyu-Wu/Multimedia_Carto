@@ -10,10 +10,18 @@
             <h2 class="display-2 font-weight-bold">Passenger Volume</h2>
             <div class="py-5"></div>
 
-            <span>The passenger volume of Singapore is retrieved from the official Land Transport DataMall by Singapore government. The data is updated on a monthly basis.</span>
+            <span
+              >The passenger volume of Singapore is retrieved from the official
+              Land Transport DataMall by Singapore government. The data is
+              updated on a monthly basis.</span
+            >
             <div class="py-3"></div>
 
-            <span>Among the all three cities that we studied, Singapore shows the largest passenger volume with daily weekday boardings mostly over 10000.</span>
+            <span
+              >Among the all three cities that we studied, Singapore shows the
+              largest passenger volume with daily weekday boardings mostly over
+              10000.</span
+            >
             <div class="py-5"></div>
 
             <h2 class="font-weight-regular">Average Weekday Boardings</h2>
@@ -35,7 +43,10 @@
             </v-row>
             <div class="py-3"></div>
 
-            <span>Note: the black dots locates the stops without available passenger volume data.</span>
+            <span
+              >Note: the black dots locates the stops without available
+              passenger volume data.</span
+            >
           </v-card-text>
         </v-card>
       </v-col>

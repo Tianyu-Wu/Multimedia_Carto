@@ -61,8 +61,8 @@
     <section id="current-status">
       <CurrentStatus />
     </section>
-    <section id="outlook">
-      <Outlook />
+    <section id="summary">
+      <Summary />
     </section>
   </v-content>
 </template>
@@ -73,7 +73,7 @@ import Demand from "./Demand";
 import Liability from "./Liability";
 import Statements from "./Statements";
 import CurrentStatus from "./CurrentStatus";
-import Outlook from "./Outlook";
+import Summary from "./Summary";
 
 export default {
   name: "Structure",
@@ -83,7 +83,7 @@ export default {
     Liability,
     Statements,
     CurrentStatus,
-    Outlook
+    Summary
   },
   data: () => ({})
 };
