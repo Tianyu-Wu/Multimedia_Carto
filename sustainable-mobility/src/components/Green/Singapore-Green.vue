@@ -194,7 +194,7 @@ export default {
   position: relative;
   z-index: 1;
   top: 0px;
-  right: 10px;
+  left: 20px;
   border-radius: 3px;
   width: 120px;
   border: 1px solid rgba(0, 0, 0, 0.4);

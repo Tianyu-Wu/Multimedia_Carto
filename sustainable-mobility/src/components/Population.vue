@@ -3,10 +3,22 @@
     <h2 class="display-2 font-weight-bold mb-3">POPULATION</h2>
     <v-row cols="12">
       <v-col cols="8">
-        <div id="population" class="map pad2">Map</div>
+        <div id="population" class="map pad2">
+          Map
+          <nav id="menuPop"></nav>
+        </div>
       </v-col>
       <v-col cols="4">
-        <div class="sidebar pad2">Listing</div>
+        <v-card-text class="display-2 font-weight-bold">
+          Urban population through the years</v-card-text
+        >
+        <v-card-text>
+          In the last few decades there has been a tendency to move from rural
+          areas all around the world.
+          <br /><br />
+          This map shows this change is shown through the percentage of urban
+          population.
+        </v-card-text>
       </v-col>
     </v-row>
   </v-container>
@@ -25,12 +37,6 @@ export default {
       mapboxgl.accessToken =
         "pk.eyJ1IjoibW1jYXJ0b2cwMSIsImEiOiJjazk2bHZlbW8wOW5xM250Y2ZkbXNnZGdjIn0.QS71DsIq1oSDNUgEmfA3kg";
 
-      //this.map = new mapboxgl.Map({
-      //  container: "map",
-      //  style: "mapbox://styles/mapbox/light-v10",
-      //  center: [-77.034084, 38.909671],
-      //  zoom: 2
-      //});
       let self = this;
       self.map = new mapboxgl.Map({
         container: "population",
@@ -46,6 +52,9 @@ export default {
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.bheykam9"
+          },
+          layout: {
+            visibility: "visible"
           },
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
@@ -68,6 +77,77 @@ export default {
           }
         });
       });
+
+      self.map.on("load", function() {
+        self.map.addLayer({
+          id: "1980",
+          type: "fill",
+          source: {
+            type: "vector",
+            url: "mapbox://mmcartog01.bheykam9"
+          },
+          layout: {
+            visibility: "none"
+          },
+          "source-layer": "urbanPopPercentage-3dmf08",
+          paint: {
+            "fill-color": [
+              "interpolate",
+              ["linear"],
+              ["get", "1980"],
+              2.077,
+              "#ffffb2",
+              26.56,
+              "#fecc5c",
+              51.04,
+              "#fd8d3c",
+              70,
+              "#f03b20",
+              90,
+              "#bd0026"
+            ],
+            "fill-opacity": 0.86
+          }
+        });
+      });
+
+      var toggleablePopIds = ["1960", "1980"];
+
+      // set up the corresponding toggle button for each layer
+      for (var i = 0; i < toggleablePopIds.length; i++) {
+        var id = toggleablePopIds[i];
+
+        var link = document.createElement("a");
+        link.href = "#";
+        link.className = "";
+        link.textContent = id;
+
+        link.onclick = function(e) {
+          var clickedLayer = this.textContent;
+          e.preventDefault();
+          e.stopPropagation();
+          for (var j = 0; j < toggleablePopIds.length; j++) {
+            if (clickedLayer === toggleablePopIds[j]) {
+              layers.children[j].className = "active";
+              self.map.setLayoutProperty(
+                toggleablePopIds[j],
+                "visibility",
+                "visible"
+              );
+            } else {
+              layers.children[j].className = "";
+              self.map.setLayoutProperty(
+                toggleablePopIds[j],
+                "visibility",
+                "none"
+              );
+            }
+          }
+        };
+
+        var layers = document.getElementById("menuPop");
+        layers.appendChild(link);
+      }
     }
   },
   mounted() {
@@ -82,6 +162,48 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 /* .sidebar {
   width: 33.3333%;
 } */
+#menuPop {
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  top: 0px;
+  left: 10px;
+  border-radius: 3px;
+  width: 120px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-family: "Open Sans", sans-serif;
+}
+
+#menuPop a {
+  font-size: 13px;
+  color: #404040;
+  display: block;
+  margin: 0;
+  padding: 0;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+#menuPop a:last-child {
+  border: none;
+}
+
+#menuPop a:hover {
+  background-color: #f8f8f8;
+  color: #404040;
+}
+
+#menuPop a.active {
+  background-color: #800026;
+  color: #ffffff;
+}
+
+#menuPop a.active:hover {
+  background: #e31a1c;
+}
+
 #population {
   width: 100%;
   height: 700px;
