@@ -38,7 +38,9 @@ export default {
         container: "sing-coverage",
         style: "mapbox://styles/mmcartog01/ck9tms1dv0mtl1ipiy8fkgxsa",
         center: [103.82, 1.35],
-        zoom: 10.5
+        zoom: 10.5,
+        maxZoom: 16,
+        minZoom: 10.5
       });
 
       self.map.on("render", () => {

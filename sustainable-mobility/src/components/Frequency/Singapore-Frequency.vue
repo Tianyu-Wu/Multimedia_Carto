@@ -70,7 +70,9 @@ export default {
         style: "mapbox://styles/mapbox/light-v10",
         // style: "mapbox://styles/mmcartog01/ck98marof00vr1io3vqd4ehlb/draft",
         center: [103.82, 1.35],
-        zoom: 10.5
+        zoom: 10.5,
+        maxZoom: 16,
+        minZoom: 10.5
       });
 
       self.map.on("style.load", function() {

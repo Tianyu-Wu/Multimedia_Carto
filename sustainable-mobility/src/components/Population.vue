@@ -68,7 +68,9 @@ export default {
         container: "population",
         style: "mapbox://styles/mapbox/light-v10",
         center: [0, 0],
-        zoom: 2
+        zoom: 2,
+        maxZoom: 4,
+        minZoom: 1
       });
 
       self.map.on("load", function() {
@@ -358,170 +360,6 @@ export default {
 
       self.map.on("load", function() {
         self.map.addLayer({
-          id: "2011",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2011"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2012",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2012"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2013",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2013"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2014",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2014"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-
-      self.map.on("load", function() {
-        self.map.addLayer({
           id: "2015",
           type: "fill",
           source: {
@@ -537,88 +375,6 @@ export default {
               "interpolate",
               ["linear"],
               ["get", "2015"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2016",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2016"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
-
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2017",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2017"],
               2.077,
               "#ffffcc",
               14.32,
@@ -692,13 +448,7 @@ export default {
         "2000",
         "2005",
         "2010",
-        "2011",
-        "2012",
-        "2013",
-        "2014",
         "2015",
-        "2016",
-        "2017",
         "2018"
       ];
 
