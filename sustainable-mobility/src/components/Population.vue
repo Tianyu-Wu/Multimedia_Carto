@@ -74,25 +74,25 @@ export default {
       });
       var hoveredCountryId = null;
       self.map.on("load", function() {
-        self.map.addSource('population', {
-          type: 'vector',
-          url: 'mapbox://mmcartog01.bheykam9',
+        self.map.addSource("population", {
+          type: "vector",
+          url: "mapbox://mmcartog01.bheykam9",
           "source-layer": "urbanPopPercentage-3dmf08",
-          generateId: true 
-          });
+          generateId: true
+        });
         self.map.addLayer({
           id: "1960",
-          type: "fill",      
+          type: "fill",
           layout: {
-            visibility: "visible"
+            visibility: "none"
           },
-          source:"population",
+          source: "population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "1960"],
+              ["get", "y_1960"],
               2.077,
               "#ffffcc",
               14.32,
@@ -112,13 +112,13 @@ export default {
               90,
               "#800026"
             ],
-            "fill-outline-color":"#800026", 
+            "fill-outline-color": "#800026",
             "fill-opacity": [
-              'case',
-              ['boolean', ['feature-state', 'hover'], false],
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
               1,
               0.7
-              ]
+            ]
           }
         });
         self.map.addLayer({
@@ -127,13 +127,13 @@ export default {
           layout: {
             visibility: "none"
           },
-          source:"population",
+          source: "population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "1970"],
+              ["get", "y_1970"],
               2.077,
               "#ffffcc",
               14.32,
@@ -153,13 +153,13 @@ export default {
               90,
               "#800026"
             ],
-            "fill-outline-color":"#800026", 
+            "fill-outline-color": "#800026",
             "fill-opacity": [
-              'case',
-              ['boolean', ['feature-state', 'hover'], false],
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
               1,
               0.7
-              ]
+            ]
           }
         });
         self.map.addLayer({
@@ -168,13 +168,13 @@ export default {
           layout: {
             visibility: "none"
           },
-          source:"population",
+          source: "population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "1980"],
+              ["get", "y_1980"],
               2.077,
               "#ffffcc",
               14.32,
@@ -194,13 +194,13 @@ export default {
               90,
               "#800026"
             ],
-            "fill-outline-color":"#800026", 
+            "fill-outline-color": "#800026",
             "fill-opacity": [
-              'case',
-              ['boolean', ['feature-state', 'hover'], false],
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
               1,
               0.7
-              ]
+            ]
           }
         });
         self.map.addLayer({
@@ -209,13 +209,13 @@ export default {
           layout: {
             visibility: "none"
           },
-          source:"population",
+          source: "population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "1990"],
+              ["get", "y_1990"],
               2.077,
               "#ffffcc",
               14.32,
@@ -235,13 +235,13 @@ export default {
               90,
               "#800026"
             ],
-            "fill-outline-color":"#800026", 
+            "fill-outline-color": "#800026",
             "fill-opacity": [
-              'case',
-              ['boolean', ['feature-state', 'hover'], false],
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
               1,
               0.7
-              ]
+            ]
           }
         });
         self.map.addLayer({
@@ -250,13 +250,13 @@ export default {
           layout: {
             visibility: "none"
           },
-          source:"population",
+          source: "population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "2000"],
+              ["get", "y_2000"],
               2.077,
               "#ffffcc",
               14.32,
@@ -276,13 +276,13 @@ export default {
               90,
               "#800026"
             ],
-            "fill-outline-color":"#800026", 
+            "fill-outline-color": "#800026",
             "fill-opacity": [
-              'case',
-              ['boolean', ['feature-state', 'hover'], false],
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
               1,
               0.7
-              ]
+            ]
           }
         });
         self.map.addLayer({
@@ -291,13 +291,13 @@ export default {
           layout: {
             visibility: "none"
           },
-          source:"population",
+          source: "population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "2005"],
+              ["get", "y_2005"],
               2.077,
               "#ffffcc",
               14.32,
@@ -317,28 +317,28 @@ export default {
               90,
               "#800026"
             ],
-            "fill-outline-color":"#800026", 
+            "fill-outline-color": "#800026",
             "fill-opacity": [
-              'case',
-              ['boolean', ['feature-state', 'hover'], false],
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
               1,
               0.7
-              ]
+            ]
           }
         });
-      self.map.addLayer({
+        self.map.addLayer({
           id: "2010",
           type: "fill",
           layout: {
             visibility: "none"
           },
-          source:"population",
+          source: "population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "2010"],
+              ["get", "y_2010"],
               2.077,
               "#ffffcc",
               14.32,
@@ -358,28 +358,28 @@ export default {
               90,
               "#800026"
             ],
-            "fill-outline-color":"#800026", 
+            "fill-outline-color": "#800026",
             "fill-opacity": [
-              'case',
-              ['boolean', ['feature-state', 'hover'], false],
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
               1,
               0.7
-              ]
+            ]
           }
         });
         self.map.addLayer({
           id: "2015",
           type: "fill",
-          source:"population",
+          source: "population",
           layout: {
-            visibility: "none"
+            visibility: "visible"
           },
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
               "interpolate",
               ["linear"],
-              ["get", "2015"],
+              ["get", "y_2015"],
 
               2.077,
               "#ffffcc",
@@ -400,197 +400,283 @@ export default {
               90,
               "#800026"
             ],
-            "fill-outline-color":"#800026", 
+            "fill-outline-color": "#800026",
             "fill-opacity": [
-              'case',
-              ['boolean', ['feature-state', 'hover'], false],
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
               1,
               0.7
-              ]
+            ]
           }
         });
-});
+      });
 
-// When the user moves their mouse over the 1960layer, we'll update the
-// feature state for the feature under the mouse.
-var popup = new mapboxgl.Popup({
-closeButton: false,
-closeOnClick: false
-});
+      // When the user moves their mouse over the 1960layer, we'll update the
+      // feature state for the feature under the mouse.
+      var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+      });
 
-self.map.on('mousemove', '1960', function(e) {
-    if (e.features.length > 0) {
+      self.map.on("mousemove", "1960", function(e) {
+        if (e.features.length > 0) {
           if (id) {
             self.map.setFeatureState(
-              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-              { hover: false });
-              }
-              hoveredCountryId = e.features[0].id;
-              self.map.setFeatureState(
-                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-                { hover: true });
-                }
-              var country = e.features[0].properties.COUNTRY;
-                popup
-                .setLngLat(e.lngLat)
-                .setHTML(country)
-                .addTo(self.map);
-  });
- self.map.on('mousemove', '1970', function(e) {
-    if (e.features.length > 0) {
+              {
+                source: "population",
+                sourceLayer: "urbanPopPercentage-3dmf08",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+        var country = e.features[0].properties.COUNTRY;
+        var popvalue = e.features[0].properties.y_1960;
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(country + " (" + popvalue + "%)")
+          .addTo(self.map);
+      });
+      self.map.on("mousemove", "1970", function(e) {
+        if (e.features.length > 0) {
           if (id) {
             self.map.setFeatureState(
-              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-              { hover: false });
-              }
-              hoveredCountryId = e.features[0].id;
-              self.map.setFeatureState(
-                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-                { hover: true });
-                }
-              var country = e.features[0].properties.COUNTRY;
-              
-                popup
-                .setLngLat(e.lngLat)
-                .setHTML(country)
-                .addTo(self.map);
-  });
-  self.map.on('mousemove', '1980', function(e) {
-    if (e.features.length > 0) {
+              {
+                source: "population",
+                sourceLayer: "urbanPopPercentage-3dmf08",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+        var country = e.features[0].properties.COUNTRY;
+        var popvalue = e.features[0].properties.y_1970;
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(country + " (" + popvalue + "%)")
+          .addTo(self.map);
+      });
+      self.map.on("mousemove", "1980", function(e) {
+        if (e.features.length > 0) {
           if (id) {
             self.map.setFeatureState(
-              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-              { hover: false });
-              }
-              hoveredCountryId = e.features[0].id;
-              self.map.setFeatureState(
-                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-                { hover: true });
-                }
-              var country = e.features[0].properties.COUNTRY;
-              
-                popup
-                .setLngLat(e.lngLat)
-                .setHTML(country)
-                .addTo(self.map);
-  });
-  self.map.on('mousemove', '1990', function(e) {
-    if (e.features.length > 0) {
+              {
+                source: "population",
+                sourceLayer: "urbanPopPercentage-3dmf08",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+        var country = e.features[0].properties.COUNTRY;
+        var popvalue = e.features[0].properties.y_1980;
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(country + " (" + popvalue + "%)")
+          .addTo(self.map);
+      });
+      self.map.on("mousemove", "1990", function(e) {
+        if (e.features.length > 0) {
           if (id) {
             self.map.setFeatureState(
-              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-              { hover: false });
-              }
-              hoveredCountryId = e.features[0].id;
-              self.map.setFeatureState(
-                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-                { hover: true });
-                }
-              var country = e.features[0].properties.COUNTRY;
-              
-                popup
-                .setLngLat(e.lngLat)
-                .setHTML(country)
-                .addTo(self.map);
-  });
-  self.map.on('mousemove', '2000', function(e) {
-    if (e.features.length > 0) {
+              {
+                source: "population",
+                sourceLayer: "urbanPopPercentage-3dmf08",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+        var country = e.features[0].properties.COUNTRY;
+        var popvalue = e.features[0].properties.y_1990;
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(country + " (" + popvalue + "%)")
+          .addTo(self.map);
+      });
+      self.map.on("mousemove", "2000", function(e) {
+        if (e.features.length > 0) {
           if (id) {
             self.map.setFeatureState(
-              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-              { hover: false });
-              }
-              hoveredCountryId = e.features[0].id;
-              self.map.setFeatureState(
-                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-                { hover: true });
-                }
-              var country = e.features[0].properties.COUNTRY;
-              
-                popup
-                .setLngLat(e.lngLat)
-                .setHTML(country)
-                .addTo(self.map);
-  });
-  self.map.on('mousemove', '2005', function(e) {
-    if (e.features.length > 0) {
+              {
+                source: "population",
+                sourceLayer: "urbanPopPercentage-3dmf08",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+        var country = e.features[0].properties.COUNTRY;
+        var popvalue = e.features[0].properties.y_2000;
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(country + " (" + popvalue + "%)")
+          .addTo(self.map);
+      });
+      self.map.on("mousemove", "2005", function(e) {
+        if (e.features.length > 0) {
           if (id) {
             self.map.setFeatureState(
-              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-              { hover: false });
-              }
-              hoveredCountryId = e.features[0].id;
-              self.map.setFeatureState(
-                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-                { hover: true });
-                }
-              var country = e.features[0].properties.COUNTRY;
-              
-                popup
-                .setLngLat(e.lngLat)
-                .setHTML(country)
-                .addTo(self.map);
-  });
-  self.map.on('mousemove', '2010', function(e) {
-    if (e.features.length > 0) {
+              {
+                source: "population",
+                sourceLayer: "urbanPopPercentage-3dmf08",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+        var country = e.features[0].properties.COUNTRY;
+        var popvalue = e.features[0].properties.y_2005;
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(country + " (" + popvalue + "%)")
+          .addTo(self.map);
+      });
+      self.map.on("mousemove", "2010", function(e) {
+        if (e.features.length > 0) {
           if (id) {
             self.map.setFeatureState(
-              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-              { hover: false });
-              }
-              hoveredCountryId = e.features[0].id;
-              self.map.setFeatureState(
-                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-                { hover: true });
-                }
-              var country = e.features[0].properties.COUNTRY;
-              
-                popup
-                .setLngLat(e.lngLat)
-                .setHTML(country)
-                .addTo(self.map);
-  });
-  self.map.on('mousemove', '2015', function(e) {
-    if (e.features.length > 0) {
+              {
+                source: "population",
+                sourceLayer: "urbanPopPercentage-3dmf08",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+        var country = e.features[0].properties.COUNTRY;
+        var popvalue = e.features[0].properties.y_2010;
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(country + " (" + popvalue + "%)")
+          .addTo(self.map);
+      });
+      self.map.on("mousemove", "2015", function(e) {
+        if (e.features.length > 0) {
           if (id) {
             self.map.setFeatureState(
-              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-              { hover: false });
-              }
-              hoveredCountryId = e.features[0].id;
-              self.map.setFeatureState(
-                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
-                { hover: true });
-                }
-              var country = e.features[0].properties.COUNTRY;
-              
-                popup
-                .setLngLat(e.lngLat)
-                .setHTML(country)
-                .addTo(self.map);
-  });
-// When the mouse leaves the 1960 layer, update the feature state of the
-// previously hovered feature.
-self.map.on('mouseleave', function() {
-  if (hoveredCountryId) {
-    self.map.setFeatureState(
-      {source:"population",sourceLayer: "urbanPopPercentage-3dmf08", id: hoveredCountryId },
-      { hover: false }
-      );
-      }
-      hoveredCountryId = null;
-      popup.remove();
+              {
+                source: "population",
+                sourceLayer: "urbanPopPercentage-3dmf08",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+        var country = e.features[0].properties.COUNTRY;
+        var popvalue = e.features[0].properties.y_2015;
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(country + " (" + popvalue + "%)")
+          .addTo(self.map);
+      });
+      // When the mouse leaves the 1960 layer, update the feature state of the
+      // previously hovered feature.
+      self.map.on("mouseleave", function() {
+        if (hoveredCountryId) {
+          self.map.setFeatureState(
+            {
+              source: "population",
+              sourceLayer: "urbanPopPercentage-3dmf08",
+              id: hoveredCountryId
+            },
+            { hover: false }
+          );
+        }
+        hoveredCountryId = null;
+        popup.remove();
       });
 
       var toggleablePopIds = [
-        "1960",
-        "1970",
-        "1980",
-        "1990",
-        "2000",
-        "2005",
+        "2015",
         "2010",
-        "2015"
+        "2005",
+        "2000",
+        "1990",
+        "1980",
+        "1970",
+        "1960"
+      
       ];
 
       // set up the corresponding toggle button for each layer
@@ -608,6 +694,7 @@ self.map.on('mouseleave', function() {
           e.stopPropagation();
 
           for (var j = 0; j < toggleablePopIds.length; j++) {
+            
             if (clickedLayer === toggleablePopIds[j]) {
               layers.children[j].className = "active";
               self.map.setLayoutProperty(
@@ -638,14 +725,10 @@ self.map.on('mouseleave', function() {
 </script>
 
 <style>
-/* The page is split between map and sidebar - the sidebar gets 1/3, map
-gets 2/3 of the page. You can adjust this to your personal liking. */
-/* .sidebar {
-  width: 33.3333%;
-} */
+
 .mapboxgl-popup {
-max-width: 400px;
-font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  max-width: 400px;
+  font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 #menuPop {
   background: #fff;
@@ -714,10 +797,4 @@ font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   height: 700px;
 }
 
-/* .pad2 {
-  padding: 20px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-} */
 </style>
