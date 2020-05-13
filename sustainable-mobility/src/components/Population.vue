@@ -72,18 +72,21 @@ export default {
         maxZoom: 4,
         minZoom: 1
       });
-
+      var hoveredCountryId = null;
       self.map.on("load", function() {
+        self.map.addSource('population', {
+          type: 'vector',
+          url: 'mapbox://mmcartog01.bheykam9',
+          "source-layer": "urbanPopPercentage-3dmf08",
+          generateId: true 
+          });
         self.map.addLayer({
           id: "1960",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
+          type: "fill",      
           layout: {
             visibility: "visible"
           },
+          source:"population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
@@ -109,21 +112,22 @@ export default {
               90,
               "#800026"
             ],
-            "fill-opacity": 0.86
+            "fill-outline-color":"#800026", 
+            "fill-opacity": [
+              'case',
+              ['boolean', ['feature-state', 'hover'], false],
+              1,
+              0.7
+              ]
           }
         });
-      });
-      self.map.on("load", function() {
         self.map.addLayer({
           id: "1970",
           type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
           layout: {
             visibility: "none"
           },
+          source:"population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
@@ -149,21 +153,22 @@ export default {
               90,
               "#800026"
             ],
-            "fill-opacity": 0.86
+            "fill-outline-color":"#800026", 
+            "fill-opacity": [
+              'case',
+              ['boolean', ['feature-state', 'hover'], false],
+              1,
+              0.7
+              ]
           }
         });
-      });
-      self.map.on("load", function() {
         self.map.addLayer({
           id: "1980",
           type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
           layout: {
             visibility: "none"
           },
+          source:"population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
@@ -189,22 +194,22 @@ export default {
               90,
               "#800026"
             ],
-            "fill-opacity": 0.86
+            "fill-outline-color":"#800026", 
+            "fill-opacity": [
+              'case',
+              ['boolean', ['feature-state', 'hover'], false],
+              1,
+              0.7
+              ]
           }
         });
-      });
-
-      self.map.on("load", function() {
         self.map.addLayer({
           id: "1990",
           type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
           layout: {
             visibility: "none"
           },
+          source:"population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
@@ -230,22 +235,22 @@ export default {
               90,
               "#800026"
             ],
-            "fill-opacity": 0.86
+            "fill-outline-color":"#800026", 
+            "fill-opacity": [
+              'case',
+              ['boolean', ['feature-state', 'hover'], false],
+              1,
+              0.7
+              ]
           }
         });
-      });
-
-      self.map.on("load", function() {
         self.map.addLayer({
           id: "2000",
           type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
           layout: {
             visibility: "none"
           },
+          source:"population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
@@ -271,22 +276,22 @@ export default {
               90,
               "#800026"
             ],
-            "fill-opacity": 0.86
+            "fill-outline-color":"#800026", 
+            "fill-opacity": [
+              'case',
+              ['boolean', ['feature-state', 'hover'], false],
+              1,
+              0.7
+              ]
           }
         });
-      });
-
-      self.map.on("load", function() {
         self.map.addLayer({
           id: "2005",
           type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
           layout: {
             visibility: "none"
           },
+          source:"population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
@@ -312,22 +317,22 @@ export default {
               90,
               "#800026"
             ],
-            "fill-opacity": 0.86
+            "fill-outline-color":"#800026", 
+            "fill-opacity": [
+              'case',
+              ['boolean', ['feature-state', 'hover'], false],
+              1,
+              0.7
+              ]
           }
         });
-      });
-
-      self.map.on("load", function() {
-        self.map.addLayer({
+      self.map.addLayer({
           id: "2010",
           type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
           layout: {
             visibility: "none"
           },
+          source:"population",
           "source-layer": "urbanPopPercentage-3dmf08",
           paint: {
             "fill-color": [
@@ -353,19 +358,19 @@ export default {
               90,
               "#800026"
             ],
-            "fill-opacity": 0.86
+            "fill-outline-color":"#800026", 
+            "fill-opacity": [
+              'case',
+              ['boolean', ['feature-state', 'hover'], false],
+              1,
+              0.7
+              ]
           }
         });
-      });
-
-      self.map.on("load", function() {
         self.map.addLayer({
           id: "2015",
           type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
+          source:"population",
           layout: {
             visibility: "none"
           },
@@ -375,47 +380,7 @@ export default {
               "interpolate",
               ["linear"],
               ["get", "2015"],
-              2.077,
-              "#ffffcc",
-              14.32,
-              "#ffffcc",
-              26.56,
-              "#fed976",
-              38.8,
-              "#feb24c",
-              51.04,
-              "#fd8d3c",
-              60.52,
-              "#fc4e2a",
-              70,
-              "#e31a1c",
-              80,
-              "#bd0026",
-              90,
-              "#800026"
-            ],
-            "fill-opacity": 0.86
-          }
-        });
-      });
 
-      self.map.on("load", function() {
-        self.map.addLayer({
-          id: "2018",
-          type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bheykam9"
-          },
-          layout: {
-            visibility: "none"
-          },
-          "source-layer": "urbanPopPercentage-3dmf08",
-          paint: {
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "2018"],
               2.077,
               "#ffffcc",
               14.32,
@@ -435,9 +400,186 @@ export default {
               90,
               "#800026"
             ],
-            "fill-opacity": 0.86
+            "fill-outline-color":"#800026", 
+            "fill-opacity": [
+              'case',
+              ['boolean', ['feature-state', 'hover'], false],
+              1,
+              0.7
+              ]
           }
         });
+});
+
+// When the user moves their mouse over the 1960layer, we'll update the
+// feature state for the feature under the mouse.
+var popup = new mapboxgl.Popup({
+closeButton: false,
+closeOnClick: false
+});
+
+self.map.on('mousemove', '1960', function(e) {
+    if (e.features.length > 0) {
+          if (id) {
+            self.map.setFeatureState(
+              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+              { hover: false });
+              }
+              hoveredCountryId = e.features[0].id;
+              self.map.setFeatureState(
+                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+                { hover: true });
+                }
+              var country = e.features[0].properties.COUNTRY;
+                popup
+                .setLngLat(e.lngLat)
+                .setHTML(country)
+                .addTo(self.map);
+  });
+ self.map.on('mousemove', '1970', function(e) {
+    if (e.features.length > 0) {
+          if (id) {
+            self.map.setFeatureState(
+              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+              { hover: false });
+              }
+              hoveredCountryId = e.features[0].id;
+              self.map.setFeatureState(
+                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+                { hover: true });
+                }
+              var country = e.features[0].properties.COUNTRY;
+              
+                popup
+                .setLngLat(e.lngLat)
+                .setHTML(country)
+                .addTo(self.map);
+  });
+  self.map.on('mousemove', '1980', function(e) {
+    if (e.features.length > 0) {
+          if (id) {
+            self.map.setFeatureState(
+              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+              { hover: false });
+              }
+              hoveredCountryId = e.features[0].id;
+              self.map.setFeatureState(
+                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+                { hover: true });
+                }
+              var country = e.features[0].properties.COUNTRY;
+              
+                popup
+                .setLngLat(e.lngLat)
+                .setHTML(country)
+                .addTo(self.map);
+  });
+  self.map.on('mousemove', '1990', function(e) {
+    if (e.features.length > 0) {
+          if (id) {
+            self.map.setFeatureState(
+              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+              { hover: false });
+              }
+              hoveredCountryId = e.features[0].id;
+              self.map.setFeatureState(
+                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+                { hover: true });
+                }
+              var country = e.features[0].properties.COUNTRY;
+              
+                popup
+                .setLngLat(e.lngLat)
+                .setHTML(country)
+                .addTo(self.map);
+  });
+  self.map.on('mousemove', '2000', function(e) {
+    if (e.features.length > 0) {
+          if (id) {
+            self.map.setFeatureState(
+              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+              { hover: false });
+              }
+              hoveredCountryId = e.features[0].id;
+              self.map.setFeatureState(
+                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+                { hover: true });
+                }
+              var country = e.features[0].properties.COUNTRY;
+              
+                popup
+                .setLngLat(e.lngLat)
+                .setHTML(country)
+                .addTo(self.map);
+  });
+  self.map.on('mousemove', '2005', function(e) {
+    if (e.features.length > 0) {
+          if (id) {
+            self.map.setFeatureState(
+              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+              { hover: false });
+              }
+              hoveredCountryId = e.features[0].id;
+              self.map.setFeatureState(
+                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+                { hover: true });
+                }
+              var country = e.features[0].properties.COUNTRY;
+              
+                popup
+                .setLngLat(e.lngLat)
+                .setHTML(country)
+                .addTo(self.map);
+  });
+  self.map.on('mousemove', '2010', function(e) {
+    if (e.features.length > 0) {
+          if (id) {
+            self.map.setFeatureState(
+              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+              { hover: false });
+              }
+              hoveredCountryId = e.features[0].id;
+              self.map.setFeatureState(
+                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+                { hover: true });
+                }
+              var country = e.features[0].properties.COUNTRY;
+              
+                popup
+                .setLngLat(e.lngLat)
+                .setHTML(country)
+                .addTo(self.map);
+  });
+  self.map.on('mousemove', '2015', function(e) {
+    if (e.features.length > 0) {
+          if (id) {
+            self.map.setFeatureState(
+              { source: 'population',sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+              { hover: false });
+              }
+              hoveredCountryId = e.features[0].id;
+              self.map.setFeatureState(
+                {source:"population",sourceLayer: "urbanPopPercentage-3dmf08",id: hoveredCountryId },
+                { hover: true });
+                }
+              var country = e.features[0].properties.COUNTRY;
+              
+                popup
+                .setLngLat(e.lngLat)
+                .setHTML(country)
+                .addTo(self.map);
+  });
+// When the mouse leaves the 1960 layer, update the feature state of the
+// previously hovered feature.
+self.map.on('mouseleave', function() {
+  if (hoveredCountryId) {
+    self.map.setFeatureState(
+      {source:"population",sourceLayer: "urbanPopPercentage-3dmf08", id: hoveredCountryId },
+      { hover: false }
+      );
+      }
+      hoveredCountryId = null;
+      popup.remove();
       });
 
       var toggleablePopIds = [
@@ -448,8 +590,7 @@ export default {
         "2000",
         "2005",
         "2010",
-        "2015",
-        "2018"
+        "2015"
       ];
 
       // set up the corresponding toggle button for each layer
@@ -502,6 +643,10 @@ gets 2/3 of the page. You can adjust this to your personal liking. */
 /* .sidebar {
   width: 33.3333%;
 } */
+.mapboxgl-popup {
+max-width: 400px;
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
 #menuPop {
   background: #fff;
   position: relative;

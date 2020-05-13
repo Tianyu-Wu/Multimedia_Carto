@@ -44,7 +44,6 @@ export default {
   }),
   methods: {
     initMap: function() {
-      
       let self = this;
       self.map = new mapboxgl.Map({
         container: "zh-green",
