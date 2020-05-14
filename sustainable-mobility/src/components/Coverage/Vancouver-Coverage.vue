@@ -37,7 +37,9 @@ export default {
         container: "van-coverage",
         style: "mapbox://styles/mmcartog01/ck9tms1dv0mtl1ipiy8fkgxsa",
         center: [-123.12, 49.26],
-        zoom: 11
+        zoom: 11,
+        maxZoom: 16,
+        minZoom: 10.5
       });
 
       self.map.on("render", () => {

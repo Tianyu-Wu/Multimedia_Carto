@@ -49,7 +49,9 @@ export default {
         container: "zh-green",
         style: "mapbox://styles/mapbox/light-v10",
         center: [8.551, 47.378],
-        zoom: 11.0
+        zoom: 11.5,
+        maxZoom: 16,
+        minZoom: 10.5
       });
 
       /* Image: An image is loaded and added to the map. */
