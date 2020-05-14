@@ -3,9 +3,7 @@
     <v-container>
       <div class="py-12"></div>
 
-      <h2 class="display-3 font-weight-bold mb-3">
-        Explore next solutions with Case Studies worldwide
-      </h2>
+      <h2 class="display-3 font-weight-bold mb-3">Explore next solutions with Case Studies worldwide</h2>
       <div class="py-5"></div>
     </v-container>
     <v-row>
@@ -25,28 +23,20 @@
                         <span
                           :class="[hover ? 'display-3' : 'display-2']"
                           class="font-weight-regular"
-                          >Zurich</span
-                        >
+                        >Zurich</span>
                         <br />
 
                         <span
                           class="font-weight-light"
                           :class="[hover ? 'display-2' : 'display-1']"
-                          >Europe</span
-                        >
+                        >Europe</span>
                       </v-col>
                     </v-row>
                   </v-container>
                 </v-theme-provider>
               </v-row>
               <v-fade-transition>
-                <v-overlay
-                  v-if="hover"
-                  absolute
-                  color="#000000"
-                  opacity="0.2"
-                  z-index="-1"
-                ></v-overlay>
+                <v-overlay v-if="hover" absolute color="#000000" opacity="0.2" z-index="-1"></v-overlay>
               </v-fade-transition>
             </v-parallax>
           </template>
@@ -71,28 +61,20 @@
                         <span
                           :class="[hover ? 'display-3' : 'display-2']"
                           class="font-weight-regular"
-                          >Vancouver</span
-                        >
+                        >Vancouver</span>
                         <br />
 
                         <span
                           class="font-weight-light"
                           :class="[hover ? 'display-2' : 'display-1']"
-                          >North America</span
-                        >
+                        >North America</span>
                       </v-col>
                     </v-row>
                   </v-container>
                 </v-theme-provider>
               </v-row>
               <v-fade-transition>
-                <v-overlay
-                  v-if="hover"
-                  absolute
-                  color="#000000"
-                  opacity="0.2"
-                  z-index="-1"
-                ></v-overlay>
+                <v-overlay v-if="hover" absolute color="#000000" opacity="0.2" z-index="-1"></v-overlay>
               </v-fade-transition>
             </v-parallax>
           </template>
@@ -117,28 +99,20 @@
                         <span
                           :class="[hover ? 'display-3' : 'display-2']"
                           class="font-weight-regular"
-                          >Singapore</span
-                        >
+                        >Singapore</span>
                         <br />
 
                         <span
                           class="font-weight-light"
                           :class="[hover ? 'display-2' : 'display-1']"
-                          >Asia</span
-                        >
+                        >Asia</span>
                       </v-col>
                     </v-row>
                   </v-container>
                 </v-theme-provider>
               </v-row>
               <v-fade-transition>
-                <v-overlay
-                  v-if="hover"
-                  absolute
-                  color="#000000"
-                  opacity="0.2"
-                  z-index="-1"
-                ></v-overlay>
+                <v-overlay v-if="hover" absolute color="#000000" opacity="0.2" z-index="-1"></v-overlay>
               </v-fade-transition>
             </v-parallax>
           </template>

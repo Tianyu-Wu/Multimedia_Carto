@@ -30,7 +30,15 @@
         <v-stepper-content step="3">
           <ZurichGreen />
         </v-stepper-content>
-        <!-- <v-btn color="amber" dark fab right bottom @click="$vuetify.goTo('#case-studies')">
+        <!-- <v-btn
+          color="amber"
+          dark
+          fab
+          right
+          absolute
+          @click="$vuetify.goTo('#case-studies');show=0"
+          style="bottom: 12px"
+        >
           <v-icon>mdi-chevron-up</v-icon>
         </v-btn>-->
       </v-stepper-items>
@@ -49,6 +57,7 @@ import ZurichGreen from "./Green/Zurich-Green";
 
 export default {
   name: "ZurichMap",
+  // props: ["show"],
   components: {
     ZurichCoverage,
     ZurichFrequency,

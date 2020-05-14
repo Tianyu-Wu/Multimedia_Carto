@@ -3,18 +3,11 @@
     <v-container>
       <div class="py-12"></div>
 
-      <h2 class="display-3 font-weight-bold mb-3">
-        Urban population vs. Mobility
-      </h2>
+      <h2 class="display-3 font-weight-bold mb-3">Urban population vs. Mobility</h2>
       <div class="py-5"></div>
     </v-container>
 
-    <v-img
-      height="500"
-      class="shrink"
-      contain
-      :src="require('../assets/automobile.png')"
-    />
+    <v-img height="400" class="shrink" contain :src="require('../assets/automobile.png')" />
 
     <v-container>
       <div class="title font-weight-light mb-5">
