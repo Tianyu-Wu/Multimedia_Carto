@@ -679,7 +679,6 @@ export default {
         "1980",
         "1970",
         "1960"
-      
       ];
 
       // set up the corresponding toggle button for each layer
@@ -697,7 +696,6 @@ export default {
           e.stopPropagation();
 
           for (var j = 0; j < toggleablePopIds.length; j++) {
-            
             if (clickedLayer === toggleablePopIds[j]) {
               layers.children[j].className = "active";
               self.map.setLayoutProperty(
@@ -718,6 +716,10 @@ export default {
 
         var layers = document.getElementById("menuPop");
         layers.appendChild(link);
+        document
+          .getElementById("menuPop")
+          .querySelectorAll("a")[0]
+          .classList.add("active");
       }
     }
   },
@@ -728,7 +730,6 @@ export default {
 </script>
 
 <style>
-
 .mapboxgl-popup {
   max-width: 400px;
   font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -799,5 +800,4 @@ export default {
   width: 100%;
   height: 700px;
 }
-
 </style>
