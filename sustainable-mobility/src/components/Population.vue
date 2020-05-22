@@ -69,6 +69,7 @@ export default {
         maxZoom: 4,
         minZoom: 1
       });
+      // add hover id
       var hoveredCountryId = null;
       self.map.on("load", function() {
         self.map.addSource("population", {
@@ -398,6 +399,7 @@ export default {
               "#800026"
             ],
             "fill-outline-color": "#800026",
+            //change style for hover function
             "fill-opacity": [
               "case",
               ["boolean", ["feature-state", "hover"], false],
@@ -444,6 +446,7 @@ export default {
           .setHTML(country + " (" + popvalue + "%)")
           .addTo(self.map);
       });
+
       self.map.on("mousemove", "1970", function(e) {
         if (e.features.length > 0) {
           if (id) {
@@ -710,6 +713,10 @@ export default {
 
         var layers = document.getElementById("menuPop");
         layers.appendChild(link);
+        document
+          .getElementById("menuPop")
+          .querySelectorAll("a")[0]
+          .classList.add("active");
       }
     }
   },
