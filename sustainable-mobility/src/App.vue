@@ -79,9 +79,9 @@
       </section>
 
       <section id="background">
-        <Population id="population" />
-        <Demand id="demand" />
-        <Livability id="livability" />
+        <Population />
+        <Demand />
+        <Livability />
       </section>
       <section id="statements">
         <Statements />

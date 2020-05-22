@@ -1,8 +1,9 @@
 <template>
-  <v-container fill-height align="center">
+  <v-container>
     <div class="py-12"></div>
     <h2 class="display-3 font-weight-bold mb-3">Urban Population</h2>
     <div class="py-5"></div>
+
     <v-row cols="12">
       <v-col cols="1">
         <nav id="menuPop"></nav>
@@ -672,7 +673,6 @@ export default {
         "1980",
         "1970",
         "1960"
-      
       ];
 
       // set up the corresponding toggle button for each layer
@@ -690,7 +690,6 @@ export default {
           e.stopPropagation();
 
           for (var j = 0; j < toggleablePopIds.length; j++) {
-            
             if (clickedLayer === toggleablePopIds[j]) {
               layers.children[j].className = "active";
               self.map.setLayoutProperty(
@@ -721,7 +720,6 @@ export default {
 </script>
 
 <style>
-
 .mapboxgl-popup {
   max-width: 400px;
   font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -790,7 +788,6 @@ export default {
 }
 #population {
   width: 100%;
-  height: 700px;
+  height: 600px;
 }
-
 </style>
