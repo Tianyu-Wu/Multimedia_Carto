@@ -38,7 +38,9 @@ export default {
         container: "map_GHG",
         style: "mapbox://styles/mmcartog01/ck9wvlx900sdg1ipcb5t5nd0g",
         center: [14.88, 46.861],
-        zoom: 2.0
+        zoom: 2,
+        maxZoom: 5,
+        minZoom: 2
       });
       console.log(mapboxgl.accessToken);
       console.log(this.map);

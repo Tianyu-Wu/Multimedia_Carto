@@ -50,7 +50,9 @@ export default {
         container: "sg-green",
         style: "mapbox://styles/mapbox/light-v10",
         center: [103.82, 1.35],
-        zoom: 10.5
+        zoom: 10.5,
+        maxZoom: 16,
+        minZoom: 10
       });
       /* Image: An image is loaded and added to the map. */
       self.map.loadImage(park, function(error, image) {
@@ -82,7 +84,8 @@ export default {
           },
           layout: {
             "icon-image": "evCharger_1",
-            "icon-allow-overlap": true
+            "icon-allow-overlap": true,
+            visibility: "visible"
           },
           "source-layer": "EV_SG-92ckmd"
         });
@@ -96,6 +99,9 @@ export default {
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.59f7vld7"
+          },
+          layout: {
+            visibility: "visible"
           },
           "source-layer": "BikesTrails_SG_WGS84-5l2pnc"
         });
@@ -127,7 +133,8 @@ export default {
           },
           layout: {
             "icon-image": "skyGreen_1",
-            "icon-allow-overlap": true
+            "icon-allow-overlap": true,
+            visibility: "visible"
           },
           "source-layer": "SkyGreen_SG_WGS84-3fzuwg"
         });

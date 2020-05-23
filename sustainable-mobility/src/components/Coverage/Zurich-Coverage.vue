@@ -36,7 +36,9 @@ export default {
         container: "zuri-coverage",
         style: "mapbox://styles/mmcartog01/ck9tms1dv0mtl1ipiy8fkgxsa",
         center: [8.551, 47.378],
-        zoom: 11.0
+        zoom: 11.5,
+        maxZoom: 16,
+        minZoom: 10.5
       });
 
       self.map.on("render", () => {

@@ -49,7 +49,9 @@ export default {
         container: "va-green",
         style: "mapbox://styles/mapbox/light-v10",
         center: [-123.12, 49.26],
-        zoom: 11
+        zoom: 11,
+        maxZoom: 16,
+        minZoom: 10.5
       });
       /* Image: An image is loaded and added to the map. */
       self.map.loadImage(park, function(error, image) {
@@ -76,7 +78,8 @@ export default {
           },
           layout: {
             "icon-image": "evCharger_1",
-            "icon-allow-overlap": true
+            "icon-allow-overlap": true,
+            visibility: "visible"
           },
           "source-layer": "EV_VA-dcdl6k"
         });
@@ -90,6 +93,9 @@ export default {
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.6mbilic6"
+          },
+          layout: {
+            visibility: "visible"
           },
           "source-layer": "bikeways_VA-6nwf0n"
         });
@@ -105,7 +111,8 @@ export default {
           },
           layout: {
             "icon-image": "parks_1",
-            "icon-allow-overlap": true
+            "icon-allow-overlap": true,
+            visibility: "visible"
           },
           "source-layer": "Parks_VA-b1d8hw"
         });

@@ -49,7 +49,9 @@ export default {
         container: "zh-green",
         style: "mapbox://styles/mapbox/light-v10",
         center: [8.551, 47.378],
-        zoom: 11.0
+        zoom: 11.5,
+        maxZoom: 16,
+        minZoom: 10.5
       });
 
       /* Image: An image is loaded and added to the map. */
@@ -77,7 +79,8 @@ export default {
           },
           layout: {
             "icon-image": "evCharger_1",
-            "icon-allow-overlap": true
+            "icon-allow-overlap": true,
+            visibility: "visible"
           },
           "source-layer": "EV_ZH-47iw08"
         });
@@ -91,6 +94,9 @@ export default {
           source: {
             type: "vector",
             url: "mapbox://mmcartog01.axgin0r4"
+          },
+          layout: {
+            visibility: "visible"
           },
           "source-layer": "BikesTrails_ZH-0ue0zi"
         });
@@ -106,7 +112,8 @@ export default {
           },
           layout: {
             "icon-image": "parks_1",
-            "icon-allow-overlap": true
+            "icon-allow-overlap": true,
+            visibility: "visible"
           },
           "source-layer": "Parks_ZH-dxjvdc"
         });
