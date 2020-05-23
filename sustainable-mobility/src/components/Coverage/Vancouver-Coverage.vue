@@ -14,7 +14,7 @@
             higher than the remaining area, whereas the the density of stations
             in the other places are relatively low. This also imply that private
             cars seem more pupular there given the low coverage of public
-            transpot.
+            transport.
           </v-card-text>
         </v-card>
       </v-col>
