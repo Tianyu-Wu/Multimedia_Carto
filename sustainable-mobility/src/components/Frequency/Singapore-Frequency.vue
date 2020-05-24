@@ -3,7 +3,7 @@
     <v-row fluid no-gutters align="center">
       <v-col cols="12" md="8">
         <div id="sin-frequency">Map</div>
-      </v-col>
+      </v-col> 
       <v-col cols="6" md="4">
         <v-card class="d-flex flex-column justify-center" shaped height="600">
           <v-card-text>
