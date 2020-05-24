@@ -1,28 +1,27 @@
 <template>
-  <v-container>
-    <div class="py-12"></div>
-    <h2 class="display-3 font-weight-bold mb-3">Urban Population</h2>
-    <div class="py-5"></div>
-
-    <v-row cols="12">
-      <v-col cols="1">
-        <nav id="menuPop"></nav>
-      </v-col>
-
+  <v-card flat>
+    <v-row no-gutters justify="center" align="center">
       <v-col cols="8">
-        <div id="population" class="map pad2">Map</div>
+        <v-card-text>
+          <div id="population">
+            Map Loading
+            <nav id="menuPop"></nav>
+          </div>
+        </v-card-text>
       </v-col>
       <v-col cols="3">
-        <v-card-text class="display-2 font-weight-bold">Urban population through the years</v-card-text>
-        <v-card-text>
+        <v-card-text
+          class="display-2"
+          :class="textcolor"
+        >Driving force 1: The booming urban populations</v-card-text>
+        <v-card-text class="subtitle-1" :class="textcolor">
           In the last few decades there has been a tendency to move from rural
           areas all around the world.
-          <br />
           <br />This map shows this change through the percentage of urban
           population.
           <div class="py-5"></div>
 
-          <h2 class="font-weight-regular">Percentage of Urban Population (%)</h2>
+          <h2 class="font-weight-regular" :class="textcolor">Percentage of Urban Population (%)</h2>
           <v-row>
             <v-col>
               <div class="legend-row legend-bar center"></div>
@@ -31,20 +30,20 @@
           <v-row>
             <v-col>
               <div class="legend-row labels d-flex justify-space-between">
-                <div class="label">0</div>
-                <div class="label">25</div>
-                <div class="label">50</div>
-                <div class="label">75</div>
-                <div class="label">100</div>
+                <div class="label" :class="textcolor">0</div>
+                <div class="label" :class="textcolor">25</div>
+                <div class="label" :class="textcolor">50</div>
+                <div class="label" :class="textcolor">75</div>
+                <div class="label" :class="textcolor">100</div>
               </div>
             </v-col>
           </v-row>
           <div class="py-3"></div>
-          <span>Note: the countries in black do not have available data.</span>
+          <span :class="textcolor">Note: the countries in black do not have available data.</span>
         </v-card-text>
       </v-col>
     </v-row>
-  </v-container>
+  </v-card>
 </template>
 
 <script>
@@ -52,6 +51,10 @@ import { mapboxgl } from "@/main";
 
 export default {
   name: "Population",
+  props: {
+    color: String,
+    textcolor: String
+  },
   data: () => ({
     map: null
   }),
@@ -736,7 +739,7 @@ export default {
   position: relative;
   z-index: 1;
   top: 0px;
-  right: 10px;
+  left: 10px;
   border-radius: 3px;
   width: 80px;
   border: 1px solid rgba(0, 0, 0, 0.4);

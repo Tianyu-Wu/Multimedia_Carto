@@ -2,15 +2,16 @@
   <v-card flat :class="color">
     <v-row no-gutters justify="center" align="center">
       <v-col cols="3">
-        <v-card-text class="display-2" :class="textcolor">Increasing demand for passenger transport</v-card-text>
+        <v-card-text class="display-2" :class="textcolor">Driving force 2: Increasing GDP worldwide</v-card-text>
         <v-card-text class="subtitle-1" :class="textcolor">
+          From 1960s, the world's GDP has grown steadily from 1.37 Trillion US Dollar to nearly 86 Trillion US Dollar.
           <br />
-          <br />According to the prediction by ITF in their annual report Transport Outlook 2019, the demand for passenger transport is expected to grow in all modes of transportation.
+          <br />The economic growth worldwide plays an essential role for the soaring demand for transportation not just regionally but internationally.
           <div class="py-5"></div>
         </v-card-text>
       </v-col>
       <v-col cols="8">
-        <GChart type="BarChart" @ready="onChartReady" />
+        <GChart id="gdp-chart" type="LineChart" @ready="onChartReady" />
       </v-col>
     </v-row>
   </v-card>
@@ -31,25 +32,25 @@ export default {
     onChartReady(chart, google) {
       let self = this;
       const query = new google.visualization.Query(
-        "https://docs.google.com/spreadsheets/d/1j-5LNLYUShev1fIwUmtqLW96z25hUeNMG4AMJwQnidU/edit?usp=sharing"
+        "https://docs.google.com/spreadsheets/d/1lARrVYXNGqIRp6PxEp60PzfhWSr5xdXxJycsDEI5x30/edit?usp=sharing"
       );
       query.send(response => {
         const options = {
           // some custom options
-          title: "Demand for passenger transport by mode",
-          isStacked: true,
+          title: "World GDP in US Dollars",
           titleTextStyle: {
             color: self.textcolor
           },
           height: 600,
+          legend: "none",
           backgroundColor: self.color,
           vAxis: {
+            format: "currency",
             textStyle: {
               color: self.textcolor
             }
           },
           hAxis: {
-            title: "Billion passenger-kilometres",
             textStyle: {
               color: self.textcolor
             }
@@ -64,3 +65,6 @@ export default {
   mounted() {}
 };
 </script>
+
+<style>
+</style>

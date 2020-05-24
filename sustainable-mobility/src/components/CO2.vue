@@ -1,16 +1,17 @@
 <template>
   <v-card flat :class="color">
     <v-row no-gutters justify="center" align="center">
+      <v-col cols="8">
+        <GChart type="AreaChart" @ready="onChartReady" />
+      </v-col>
       <v-col cols="3">
-        <v-card-text class="display-2" :class="textcolor">Increasing demand for passenger transport</v-card-text>
+        <v-card-text class="display-2" :class="textcolor">Carbon-intensive transport</v-card-text>
         <v-card-text class="subtitle-1" :class="textcolor">
+          With the development of transportation worldwide, transport-induced emission has become the major source of GHG emission. According to WWF (2020), around one-quarter of global CO2 emissions come from the transportation of people and goods. This number continues to grow now.
           <br />
-          <br />According to the prediction by ITF in their annual report Transport Outlook 2019, the demand for passenger transport is expected to grow in all modes of transportation.
+          <br />Inevitably, transportation development follows a carbon-intensive way up until recently.
           <div class="py-5"></div>
         </v-card-text>
-      </v-col>
-      <v-col cols="8">
-        <GChart type="BarChart" @ready="onChartReady" />
       </v-col>
     </v-row>
   </v-card>
@@ -31,12 +32,12 @@ export default {
     onChartReady(chart, google) {
       let self = this;
       const query = new google.visualization.Query(
-        "https://docs.google.com/spreadsheets/d/1j-5LNLYUShev1fIwUmtqLW96z25hUeNMG4AMJwQnidU/edit?usp=sharing"
+        "https://docs.google.com/spreadsheets/d/1EFUlfPIvzGkztvoxXd1CKPHEl7TRiAhqB2f4OOFbYzc/edit?usp=sharing&range=A5:J11"
       );
       query.send(response => {
         const options = {
           // some custom options
-          title: "Demand for passenger transport by mode",
+          title: "CO2 emission by sector",
           isStacked: true,
           titleTextStyle: {
             color: self.textcolor
@@ -44,12 +45,12 @@ export default {
           height: 600,
           backgroundColor: self.color,
           vAxis: {
+            title: "MT CO2",
             textStyle: {
               color: self.textcolor
             }
           },
           hAxis: {
-            title: "Billion passenger-kilometres",
             textStyle: {
               color: self.textcolor
             }
