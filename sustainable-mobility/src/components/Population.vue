@@ -1,11 +1,11 @@
 <template>
-  <v-card flat>
+  <div>
     <v-row no-gutters justify="center" align="center">
       <v-col cols="8">
         <v-card-text>
-          <div id="population">
+          <div id="population" class="map pad2">
             Map Loading
-            <nav id="menuPop"></nav>
+            <div id="menuPop"></div>
           </div>
         </v-card-text>
       </v-col>
@@ -24,7 +24,7 @@
           <h2 class="font-weight-regular" :class="textcolor">Percentage of Urban Population (%)</h2>
           <v-row>
             <v-col>
-              <div class="legend-row legend-bar center"></div>
+              <div class="legend-row legend-bar-pop center"></div>
             </v-col>
           </v-row>
           <v-row>
@@ -43,7 +43,7 @@
         </v-card-text>
       </v-col>
     </v-row>
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -51,10 +51,6 @@ import { mapboxgl } from "@/main";
 
 export default {
   name: "Population",
-  props: {
-    color: String,
-    textcolor: String
-  },
   data: () => ({
     map: null
   }),
@@ -66,7 +62,7 @@ export default {
       let self = this;
       self.map = new mapboxgl.Map({
         container: "population",
-        style: "mapbox://styles/mapbox/light-v10", 
+        style: "mapbox://styles/mapbox/light-v10",
         center: [0, 0],
         zoom: 2,
         maxZoom: 4,
@@ -635,7 +631,7 @@ export default {
               },
               { hover: false }
             );
-          } 
+          }
           hoveredCountryId = e.features[0].id;
           self.map.setFeatureState(
             {
@@ -736,9 +732,9 @@ export default {
 }
 #menuPop {
   background: #fff;
-  position: relative;
+  position: absolute;
   z-index: 1;
-  top: 0px;
+  top: 10px;
   left: 10px;
   border-radius: 3px;
   width: 80px;
@@ -780,7 +776,7 @@ export default {
   width: 90%;
   height: 12px;
 }
-.legend-bar {
+.legend-bar-pop {
   height: 10px;
   width: 100%;
   background: linear-gradient(

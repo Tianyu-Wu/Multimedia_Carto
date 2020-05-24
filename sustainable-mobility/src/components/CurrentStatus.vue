@@ -5,9 +5,9 @@
         <v-card-text
           class="display-2"
           :class="textcolor"
-        >Transpot-related carbon emission per capita</v-card-text>
+        >Transport-related carbon emission per capita</v-card-text>
         <v-card-text class="subtitle-1" :class="textcolor">
-          This map displays the transpot-related carbon emission per capita. It
+          This map displays the transport-related carbon emission per capita. It
           can be seen that the GHG per capita in developed countries is generally higher than what it is in developing countries. However, it is
           interesting that GHG per capita in North America is significantly higher
           than Europe, despite that both are developed regions.
@@ -19,7 +19,7 @@
           >Green House Gas Emissions per Capita (tons)</h2>
           <v-row>
             <v-col>
-              <div class="legend-row legend-bar center"></div>
+              <div class="legend-row legend-bar-ghg center"></div>
             </v-col>
           </v-row>
           <v-row>
@@ -160,7 +160,7 @@ export default {
   height: 12px;
 }
 /* TBD, how to change the color bar per to the map */
-.legend-bar {
+.legend-bar-ghg {
   height: 10px;
   width: 100%;
   background: linear-gradient(to right, #b4d13d, #f40101);
