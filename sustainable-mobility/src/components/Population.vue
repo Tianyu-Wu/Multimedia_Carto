@@ -66,7 +66,7 @@ export default {
       let self = this;
       self.map = new mapboxgl.Map({
         container: "population",
-        style: "mapbox://styles/mapbox/light-v10",
+        style: "mapbox://styles/mapbox/light-v10", 
         center: [0, 0],
         zoom: 2,
         maxZoom: 4,
@@ -635,7 +635,7 @@ export default {
               },
               { hover: false }
             );
-          }
+          } 
           hoveredCountryId = e.features[0].id;
           self.map.setFeatureState(
             {
