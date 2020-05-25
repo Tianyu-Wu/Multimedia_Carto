@@ -21,6 +21,13 @@
 
 <script>
 export default {
-  name: "Statements"
+  name: "Statements",
+  props: {
+    color: String,
+    textcolor: {
+      type: String,
+      default: null
+    }
+  }
 };
 </script>

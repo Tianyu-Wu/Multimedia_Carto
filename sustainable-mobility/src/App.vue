@@ -52,14 +52,18 @@
       <Statements />
 
       <base-divider v-bind="overview" />
-      <Overview v-bind="overview" />
+      <Overview />
+
+      <base-divider id="case-studies" v-bind="cases" />
+      <CaseStudies />
+
+      <base-divider id="comparative" v-bind="compare" />
+      <ComparativeStudies />
 
       <section id="background"></section>
       <section id="statements"></section>
       <section id="current-status"></section>
-      <section id="case-studies">
-        <CaseStudies />
-      </section>
+      <section id></section>
       <section id="summary">
         <Summary />
       </section>
@@ -80,6 +84,7 @@ import Statements from "./components/Statements";
 import CurrentStatus from "./components/CurrentStatus";
 import Overview from "./components/Overview";
 import CaseStudies from "./components/CaseStudies";
+import ComparativeStudies from "./components/ComparativeStudies";
 import Summary from "./components/Summary";
 import BaseDivider from "./components/Layouts/Divider";
 
@@ -97,6 +102,7 @@ export default {
     CurrentStatus,
     Overview,
     CaseStudies,
+    ComparativeStudies,
     Summary,
     BaseDivider
   },
@@ -165,6 +171,20 @@ export default {
       heading: "Overview of global sustainable mobility",
       subheading:
         "Assessing how countries and world are establishing their sustainable mobility systems through the three pillars: coverage, accessibility, and sustainability.",
+      textcolor: "blue-grey--text text--darken-4"
+    },
+    cases: {
+      color: "blue-grey darken-4",
+      heading: "Case studies of sustainable mobility",
+      subheading:
+        "Explore regional solutions towards sustainable mobility from the perspective of coverage, accessibility, and sustainability.",
+      textcolor: "blue-grey--text text--lighten-5"
+    },
+    compare: {
+      color: "blue-grey lighten-5",
+      heading: "Comparative studies",
+      subheading:
+        "Comparing how are the transportation systems of the three selected cities different from each other.",
       textcolor: "blue-grey--text text--darken-4"
     }
   })

@@ -3,25 +3,25 @@
     <v-row fluid no-gutters align="center">
       <v-col cols="12" md="8">
         <div id="sin-frequency">Map</div>
-      </v-col> 
+      </v-col>
       <v-col cols="6" md="4">
-        <v-card class="d-flex flex-column justify-center" shaped height="600">
+        <v-card flat class="d-flex flex-column justify-center" height="600">
           <v-card-text>
             <h2 class="display-2 font-weight-bold">Passenger Volume</h2>
             <div class="py-5"></div>
 
-            <span
-              >The passenger volume of Singapore is retrieved from the official
+            <span>
+              The passenger volume of Singapore is retrieved from the official
               Land Transport DataMall by Singapore government. The data is
-              updated on a monthly basis.</span
-            >
+              updated on a monthly basis.
+            </span>
             <div class="py-3"></div>
 
-            <span
-              >Among the all three cities that we studied, Singapore shows the
+            <span>
+              Among the all three cities that we studied, Singapore shows the
               largest passenger volume with daily weekday boardings mostly over
-              10000.</span
-            >
+              10000.
+            </span>
             <div class="py-5"></div>
 
             <h2 class="font-weight-regular">Average Weekday Boardings</h2>
@@ -43,10 +43,10 @@
             </v-row>
             <div class="py-3"></div>
 
-            <span
-              >Note: the black dots locates the stops without available
-              passenger volume data.</span
-            >
+            <span>
+              Note: the black dots locates the stops without available
+              passenger volume data.
+            </span>
           </v-card-text>
         </v-card>
       </v-col>
@@ -127,7 +127,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #sin-frequency {
   width: 100%;
   height: 600px;

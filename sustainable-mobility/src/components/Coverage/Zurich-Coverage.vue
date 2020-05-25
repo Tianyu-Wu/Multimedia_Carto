@@ -5,18 +5,18 @@
         <div id="zuri-coverage">Map</div>
       </v-col>
       <v-col cols="6" md="4">
-        <v-card class="d-flex flex-column justify-center" shaped height="600">
+        <v-card flat class="d-flex flex-column justify-center" height="600">
           <v-card-text>
             <h2 class="display-2 font-weight-bold">Coverage</h2>
             <div class="py-5"></div>
 
-            <span
-              >The public transport in Zurich covers almost every place of the city
-            with similar levels. The coverage of public transport in the
-            downtown is slightly higher than the remaining area, and there are
-            multiple transport centers in Zurich.</span
-            >
-            
+            <span>
+              The public transport in Zurich covers almost every place of the city
+              with similar levels. The coverage of public transport in the
+              downtown is slightly higher than the remaining area, and there are
+              multiple transport centers in Zurich.
+            </span>
+
             <div class="py-5"></div>
 
             <h2 class="font-weight-regular">Transport Coverage Levels</h2>
@@ -35,11 +35,11 @@
             </v-row>
             <div class="py-3"></div>
 
-            <span
-              >Note: the levels are reclassified from the kernel density of public transport 
-              stations, and the area unit of density is based on the linear unit of the spatial 
-              reference WGS84</span
-            >
+            <span>
+              Note: the levels are reclassified from the kernel density of public transport
+              stations, and the area unit of density is based on the linear unit of the spatial
+              reference WGS84
+            </span>
           </v-card-text>
         </v-card>
       </v-col>
@@ -77,7 +77,7 @@ export default {
           },
           "source-layer": "zuri_js-9tharc",
           paint: {
-            "fill-color":[
+            "fill-color": [
               "interpolate",
               ["exponential", 0.9],
               ["get", "GRIDCODE"],
@@ -105,36 +105,34 @@ export default {
         closeOnClick: false
       });
 
-      self.map.on('mousemove', 'zuri-coverageLayer', function(e) {
-
+      self.map.on("mousemove", "zuri-coverageLayer", function(e) {
         /* TBD, highlight the hovered feature */
 
         // Change the cursor style as a UI indicator.
-        self.map.getCanvas().style.cursor = 'pointer';
-        
+        self.map.getCanvas().style.cursor = "pointer";
+
         // Get the pop up value
         var popvalue = e.features[0].properties.GRIDCODE;
-        
+
         // Populate the popup and set its coordinates
         // based on the feature found.
-        if(popvalue != null && popvalue != 0){
+        if (popvalue != null && popvalue != 0) {
           popup
-          .setLngLat(e.lngLat)
-          .setHTML("Coverage level: " + popvalue)
-          .addTo(self.map);
-        }else{
+            .setLngLat(e.lngLat)
+            .setHTML("Coverage level: " + popvalue)
+            .addTo(self.map);
+        } else {
           popup
-          .setLngLat(e.lngLat)
-          .setHTML("Data not available")
-          .addTo(self.map);
+            .setLngLat(e.lngLat)
+            .setHTML("Data not available")
+            .addTo(self.map);
         }
-        
-        self.map.on('mouseleave', 'zuri-coverageLayer', function() {
-          self.map.getCanvas().style.cursor = '';
+
+        self.map.on("mouseleave", "zuri-coverageLayer", function() {
+          self.map.getCanvas().style.cursor = "";
           popup.remove();
         });
       });
-
 
       self.map.on("render", () => {
         self.map.resize();
@@ -147,7 +145,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #zuri-coverage {
   width: 100%;
   height: 600px;
@@ -158,10 +156,6 @@ export default {
 }
 
 .legend-color {
-  background: linear-gradient(
-    to right,
-    #b8d0db,
-    #066aa7
-  );
+  background: linear-gradient(to right, #b8d0db, #066aa7);
 }
 </style>

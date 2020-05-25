@@ -5,19 +5,18 @@
         <div id="van-coverage">Map</div>
       </v-col>
       <v-col cols="6" md="4">
-        <v-card class="d-flex flex-column justify-center" shaped height="600">
-
+        <v-card flat class="d-flex flex-column justify-center" height="600">
           <v-card-text>
             <h2 class="display-2 font-weight-bold">Coverage</h2>
             <div class="py-5"></div>
 
-            <span
-              >The transport coverage in the downtown of Vancouver is significantly
-            higher than the remaining area, where the transport coverage is relatively 
-            low. This also implies that private cars seem more pupular there given the 
-            low coverage of public transport.</span
-            >
-            
+            <span>
+              The transport coverage in the downtown of Vancouver is significantly
+              higher than the remaining area, where the transport coverage is relatively
+              low. This also implies that private cars seem more pupular there given the
+              low coverage of public transport.
+            </span>
+
             <div class="py-5"></div>
 
             <h2 class="font-weight-regular">Transport Coverage Levels</h2>
@@ -36,11 +35,11 @@
             </v-row>
             <div class="py-3"></div>
 
-            <span
-              >Note: the levels are reclassified from the kernel density of public transport 
-              stations, and the area unit of density is based on the linear unit of the spatial 
-              reference WGS84</span
-            >
+            <span>
+              Note: the levels are reclassified from the kernel density of public transport
+              stations, and the area unit of density is based on the linear unit of the spatial
+              reference WGS84
+            </span>
           </v-card-text>
         </v-card>
       </v-col>
@@ -78,7 +77,7 @@ export default {
           },
           "source-layer": "van_js-0v8vtm",
           paint: {
-            "fill-color":[
+            "fill-color": [
               "interpolate",
               ["exponential", 0.9],
               ["get", "gridcode"],
@@ -106,32 +105,31 @@ export default {
         closeOnClick: false
       });
 
-      self.map.on('mousemove', 'van-coverageLayer', function(e) {
-
+      self.map.on("mousemove", "van-coverageLayer", function(e) {
         /* TBD, highlight the hovered feature */
 
         // Change the cursor style as a UI indicator.
-        self.map.getCanvas().style.cursor = 'pointer';
-        
+        self.map.getCanvas().style.cursor = "pointer";
+
         // Get the pop up value
         var popvalue = e.features[0].properties.gridcode;
-        
+
         // Populate the popup and set its coordinates
         // based on the feature found.
-        if(popvalue != null && popvalue != 0){
+        if (popvalue != null && popvalue != 0) {
           popup
-          .setLngLat(e.lngLat)
-          .setHTML("Coverage level: " + popvalue)
-          .addTo(self.map);
-        }else{
+            .setLngLat(e.lngLat)
+            .setHTML("Coverage level: " + popvalue)
+            .addTo(self.map);
+        } else {
           popup
-          .setLngLat(e.lngLat)
-          .setHTML("Data not available")
-          .addTo(self.map);
+            .setLngLat(e.lngLat)
+            .setHTML("Data not available")
+            .addTo(self.map);
         }
-        
-        self.map.on('mouseleave', 'van-coverageLayer', function() {
-          self.map.getCanvas().style.cursor = '';
+
+        self.map.on("mouseleave", "van-coverageLayer", function() {
+          self.map.getCanvas().style.cursor = "";
           popup.remove();
         });
       });
@@ -139,7 +137,6 @@ export default {
       self.map.on("render", () => {
         self.map.resize();
       });
-
     }
   },
   mounted() {
@@ -148,7 +145,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #van-coverage {
   width: 100%;
   height: 600px;
@@ -159,10 +156,6 @@ export default {
 }
 
 .legend-color {
-  background: linear-gradient(
-    to right,
-    #b8d0db,
-    #066aa7
-  );
+  background: linear-gradient(to right, #b8d0db, #066aa7);
 }
 </style>

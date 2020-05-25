@@ -1,33 +1,33 @@
 <template>
   <div>
-    <v-container>
-      <div class="py-12"></div>
-
-      <h2 class="display-3 font-weight-bold mb-3">Vancouver - North America</h2>
-      <!-- <div class="py-5"></div> -->
-    </v-container>
     <v-stepper non-linear>
       <v-stepper-header>
-        <v-stepper-step editable step="1">Coverage</v-stepper-step>
+        <v-stepper-step step="1" editable>Features</v-stepper-step>
+        <v-divider></v-divider>
+
+        <v-stepper-step editable step="2">Coverage</v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step editable step="2">Passenger Volume</v-stepper-step>
+        <v-stepper-step editable step="3">Passenger Volume</v-stepper-step>
 
         <v-divider></v-divider>
 
-        <v-stepper-step step="3" editable>Green</v-stepper-step>
+        <v-stepper-step step="4" editable>Green</v-stepper-step>
       </v-stepper-header>
       <v-stepper-items>
         <v-stepper-content step="1">
+          <base-features v-bind="features" />
+        </v-stepper-content>
+        <v-stepper-content step="2">
           <VancouverCoverage />
         </v-stepper-content>
 
-        <v-stepper-content step="2">
+        <v-stepper-content step="3">
           <VancouverFrequency />
         </v-stepper-content>
 
-        <v-stepper-content step="3">
+        <v-stepper-content step="4">
           <VancouverGreen />
         </v-stepper-content>
       </v-stepper-items>
@@ -39,13 +39,23 @@
 import VancouverCoverage from "./Coverage/Vancouver-Coverage";
 import VancouverFrequency from "./Frequency/Vancouver-Frequency";
 import VancouverGreen from "./Green/Vancouver-Green";
+import BaseFeatures from "./Layouts/Features";
 
 export default {
   name: "VancouverMap",
   components: {
     VancouverCoverage,
     VancouverFrequency,
-    VancouverGreen
-  }
+    VancouverGreen,
+    BaseFeatures
+  },
+  data: () => ({
+    features: {
+      color: null,
+      heading: "Vancouver - North America",
+      subheading: "Great ambition towards sustainable city.",
+      textcolor: "blue-grey--text text--darken-4"
+    }
+  })
 };
 </script>
