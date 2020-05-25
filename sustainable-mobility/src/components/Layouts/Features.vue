@@ -41,7 +41,11 @@
                   }}</span>
                   / 100
                 </v-card-text>
+<<<<<<< HEAD
                 <v-card-text class="title font-weight-light aspects ">
+=======
+                <v-card-text class="title font-weight-light aspects">
+>>>>>>> 4deeb8a7171b93255d0d9c9a3ec58bd3f3efc876
                   Rank
                   <span class="headline font-weight-light">{{
                     ranking[0]
