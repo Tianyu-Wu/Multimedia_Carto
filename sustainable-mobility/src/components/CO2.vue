@@ -5,11 +5,17 @@
         <GChart type="AreaChart" @ready="onChartReady" />
       </v-col>
       <v-col cols="3">
-        <v-card-text class="display-2" :class="textcolor">Carbon-intensive transport</v-card-text>
+        <v-card-text class="display-2" :class="textcolor"
+          >Carbon-intensive transport</v-card-text
+        >
         <v-card-text class="subtitle-1" :class="textcolor">
-          With the development of transportation worldwide, transport-induced emission has become the major source of GHG emission. According to WWF (2020), around one-quarter of global CO2 emissions come from the transportation of people and goods. This number continues to grow now.
+          With the development of transportation worldwide, transport-induced
+          emission has become the major source of GHG emission. According to WWF
+          (2020), around one-quarter of global CO2 emissions come from the
+          transportation of people and goods. This number continues to grow now.
           <br />
-          <br />Inevitably, transportation development follows a carbon-intensive way up until recently.
+          <br />Inevitably, transportation development follows a
+          carbon-intensive way up until recently.
           <div class="py-5"></div>
         </v-card-text>
       </v-col>

@@ -12,27 +12,39 @@
             <v-card flat color="blue-grey darken-4">
               <v-card-title>Map</v-card-title>
               <v-card-text>
-                {{population.title}}:
-                <a href="population.link">{{population.link}}</a>
+                {{ population.title }}:
+                <a href="population.link">{{ population.link }}</a>
               </v-card-text>
               <v-card-text>
-                {{ghg.title}}:
-                <a href="ghg.link">{{ghg.link}}</a>
+                {{ ghg.title }}:
+                <a href="ghg.link">{{ ghg.link }}</a>
               </v-card-text>
-              <v-card-text>{{coverage.title}}: {{coverage.link}}</v-card-text>
+              <v-card-text
+                >{{ coverage.title }}: {{ coverage.link }}</v-card-text
+              >
               <v-card-text>
                 Passenger volume:
                 <v-row>
-                  <v-col class="inline" v-for="(p,i) in passenger" :key="i" cols="12">
-                    <a href="p">{{p}}</a>
+                  <v-col
+                    class="inline"
+                    v-for="(p, i) in passenger"
+                    :key="i"
+                    cols="12"
+                  >
+                    <a href="p">{{ p }}</a>
                   </v-col>
                 </v-row>
               </v-card-text>
               <v-card-text>
                 Green mobility:
                 <v-row>
-                  <v-col class="inline" v-for="(g,i) in green" :key="i" cols="12">
-                    <a href="g">{{g}}</a>
+                  <v-col
+                    class="inline"
+                    v-for="(g, i) in green"
+                    :key="i"
+                    cols="12"
+                  >
+                    <a href="g">{{ g }}</a>
                   </v-col>
                 </v-row>
               </v-card-text>
@@ -41,16 +53,18 @@
           <v-col cols="6">
             <v-card flat color="blue-grey darken-4">
               <v-card-title>Images</v-card-title>
-              <v-card-text v-for="({title,link},i) in images" :key="i">{{title}}: {{link}}</v-card-text>
+              <v-card-text v-for="({ title, link }, i) in images" :key="i"
+                >{{ title }}: {{ link }}</v-card-text
+              >
             </v-card>
             <div class="py-2"></div>
 
             <v-divider></v-divider>
             <v-card flat color="blue-grey darken-4">
               <v-card-title>Charts</v-card-title>
-              <v-card-text v-for="({title,link},i) in charts" :key="i">
-                {{title}}:
-                <a href>{{link}}</a>
+              <v-card-text v-for="({ title, link }, i) in charts" :key="i">
+                {{ title }}:
+                <a href>{{ link }}</a>
               </v-card-text>
             </v-card>
           </v-col>

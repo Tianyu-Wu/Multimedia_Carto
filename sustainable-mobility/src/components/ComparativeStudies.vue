@@ -1,12 +1,17 @@
 <template>
   <div class="pa-4">
     <v-row class="align-center">
-      <template v-for="({name,icolor,icon}, i) in aspects">
+      <template v-for="({ name, icolor, icon }, i) in aspects">
         <v-col
           :key="i"
           cols="12"
           md="4"
-          @click="show==i+1 ? show=0:((show = 1+i), $vuetify.goTo('#comparative', { offset: -250 }) )"
+          @click="
+            show == i + 1
+              ? (show = 0)
+              : ((show = 1 + i),
+                $vuetify.goTo('#comparative', { offset: -250 }))
+          "
         >
           <v-hover v-slot:default="{ hover }">
             <v-card
@@ -14,14 +19,17 @@
               class="d-flex justify-center align-center"
               :elevation="hover ? 12 : 2"
               :class="{ 'on-hover': hover }"
-              :height="show==i+1 ? 300: 270"
+              :height="show == i + 1 ? 300 : 270"
             >
               <v-theme-provider dark>
                 <div align="center">
                   <v-avatar size="100px">
                     <v-icon size="100px" v-text="icon"></v-icon>
                   </v-avatar>
-                  <v-card-title class="justify-center white--text display-2" v-text="name"></v-card-title>
+                  <v-card-title
+                    class="justify-center white--text display-2"
+                    v-text="name"
+                  ></v-card-title>
                 </div>
               </v-theme-provider>
             </v-card>

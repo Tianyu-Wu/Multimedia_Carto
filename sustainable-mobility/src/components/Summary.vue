@@ -5,7 +5,9 @@
     <v-container class="justify-center">
       <v-row no-gutters align="center" justify="space-between">
         <v-col cols="4">
-          <v-card-text class="display-2">Checkout more in the video!</v-card-text>
+          <v-card-text class="display-2"
+            >Checkout more in the video!</v-card-text
+          >
         </v-col>
         <v-col cols="8" align="right">
           <iframe

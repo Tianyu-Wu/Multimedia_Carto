@@ -15,22 +15,15 @@
           <v-card-text>
             In broad terms Green Mobility is a way to reduce the impact of
             mobility in differnt aspects:
-            <br />Greenhouse gas (GHG) emissions
-            <br />Air pollution
-            <br />Energy consume
-            <br />Noise
-            <br />Traffic congestion
+            <br />Greenhouse gas (GHG) emissions <br />Air pollution
+            <br />Energy consume <br />Noise <br />Traffic congestion
           </v-card-text>
           <v-card-text>
             One way to achieve it is the use of using differnt transpotation
             methods like electric vehicles and bikes.
             <br />In this map we will see part of the infrastructure that
-            Singapore has in the ambit of Green mobility.
-            <br />ELectric vehicle
-            chargers
-            <br />Bike trials
-            <br />Green areas
-            <br />Sky green areas
+            Singapore has in the ambit of Green mobility. <br />ELectric vehicle
+            chargers <br />Bike trials <br />Green areas <br />Sky green areas
           </v-card-text>
         </v-card>
       </v-col>
@@ -193,7 +186,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 #sin-menu {
   background: #fff;
   position: relative;

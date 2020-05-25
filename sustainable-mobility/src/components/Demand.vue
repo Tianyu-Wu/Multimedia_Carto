@@ -2,10 +2,15 @@
   <v-card flat :class="color">
     <v-row no-gutters justify="center" align="center">
       <v-col cols="3">
-        <v-card-text class="display-2" :class="textcolor">Increasing demand for passenger transport</v-card-text>
+        <v-card-text class="display-2" :class="textcolor"
+          >Increasing demand for passenger transport</v-card-text
+        >
         <v-card-text class="subtitle-1" :class="textcolor">
           <br />
-          <br />According to the prediction by International Transport Forum (ITF) in their annual report Transport Outlook 2019, the demand for passenger transport is expected to grow in all modes of transportation.
+          <br />According to the prediction by International Transport Forum
+          (ITF) in their annual report Transport Outlook 2019, the demand for
+          passenger transport is expected to grow in all modes of
+          transportation.
           <div class="py-5"></div>
         </v-card-text>
       </v-col>
