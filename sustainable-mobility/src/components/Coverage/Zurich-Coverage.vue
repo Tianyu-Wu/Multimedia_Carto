@@ -29,16 +29,16 @@
               <v-col>
                 <div class="legend-row labels d-flex justify-space-between">
                   <div class="label">1</div>
-                  <div class="label">14</div>
+                  <div class="label">10</div>
                 </div>
               </v-col>
             </v-row>
             <div class="py-3"></div>
 
             <span
-              >Note: the levels are reclassified from the kernel density of public transport 
-              stations, and the area unit of density is based on the linear unit of the spatial 
-              reference WGS84</span
+              >Note: the coverage levels of all the three cities are reclassified from kernel densities 
+              using same intervals. Area unit of the density is based on the linear unit of the spatial 
+              reference WGS84.</span
             >
           </v-card-text>
         </v-card>
@@ -67,15 +67,20 @@ export default {
         minZoom: 10.5
       });
 
+      //add hover id
+      var hoveredCountryId = null;
       self.map.on("style.load", function() {
+        self.map.addSource("zuri-coverage", {
+          type: "vector",
+          url: "mapbox://mmcartog01.budj8s28",
+          "source-layer": "zurikd-13pepo",
+          generateId: true
+        });
         self.map.addLayer({
           id: "zuri-coverageLayer",
           type: "fill",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.1ivwr4hh"
-          },
-          "source-layer": "zuri_js-9tharc",
+          source: "zuri-coverage",
+          "source-layer": "zurikd-13pepo",
           paint: {
             "fill-color":[
               "interpolate",
@@ -83,14 +88,14 @@ export default {
               ["get", "GRIDCODE"],
               1,
               "hsl(199, 33%, 79%)",
-              14,
+              10,
               "hsl(203, 93%, 34%)"
             ],
             "fill-outline-color": "#788186",
             "fill-opacity": [
               "case",
               ["boolean", ["feature-state", "hover"], false],
-              0.9,
+              1,
               0.7
             ],
             "fill-antialias": true
@@ -107,8 +112,28 @@ export default {
 
       self.map.on('mousemove', 'zuri-coverageLayer', function(e) {
 
-        /* TBD, highlight the hovered feature */
-
+         /* highlight the hovered feature */
+        if (e.features.length > 0) {
+          if (e.features[0].id != hoveredCountryId) {
+            self.map.setFeatureState(
+              {
+                source: "zuri-coverage",
+                sourceLayer: "zurikd-13pepo",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "zuri-coverage",
+              sourceLayer: "zurikd-13pepo",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
         // Change the cursor style as a UI indicator.
         self.map.getCanvas().style.cursor = 'pointer';
         

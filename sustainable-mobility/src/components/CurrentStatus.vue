@@ -59,7 +59,6 @@ export default {
       let self = this;
       self.map = new mapboxgl.Map({
         container: "map_GHG",
-        //style: "mapbox://styles/mmcartog01/ck9wvlx900sdg1ipcb5t5nd0g",
         style: "mapbox://styles/mapbox/light-v10",
         center: [14.88, 46.861],
         zoom: 2,
@@ -68,12 +67,12 @@ export default {
       });
 
       //add hover id
-      //var hoveredCountryId = null;
+      var hoveredCountryId = null;
       self.map.on("load", function() {
         self.map.addSource("map_GHG", {
           type: "vector",
-          url: "mapbox://mmcartog01.4nkjdjdi",
-          "source-layer": "globalMobility_js-a0sots",
+          url: "mapbox://mmcartog01.26rz0kgv",
+          "source-layer": "globalMobilityGHG-d80ps0",
           generateId: true
         });
         self.map.addLayer({
@@ -83,13 +82,13 @@ export default {
             visibility: "visible"
           },
           source: "map_GHG",
-          "source-layer": "globalMobility_js-a0sots",
+          "source-layer": "globalMobilityGHG-d80ps0",
           paint: {
             "fill-color": [
               "interpolate",
               ["exponential", 0.75],
-              ["get", "GHGperCa_2"],
-              0,
+              ["get", "Value"],
+              0.045,
               "hsl(72, 62%, 53%)",
               9.622,
               "hsl(0, 99%, 48%)"
@@ -98,7 +97,7 @@ export default {
             "fill-opacity": [
               "case",
               ["boolean", ["feature-state", "hover"], false],
-              0.9,
+              1,
               0.7
             ],
             "fill-antialias": true
@@ -114,14 +113,35 @@ export default {
       });
 
       self.map.on("mousemove", "GHG", function(e) {
-        /* TBD, highlight the hovered feature */
+        /* highlight the hovered feature */
+        if (e.features.length > 0) {
+          if (e.features[0].id != hoveredCountryId) {
+            self.map.setFeatureState(
+              {
+                source: "map_GHG",
+                sourceLayer: "globalMobilityGHG-d80ps0",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "map_GHG",
+              sourceLayer: "globalMobilityGHG-d80ps0",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
 
         // Change the cursor style as a UI indicator.
         self.map.getCanvas().style.cursor = "pointer";
 
         // var coordinates = e.features[0].geometry.coordinates.slice();
         var country = e.features[0].properties.CNTRY_NAME;
-        var popvalue = e.features[0].properties.GHGperCa_2;
+        var popvalue = e.features[0].properties.Value;
 
         // Populate the popup and set its coordinates
         // based on the feature found.
