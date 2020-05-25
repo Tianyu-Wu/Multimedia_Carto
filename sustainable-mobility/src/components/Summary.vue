@@ -1,18 +1,25 @@
 <template>
-  <v-container>
-    <div class="py-12"></div>
-    <h2 class="display-3 font-weight-bold mb-3">Summary</h2>
-    <div class="py-5"></div>
-    <v-container class="d-flex justify-center">
-      <iframe
-        width="640"
-        height="360"
-        src="https://www.youtube.com/embed/8Fj2ARn1WMY"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+  <v-card class="blue-grey lighten-5 blue-grey--text text--darken-4" flat>
+    <div class="py-3"></div>
+
+    <v-container class="justify-center">
+      <v-row no-gutters align="center" justify="space-between">
+        <v-col cols="4">
+          <v-card-text class="display-2">Checkout more in the video!</v-card-text>
+        </v-col>
+        <v-col cols="8" align="right">
+          <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/8Fj2ARn1WMY"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </v-col>
+      </v-row>
     </v-container>
-  </v-container>
+    <div class="py-2"></div>
+  </v-card>
 </template>
 
 <script>

@@ -54,7 +54,7 @@ export default {
     features: {
       color: null,
       heading: "Zurich - Europe",
-      subheading: "A city of public transport.",
+      subheading: "A pioneer of sustainable transport.",
       textcolor: "blue-grey--text text--darken-4",
       country: "Switzerland",
       population: "415,215",

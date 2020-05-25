@@ -53,8 +53,13 @@ export default {
     features: {
       color: null,
       heading: "Vancouver - North America",
-      subheading: "Great ambition towards sustainable city.",
-      textcolor: "blue-grey--text text--darken-4"
+      subheading: "A land of great sustainability.",
+      textcolor: "blue-grey--text text--darken-4",
+      country: "Canada",
+      population: "631,486",
+      area: 114.97,
+      ranking: [24, 23, 4],
+      score: [57.79, 21.09, 99.34]
     }
   })
 };

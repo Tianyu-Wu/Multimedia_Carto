@@ -10,7 +10,7 @@
           <v-card-text
             class="subtitle-1"
             :class="textcolor"
-          >How good is the transit infrastructure scored in your countries.</v-card-text>
+          >How good is the transit infrastructure scored in the given country.</v-card-text>
         </v-col>
         <v-col cols="3">
           <v-card-title>
@@ -20,7 +20,7 @@
           <v-card-text
             class="subtitle-1"
             :class="textcolor"
-          >How accessible the public transport to citizens. Rapid transit to resident ratio.</v-card-text>
+          >How accessible is the public transport to citizens. E.g. Rapid transit to resident ratio.</v-card-text>
         </v-col>
         <v-col cols="3">
           <v-card-title>
@@ -30,7 +30,7 @@
           <v-card-text
             class="subtitle-1"
             :class="textcolor"
-          >How much impact the transport has on the environment.</v-card-text>
+          >How much impact does the transportation have on the environment.</v-card-text>
         </v-col>
       </v-row>
       <div class="py-2"></div>

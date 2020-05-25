@@ -3,7 +3,7 @@
     <v-row no-gutters justify="center" align="center">
       <v-col cols="11">
         <v-card-text class="display-2" :class="textcolor">{{heading}}</v-card-text>
-        <v-card-text class="subtitle-1" :class="textcolor">{{subheading}}</v-card-text>
+        <v-card-text class="title font-weight-light" :class="textcolor">{{subheading}}</v-card-text>
       </v-col>
     </v-row>
     <v-container>

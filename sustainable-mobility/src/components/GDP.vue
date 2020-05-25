@@ -37,7 +37,7 @@ export default {
       query.send(response => {
         const options = {
           // some custom options
-          title: "World GDP in US Dollars",
+          title: "World GDP in US Dollars (Trillion)",
           titleTextStyle: {
             color: self.textcolor
           },
