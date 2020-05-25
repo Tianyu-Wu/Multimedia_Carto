@@ -46,7 +46,8 @@
       <CO2 />
       <v-divider></v-divider>
       <CurrentStatus />
-      <base-divider v-bind="livability" />
+      <!-- <base-divider v-bind="livability" /> -->
+      <v-divider></v-divider>
       <Livability v-bind="livability" />
       <base-divider v-bind="statement" />
       <Statements />
@@ -156,8 +157,8 @@ export default {
       color: "blue-grey lighten-5",
       heading: "Mobility vs. Livability",
       subheading:
-        "The development of urban transportation also leads us to the question of urban livability. See some of the side effects that carbon-intensive tranpsortation brings us.",
-      textcolor: "blue-grey--text text--darken-4"
+        "The development of urban transportation also leads us to the question of urban livability. See some of the side effects that carbon-intensive tranpsortation brings us."
+      // textcolor: "blue-grey--text text--darken-4"
     },
     statement: {
       color: "blue-grey darken-4",

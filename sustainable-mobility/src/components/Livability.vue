@@ -1,5 +1,11 @@
 <template>
   <div :class="color">
+    <v-row no-gutters justify="center" align="center">
+      <v-col cols="11">
+        <v-card-text class="display-2" :class="textcolor">{{heading}}</v-card-text>
+        <v-card-text class="subtitle-1" :class="textcolor">{{subheading}}</v-card-text>
+      </v-col>
+    </v-row>
     <v-container>
       <v-row class="d-flex justify-space-around">
         <v-col cols="12" md="5">
@@ -46,6 +52,8 @@ export default {
   name: "Livability",
   props: {
     color: String,
+    heading: String,
+    subheading: String,
     textcolor: {
       type: String,
       default: null

@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style scoped>
-span {
+.v-card {
   cursor: pointer;
 }
 </style>

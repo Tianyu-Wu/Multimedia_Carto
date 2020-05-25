@@ -4,7 +4,7 @@
       <v-col cols="12" md="8">
         <div id="zh-green">
           Map
-          <nav id="menu"></nav>
+          <nav id="zur-menu"></nav>
         </div>
       </v-col>
       <v-col cols="6" md="4">
@@ -155,7 +155,7 @@ export default {
           }
         };
 
-        var layers = document.getElementById("menu");
+        var layers = document.getElementById("zur-menu");
         layers.appendChild(link);
       }
     },

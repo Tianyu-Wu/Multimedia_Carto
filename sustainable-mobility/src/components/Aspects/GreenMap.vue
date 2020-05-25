@@ -1,17 +1,17 @@
 <template>
   <v-card class="pa-4">
-    <v-card-text class="display-2">Zurich</v-card-text>
+    <v-card-text class="display-2">Sustainability - Zurich</v-card-text>
     <ZurichGreen />
     <div class="py-5"></div>
 
     <v-divider></v-divider>
-    <v-card-text class="display-2">Singapore</v-card-text>
+    <v-card-text class="display-2">Sustainability - Singapore</v-card-text>
 
     <SingaporeGreen />
     <div class="py-5"></div>
 
     <v-divider></v-divider>
-    <v-card-text class="display-2">Vancouver</v-card-text>
+    <v-card-text class="display-2">Sustainability - Vancouver</v-card-text>
     <VancouverGreen />
   </v-card>
 </template>
