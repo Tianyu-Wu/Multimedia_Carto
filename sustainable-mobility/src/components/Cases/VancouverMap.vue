@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pa-4">
     <v-stepper non-linear>
       <v-stepper-header>
         <v-stepper-step step="1" editable>Features</v-stepper-step>
@@ -20,15 +20,15 @@
           <base-features v-bind="features" />
         </v-stepper-content>
         <v-stepper-content step="2">
-          <SingaporeCoverage />
+          <VancouverCoverage />
         </v-stepper-content>
 
         <v-stepper-content step="3">
-          <SingaporeFrequency />
+          <VancouverFrequency />
         </v-stepper-content>
 
         <v-stepper-content step="4">
-          <SingaporeGreen />
+          <VancouverGreen />
         </v-stepper-content>
       </v-stepper-items>
     </v-stepper>
@@ -36,24 +36,24 @@
 </template>
 
 <script>
-import SingaporeGreen from "./Green/Singapore-Green";
-import SingaporeFrequency from "./Frequency/Singapore-Frequency";
-import SingaporeCoverage from "./Coverage/Singapore-Coverage";
-import BaseFeatures from "./Layouts/Features";
+import VancouverCoverage from "../Coverage/Vancouver-Coverage";
+import VancouverFrequency from "../Frequency/Vancouver-Frequency";
+import VancouverGreen from "../Green/Vancouver-Green";
+import BaseFeatures from "../Layouts/Features";
 
 export default {
-  name: "SingaporeMap",
+  name: "VancouverMap",
   components: {
-    SingaporeCoverage,
-    SingaporeFrequency,
-    SingaporeGreen,
+    VancouverCoverage,
+    VancouverFrequency,
+    VancouverGreen,
     BaseFeatures
   },
   data: () => ({
     features: {
       color: null,
-      heading: "Singapore - Asia",
-      subheading: "A pioneer of smart transportation.",
+      heading: "Vancouver - North America",
+      subheading: "Great ambition towards sustainable city.",
       textcolor: "blue-grey--text text--darken-4"
     }
   })

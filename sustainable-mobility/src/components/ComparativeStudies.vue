@@ -6,7 +6,7 @@
           :key="i"
           cols="12"
           md="4"
-          @click="(show = 1+i), $vuetify.goTo('#comparative', { offset: -250 })"
+          @click="show==i+1 ? show=0:((show = 1+i), $vuetify.goTo('#comparative', { offset: -250 }) )"
         >
           <v-hover v-slot:default="{ hover }">
             <v-card
@@ -14,7 +14,7 @@
               class="d-flex justify-center align-center"
               :elevation="hover ? 12 : 2"
               :class="{ 'on-hover': hover }"
-              height="300px"
+              :height="show==i+1 ? 300: 270"
             >
               <v-theme-provider dark>
                 <div align="center">

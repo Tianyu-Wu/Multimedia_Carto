@@ -6,13 +6,13 @@
           :key="i"
           cols="12"
           md="4"
-          @click="(show = 1+i), $vuetify.goTo('#case-studies', { offset: -250 })"
+          @click="show==i+1 ? show=0:((show = 1+i), $vuetify.goTo('#case-studies', { offset: -250 }) )"
         >
           <v-hover v-slot:default="{ hover }">
-            <v-card :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }">
+            <v-card :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }" class="align-center">
               <v-img
                 :src="require(`../assets/${city.name}.jpg`)"
-                height="300px"
+                :height="show==i+1 ? 300: 270"
                 class="align-center"
               >
                 <v-row no-gutters align="center">
@@ -45,7 +45,6 @@
       </template>
     </v-row>
 
-    <!-- <CaseStudyMap id="case-study-map" /> -->
     <ZurichMap v-if="show == 1" />
     <VancouverMap v-if="show == 3" />
     <SingaporeMap v-if="show == 2" />
@@ -54,9 +53,9 @@
 
 <script>
 // import CaseStudyMap from "./CaseStudyMap";
-import ZurichMap from "./ZurichMap";
-import VancouverMap from "./VancouverMap";
-import SingaporeMap from "./SingaporeMap";
+import ZurichMap from "./Cases/ZurichMap";
+import VancouverMap from "./Cases/VancouverMap";
+import SingaporeMap from "./Cases/SingaporeMap";
 import vuetify from "../plugins/vuetify";
 
 export default {

@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import ZurichCoverage from "./Coverage/Zurich-Coverage";
-import ZurichFrequency from "./Frequency/Zurich-Frequency";
-import ZurichGreen from "./Green/Zurich-Green";
-import BaseFeatures from "./Layouts/Features";
+import ZurichCoverage from "../Coverage/Zurich-Coverage";
+import ZurichFrequency from "../Frequency/Zurich-Frequency";
+import ZurichGreen from "../Green/Zurich-Green";
+import BaseFeatures from "../Layouts/Features";
 
 export default {
   name: "ZurichMap",
