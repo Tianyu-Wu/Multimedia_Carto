@@ -8,22 +8,28 @@
         </div>
       </v-col>
       <v-col cols="6" md="4">
-        <v-card class="d-flex flex-column justify-center" shaped height="600">
+        <v-card flat class="d-flex flex-column justify-center" height="600">
           <v-card-text class="display-2 font-weight-bold">Green</v-card-text>
           <div class="py-5"></div>
 
           <v-card-text>
             In broad terms Green Mobility is a way to reduce the impact of
             mobility in differnt aspects:
-            <br />Greenhouse gas (GHG) emissions <br />Air pollution
-            <br />Energy consume <br />Noise <br />Traffic congestion
+            <br />Greenhouse gas (GHG) emissions
+            <br />Air pollution
+            <br />Energy consume
+            <br />Noise
+            <br />Traffic congestion
           </v-card-text>
           <v-card-text>
             One way to achieve it is the use of using differnt transpotation
             methods like electric vehicles and bikes.
             <br />In this map we will see part of the infrastructure that
-            Vancouver has in the ambit of Green mobility. <br />ELectric vehicle
-            chargers <br />Bike trials <br />Green areas
+            Vancouver has in the ambit of Green mobility.
+            <br />ELectric vehicle
+            chargers
+            <br />Bike trials
+            <br />Green areas
           </v-card-text>
         </v-card>
       </v-col>

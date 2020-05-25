@@ -52,6 +52,13 @@ export default {
   data: () => ({
     map: null
   }),
+  props: {
+    color: String,
+    textcolor: {
+      type: String,
+      default: null
+    }
+  },
   methods: {
     initMap: function() {
       /* mapboxgl.accessToken =

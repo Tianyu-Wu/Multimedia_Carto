@@ -5,20 +5,20 @@
         <div id="sing-coverage">Map</div>
       </v-col>
       <v-col cols="6" md="4">
-        <v-card class="d-flex flex-column justify-center" shaped height="600">
+        <v-card flat class="d-flex flex-column justify-center" height="600">
           <v-card-text>
             <h2 class="display-2 font-weight-bold">Coverage</h2>
             <div class="py-5"></div>
 
-            <span
-              >There transport coverage over the Singapore island is generally
-            high, and there are also multiple transportation centers, which is
-            kind of similar with Zurich. The high coverage of public
-            transportation also results from the high population densities in
-            this city-state, which is also a common feature in many Asian
-            countries.</span
-            >
-            
+            <span>
+              There transport coverage over the Singapore island is generally
+              high, and there are also multiple transportation centers, which is
+              kind of similar with Zurich. The high coverage of public
+              transportation also results from the high population densities in
+              this city-state, which is also a common feature in many Asian
+              countries.
+            </span>
+
             <div class="py-5"></div>
 
             <h2 class="font-weight-regular">Transport Coverage Levels</h2>
@@ -37,11 +37,19 @@
             </v-row>
             <div class="py-3"></div>
 
+<<<<<<< HEAD
             <span
               >Note: the coverage levels of all the three cities are reclassified from kernel densities 
               using same intervals. Area unit of the density is based on the linear unit of the spatial 
               reference WGS84.</span
             >
+=======
+            <span>
+              Note: the levels are reclassified from the kernel density of public transport
+              stations, and the area unit of density is based on the linear unit of the spatial
+              reference WGS84
+            </span>
+>>>>>>> b7984fc9f6434baef04247de700b22c87baf4659
           </v-card-text>
         </v-card>
       </v-col>
@@ -84,7 +92,7 @@ export default {
           source: "sing-coverage",
           "source-layer": "singkd-6wtp1d",
           paint: {
-            "fill-color":[
+            "fill-color": [
               "interpolate",
               ["exponential", 0.9],
               ["get", "GRIDCODE"],
@@ -112,6 +120,7 @@ export default {
         closeOnClick: false
       });
 
+<<<<<<< HEAD
       self.map.on('mousemove', 'sing-coverageLayer', function(e) {
 
         /* highlight the hovered feature */
@@ -136,29 +145,33 @@ export default {
             { hover: true }
           );
         }
+=======
+      self.map.on("mousemove", "sing-coverageLayer", function(e) {
+        /* TBD, highlight the hovered feature */
+>>>>>>> b7984fc9f6434baef04247de700b22c87baf4659
 
         // Change the cursor style as a UI indicator.
-        self.map.getCanvas().style.cursor = 'pointer';
-        
+        self.map.getCanvas().style.cursor = "pointer";
+
         // Get the pop up value
         var popvalue = e.features[0].properties.GRIDCODE;
-        
+
         // Populate the popup and set its coordinates
         // based on the feature found.
-        if(popvalue != null && popvalue != 0){
+        if (popvalue != null && popvalue != 0) {
           popup
-          .setLngLat(e.lngLat)
-          .setHTML("Coverage level: " + popvalue)
-          .addTo(self.map);
-        }else{
+            .setLngLat(e.lngLat)
+            .setHTML("Coverage level: " + popvalue)
+            .addTo(self.map);
+        } else {
           popup
-          .setLngLat(e.lngLat)
-          .setHTML("Data not available")
-          .addTo(self.map);
+            .setLngLat(e.lngLat)
+            .setHTML("Data not available")
+            .addTo(self.map);
         }
-        
-        self.map.on('mouseleave', 'sing-coverageLayer', function() {
-          self.map.getCanvas().style.cursor = '';
+
+        self.map.on("mouseleave", "sing-coverageLayer", function() {
+          self.map.getCanvas().style.cursor = "";
           popup.remove();
         });
       });
@@ -166,7 +179,6 @@ export default {
       self.map.on("render", () => {
         self.map.resize();
       });
-
     }
   },
   mounted() {
@@ -175,7 +187,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #sing-coverage {
   width: 100%;
   height: 600px;
@@ -186,10 +198,6 @@ export default {
 }
 
 .legend-color {
-  background: linear-gradient(
-    to right,
-    #b8d0db,
-    #066aa7
-  );
+  background: linear-gradient(to right, #b8d0db, #066aa7);
 }
 </style>
