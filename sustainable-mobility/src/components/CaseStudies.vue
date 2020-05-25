@@ -1,6 +1,6 @@
 <template>
   <div class="pa-4">
-    <v-row>
+    <v-row class="align-center">
       <template v-for="(city, i) in cities">
         <v-col
           :key="i"

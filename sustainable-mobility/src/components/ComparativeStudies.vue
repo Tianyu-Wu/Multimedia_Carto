@@ -1,6 +1,6 @@
 <template>
   <div class="pa-4">
-    <v-row>
+    <v-row class="align-center">
       <template v-for="({name,icolor,icon}, i) in aspects">
         <v-col
           :key="i"
