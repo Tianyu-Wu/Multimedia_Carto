@@ -37,11 +37,11 @@
             </v-row>
             <div class="py-3"></div>
 
-            <span
-              >Note: the coverage levels of all the three cities are reclassified from kernel densities 
-              using same intervals. Area unit of the density is based on the linear unit of the spatial 
-              reference WGS84.</span
-            >
+            <span>
+              Note: the coverage levels of all the three cities are reclassified from kernel densities
+              using same intervals. Area unit of the density is based on the linear unit of the spatial
+              reference WGS84.
+            </span>
           </v-card-text>
         </v-card>
       </v-col>
@@ -76,7 +76,7 @@ export default {
           type: "vector",
           url: "mapbox://mmcartog01.dtsb8207",
           "source-layer": "singkd-6wtp1d",
-          generateId: true
+          promoteId: "ID"
         });
         self.map.addLayer({
           id: "sing-coverageLayer",
@@ -112,10 +112,9 @@ export default {
         closeOnClick: false
       });
 
-      self.map.on('mousemove', 'sing-coverageLayer', function(e) {
-
+      self.map.on("mousemove", "sing-coverageLayer", function(e) {
         /* highlight the hovered feature */
-         if (e.features.length > 0) {
+        if (e.features.length > 0) {
           if (e.features[0].id != hoveredCountryId) {
             self.map.setFeatureState(
               {
