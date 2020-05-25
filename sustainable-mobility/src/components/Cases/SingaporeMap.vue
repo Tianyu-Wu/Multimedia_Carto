@@ -53,8 +53,13 @@ export default {
     features: {
       color: null,
       heading: "Singapore - Asia",
-      subheading: "A pioneer of smart transportation.",
-      textcolor: "blue-grey--text text--darken-4"
+      subheading: "A giant of public transport.",
+      textcolor: "blue-grey--text text--darken-4",
+      country: "Singapore",
+      population: "5,638,700",
+      area: 725.1,
+      ranking: [1, 15, 38],
+      score: [100, 29.91, 84.51]
     }
   })
 };

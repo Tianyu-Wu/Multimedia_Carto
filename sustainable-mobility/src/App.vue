@@ -61,11 +61,21 @@
       <ComparativeStudies />
 
       <base-divider id="summary" v-bind="summary" />
-
-      <section id="summary">
-        <Summary />
-      </section>
+      <SummaryText />
+      <Summary />
     </v-content>
+    <v-footer dark color="blue-grey darken-4" padless>
+      <v-card flat tile class="blue-grey darken-4 blue-grey--text text--lighten-5" width="100%">
+        <Sources />
+
+        <v-divider></v-divider>
+
+        <v-card-text class="blue-grey--text text--lighten-5 text-center">
+          &copy; {{ new Date().getFullYear() }} —
+          <strong>Tianyu Wu, María Pérez Ortega, Yihang She</strong>
+        </v-card-text>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
 
@@ -83,8 +93,10 @@ import CurrentStatus from "./components/CurrentStatus";
 import Overview from "./components/Overview";
 import CaseStudies from "./components/CaseStudies";
 import ComparativeStudies from "./components/ComparativeStudies";
+import SummaryText from "./components/SummaryText";
 import Summary from "./components/Summary";
 import BaseDivider from "./components/Layouts/Divider";
+import Sources from "./components/Layouts/Sources";
 
 export default {
   name: "App",
@@ -101,8 +113,10 @@ export default {
     Overview,
     CaseStudies,
     ComparativeStudies,
+    SummaryText,
     Summary,
-    BaseDivider
+    BaseDivider,
+    Sources
   },
 
   data: () => ({
@@ -151,7 +165,7 @@ export default {
       textcolor: "blue-grey--text text--darken-4"
     },
     livability: {
-      color: "blue-grey lighten-5",
+      // color: "blue-grey lighten-5",
       heading: "Mobility vs. Livability",
       subheading:
         "The development of urban transportation also leads us to the question of urban livability. See some of the side effects that carbon-intensive tranpsortation brings us."
@@ -175,14 +189,14 @@ export default {
       color: "blue-grey darken-4",
       heading: "Case studies of sustainable mobility",
       subheading:
-        "Explore regional solutions towards sustainable mobility from the perspective of coverage, accessibility, and sustainability.",
+        "Explore regional solutions towards sustainable mobility from the perspectives of coverage, accessibility, and sustainability.",
       textcolor: "blue-grey--text text--lighten-5"
     },
     compare: {
       color: "blue-grey lighten-5",
       heading: "Comparative studies",
       subheading:
-        "Comparing how are the transportation systems of the three selected cities different from each other.",
+        "Comparing how the transportation systems of the three selected cities are different from each other.",
       textcolor: "blue-grey--text text--darken-4"
     },
     summary: {
