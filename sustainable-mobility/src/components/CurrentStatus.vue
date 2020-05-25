@@ -31,7 +31,6 @@
             </v-col>
           </v-row>
           <div class="py-3"></div>
-          <span :class="textcolor">Note: the countries in black do not have available data.</span>
         </v-card-text>
       </v-col>
       <v-col cols="8">

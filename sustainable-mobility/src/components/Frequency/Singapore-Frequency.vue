@@ -19,12 +19,12 @@
 
             <span>
               Among the all three cities that we studied, Singapore shows the
-              largest passenger volume with daily weekday boardings mostly over
+              largest passenger volume with daily weekday boarding mostly over
               10000.
             </span>
             <div class="py-5"></div>
 
-            <h2 class="font-weight-regular">Average Weekday Boardings</h2>
+            <h2 class="font-weight-regular">Average Weekday Boarding</h2>
             <v-row>
               <v-col>
                 <div class="legend-row legend-color center"></div>

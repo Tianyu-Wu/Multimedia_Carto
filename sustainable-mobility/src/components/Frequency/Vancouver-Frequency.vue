@@ -27,7 +27,7 @@
             </span>
             <div class="py-5"></div>
 
-            <h2 class="font-weight-regular">Average Weekday Boardings</h2>
+            <h2 class="font-weight-regular">Average Weekday Boarding</h2>
             <v-row>
               <v-col>
                 <div class="legend-row legend-color center"></div>

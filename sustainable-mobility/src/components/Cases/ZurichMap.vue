@@ -55,7 +55,12 @@ export default {
       color: null,
       heading: "Zurich - Europe",
       subheading: "A city of public transport.",
-      textcolor: "blue-grey--text text--darken-4"
+      textcolor: "blue-grey--text text--darken-4",
+      country: "Switzerland",
+      population: "415,215",
+      area: 87.88,
+      ranking: [2, 6, 12],
+      score: [92.99, 68.42, 94.79]
     }
   })
 };
