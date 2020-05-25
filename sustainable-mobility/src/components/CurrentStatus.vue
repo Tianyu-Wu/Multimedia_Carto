@@ -79,7 +79,7 @@ export default {
           type: "vector",
           url: "mapbox://mmcartog01.26rz0kgv",
           "source-layer": "globalMobilityGHG-d80ps0",
-          generateId: true
+          promoteId: "OBJECTID"
         });
         self.map.addLayer({
           id: "GHG",
