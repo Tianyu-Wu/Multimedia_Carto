@@ -14,13 +14,13 @@
       </div>
       <v-spacer></v-spacer>
       <v-btn @click="$vuetify.goTo('#background')" text>
-        <span class="mr-2">Background</span>
+        <span class="mr-2">Driving forces</span>
       </v-btn>
-      <v-btn @click="$vuetify.goTo('#statements')" text>
-        <span class="mr-2">Statement</span>
+      <v-btn @click="$vuetify.goTo('#challenges')" text>
+        <span class="mr-2">Challenges</span>
       </v-btn>
-      <v-btn @click="$vuetify.goTo('#current-status')" text>
-        <span class="mr-2">Current Status</span>
+      <v-btn @click="$vuetify.goTo('#overview')" text>
+        <span class="mr-2">Overview</span>
       </v-btn>
       <v-btn @click="$vuetify.goTo('#case-studies')" text>
         <span class="mr-2">Case Studies</span>
@@ -42,7 +42,7 @@
       <base-divider v-bind="development" />
       <Demand />
 
-      <base-divider v-bind="challenges" />
+      <base-divider id="challenges" v-bind="challenges" />
       <CO2 />
       <v-divider></v-divider>
       <CurrentStatus />
@@ -52,7 +52,7 @@
       <base-divider v-bind="statement" />
       <Statements />
 
-      <base-divider v-bind="overview" />
+      <base-divider id="overview" v-bind="overview" />
       <Overview />
 
       <base-divider id="case-studies" v-bind="cases" />
@@ -61,10 +61,6 @@
       <base-divider id="comparative" v-bind="compare" />
       <ComparativeStudies />
 
-      <section id="background"></section>
-      <section id="statements"></section>
-      <section id="current-status"></section>
-      <section id></section>
       <section id="summary">
         <Summary />
       </section>

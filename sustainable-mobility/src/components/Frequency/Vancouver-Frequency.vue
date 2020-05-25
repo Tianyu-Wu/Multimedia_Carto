@@ -77,13 +77,17 @@ export default {
       });
 
       self.map.on("style.load", function() {
+        self.map.addSource("vancouver-boarding", {
+          type: "vector",
+          url: "mapbox://mmcartog01.bzx41qvn",
+          "source-layer": "vancouver_boarding_clip-6ak42g",
+          generateId: true
+        });
+
         self.map.addLayer({
-          id: "vancouver-boarding",
+          id: "vancouver-boarding-layer",
           type: "circle",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.bzx41qvn"
-          },
+          source: "vancouver-boarding",
           "source-layer": "vancouver_boarding_clip-6ak42g",
           paint: {
             "circle-radius": [
@@ -112,8 +116,81 @@ export default {
               10000,
               "#f75555"
             ],
-            "circle-opacity": 0.8
+            "circle-opacity": [
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
+              1,
+              0.8
+            ],
+            "circle-stroke-color": "#74e4e8",
+            "circle-stroke-width": 2,
+            "circle-stroke-opacity": [
+              "case",
+              ["boolean", ["feature-state", "hover"], false],
+              1,
+              0
+            ]
           }
+        });
+      });
+
+      //add hover id
+      var hoveredCountryId = null;
+
+      // When the user moves their mouse over the layer, we'll update the
+      // feature state for the feature under the mouse.
+      var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+      });
+
+      self.map.on("mousemove", "vancouver-boarding-layer", function(e) {
+        /* highlight the hovered feature */
+        if (e.features.length > 0) {
+          if (e.features[0].id != hoveredCountryId) {
+            self.map.setFeatureState(
+              {
+                source: "vancouver-boarding",
+                sourceLayer: "vancouver_boarding_clip-6ak42g",
+                id: hoveredCountryId
+              },
+              { hover: false }
+            );
+          }
+          hoveredCountryId = e.features[0].id;
+          self.map.setFeatureState(
+            {
+              source: "vancouver-boarding",
+              sourceLayer: "vancouver_boarding_clip-6ak42g",
+              id: hoveredCountryId
+            },
+            { hover: true }
+          );
+        }
+
+        // Change the cursor style as a UI indicator.
+        self.map.getCanvas().style.cursor = "pointer";
+
+        // Get the pop up value
+        var popvalue = e.features[0].properties.avg_daily_boarding_mf;
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        if (popvalue != null && popvalue != 0) {
+          popup
+            .setLngLat(e.lngLat)
+            .setHTML("Weekday boarding: " + popvalue)
+            .addTo(self.map);
+        } else {
+          popup
+            .setLngLat(e.lngLat)
+            .setHTML("Data not available")
+            .addTo(self.map);
+        }
+
+        self.map.on("mouseleave", "vancouver-boarding", function() {
+          self.map.getCanvas().style.cursor = "";
+          popup.remove();
         });
       });
     }
