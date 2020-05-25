@@ -194,7 +194,7 @@ export default {
 </script>
 
 <style>
-#menu {
+#sin-menu {
   background: #fff;
   position: relative;
   z-index: 1;
@@ -206,7 +206,7 @@ export default {
   font-family: "Open Sans", sans-serif;
 }
 
-#menu a {
+#sin-menu a {
   font-size: 13px;
   color: #404040;
   display: block;
@@ -218,21 +218,21 @@ export default {
   text-align: center;
 }
 
-#menu a:last-child {
+#sin-menu a:last-child {
   border: none;
 }
 
-#menu a:hover {
+#sin-menu a:hover {
   background-color: #f8f8f8;
   color: #404040;
 }
 
-#menu a.active {
+#sin-menu a.active {
   background-color: #1a9641;
   color: #ffffff;
 }
 
-#menu a.active:hover {
+#sin-menu a.active:hover {
   background: #a6d96a;
 }
 #sg-green {
