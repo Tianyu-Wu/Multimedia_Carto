@@ -172,7 +172,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
 #zur-menu {
   background: #fff;
   position: relative;
