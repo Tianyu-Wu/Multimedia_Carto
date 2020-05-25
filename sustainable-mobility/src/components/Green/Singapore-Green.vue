@@ -193,7 +193,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #sin-menu {
   background: #fff;
   position: relative;

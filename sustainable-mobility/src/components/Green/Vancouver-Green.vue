@@ -165,7 +165,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #van-menu {
   background: #fff;
   position: relative;
