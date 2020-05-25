@@ -37,19 +37,11 @@
             </v-row>
             <div class="py-3"></div>
 
-<<<<<<< HEAD
             <span
               >Note: the coverage levels of all the three cities are reclassified from kernel densities 
               using same intervals. Area unit of the density is based on the linear unit of the spatial 
               reference WGS84.</span
             >
-=======
-            <span>
-              Note: the levels are reclassified from the kernel density of public transport
-              stations, and the area unit of density is based on the linear unit of the spatial
-              reference WGS84
-            </span>
->>>>>>> b7984fc9f6434baef04247de700b22c87baf4659
           </v-card-text>
         </v-card>
       </v-col>
@@ -120,7 +112,6 @@ export default {
         closeOnClick: false
       });
 
-<<<<<<< HEAD
       self.map.on('mousemove', 'sing-coverageLayer', function(e) {
 
         /* highlight the hovered feature */
@@ -145,10 +136,6 @@ export default {
             { hover: true }
           );
         }
-=======
-      self.map.on("mousemove", "sing-coverageLayer", function(e) {
-        /* TBD, highlight the hovered feature */
->>>>>>> b7984fc9f6434baef04247de700b22c87baf4659
 
         // Change the cursor style as a UI indicator.
         self.map.getCanvas().style.cursor = "pointer";
