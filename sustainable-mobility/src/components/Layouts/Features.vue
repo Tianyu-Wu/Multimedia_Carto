@@ -30,7 +30,7 @@
                   Scored
                   <span class="display-1 font-weight-light">{{score[0]}}</span> / 100
                 </v-card-text>
-                <v-card-text class="title font-weight-light aspects text-uppercase">
+                <v-card-text class="title font-weight-light aspects">
                   Rank
                   <span class="headline font-weight-light">{{ranking[0]}}</span> / 68 countries
                 </v-card-text>
