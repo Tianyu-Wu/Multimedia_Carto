@@ -46,7 +46,6 @@
       <CO2 />
       <v-divider></v-divider>
       <CurrentStatus />
-      <!-- <base-divider v-bind="livability" /> -->
       <v-divider></v-divider>
       <Livability v-bind="livability" />
       <base-divider v-bind="statement" />
@@ -60,6 +59,8 @@
 
       <base-divider id="comparative" v-bind="compare" />
       <ComparativeStudies />
+
+      <base-divider id="summary" v-bind="summary" />
 
       <section id="summary">
         <Summary />
@@ -183,6 +184,12 @@ export default {
       subheading:
         "Comparing how are the transportation systems of the three selected cities different from each other.",
       textcolor: "blue-grey--text text--darken-4"
+    },
+    summary: {
+      color: "blue-grey darken-4",
+      heading: "Summary",
+      subheading: "",
+      textcolor: "blue-grey--text text--lighten-5"
     }
   })
 };

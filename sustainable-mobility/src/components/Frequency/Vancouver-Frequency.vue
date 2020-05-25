@@ -80,8 +80,7 @@ export default {
         self.map.addSource("vancouver-boarding", {
           type: "vector",
           url: "mapbox://mmcartog01.bzx41qvn",
-          "source-layer": "vancouver_boarding_clip-6ak42g",
-          generateId: true
+          promoteId: "stop_id"
         });
 
         self.map.addLayer({
@@ -147,16 +146,34 @@ export default {
       self.map.on("mousemove", "vancouver-boarding-layer", function(e) {
         /* highlight the hovered feature */
         if (e.features.length > 0) {
-          if (e.features[0].id != hoveredCountryId) {
-            self.map.setFeatureState(
-              {
-                source: "vancouver-boarding",
-                sourceLayer: "vancouver_boarding_clip-6ak42g",
-                id: hoveredCountryId
-              },
-              { hover: false }
-            );
+          // Change the cursor style as a UI indicator.
+          self.map.getCanvas().style.cursor = "pointer";
+
+          // Get the pop up value
+          var popvalue = e.features[0].properties.avg_daily_boarding_mf;
+
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          if (popvalue != null && popvalue != 0) {
+            popup
+              .setLngLat(e.lngLat)
+              .setHTML("Weekday boarding: " + popvalue)
+              .addTo(self.map);
+          } else {
+            popup
+              .setLngLat(e.lngLat)
+              .setHTML("Data not available")
+              .addTo(self.map);
           }
+
+          if (hoveredCountryId) {
+            self.map.removeFeatureState({
+              source: "vancouver-boarding",
+              sourceLayer: "vancouver_boarding_clip-6ak42g",
+              id: hoveredCountryId
+            });
+          }
+
           hoveredCountryId = e.features[0].id;
           self.map.setFeatureState(
             {
@@ -167,31 +184,22 @@ export default {
             { hover: true }
           );
         }
+      });
 
-        // Change the cursor style as a UI indicator.
-        self.map.getCanvas().style.cursor = "pointer";
-
-        // Get the pop up value
-        var popvalue = e.features[0].properties.avg_daily_boarding_mf;
-
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        if (popvalue != null && popvalue != 0) {
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML("Weekday boarding: " + popvalue)
-            .addTo(self.map);
-        } else {
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML("Data not available")
-            .addTo(self.map);
+      self.map.on("mouseleave", "vancouver-boarding-layer", function() {
+        if (hoveredCountryId) {
+          self.map.setFeatureState(
+            {
+              source: "vancouver-boarding",
+              sourceLayer: "vancouver_boarding_clip-6ak42g",
+              id: hoveredCountryId
+            },
+            { hover: false }
+          );
         }
-
-        self.map.on("mouseleave", "vancouver-boarding", function() {
-          self.map.getCanvas().style.cursor = "";
-          popup.remove();
-        });
+        hoveredCountryId = null;
+        self.map.getCanvas().style.cursor = "";
+        popup.remove();
       });
     }
   },

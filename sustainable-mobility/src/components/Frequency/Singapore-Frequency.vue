@@ -79,8 +79,7 @@ export default {
         self.map.addSource("singapore-boarding", {
           type: "vector",
           url: "mapbox://mmcartog01.ak2nd7we",
-          "source-layer": "singapore_boardings-d3ks0b",
-          generateId: true
+          promoteId: "BUS_STOP_N"
         });
 
         self.map.addLayer({
@@ -146,16 +145,35 @@ export default {
       self.map.on("mousemove", "singapore-boarding-layer", function(e) {
         /* highlight the hovered feature */
         if (e.features.length > 0) {
-          if (e.features[0].id != hoveredCountryId) {
-            self.map.setFeatureState(
-              {
-                source: "singapore-boarding",
-                sourceLayer: "singapore_boardings-d3ks0b",
-                id: hoveredCountryId
-              },
-              { hover: false }
-            );
+          // Get the pop up value
+          var popvalue =
+            e.features[0].properties.bus_stop_passenger_weekday_boardings;
+
+          // Change the cursor style as a UI indicator.
+          self.map.getCanvas().style.cursor = "pointer";
+
+          // Populate the popup and set its coordinates
+          // based on the feature found.
+          if (popvalue != null) {
+            popup
+              .setLngLat(e.lngLat)
+              .setHTML("Weekday boarding: " + popvalue)
+              .addTo(self.map);
+          } else {
+            popup
+              .setLngLat(e.lngLat)
+              .setHTML("Data not available")
+              .addTo(self.map);
           }
+
+          if (hoveredCountryId) {
+            self.map.removeFeatureState({
+              source: "singapore-boarding",
+              sourceLayer: "singapore_boardings-d3ks0b",
+              id: hoveredCountryId
+            });
+          }
+
           hoveredCountryId = e.features[0].id;
           self.map.setFeatureState(
             {
@@ -166,32 +184,24 @@ export default {
             { hover: true }
           );
         }
+      });
 
-        // Change the cursor style as a UI indicator.
-        self.map.getCanvas().style.cursor = "pointer";
-
-        // Get the pop up value
-        var popvalue =
-          e.features[0].properties.bus_stop_passenger_weekday_boardings;
-
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        if (popvalue != null && popvalue != 0) {
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML("Weekday boarding: " + popvalue)
-            .addTo(self.map);
-        } else {
-          popup
-            .setLngLat(e.lngLat)
-            .setHTML("Data not available")
-            .addTo(self.map);
+      self.map.on("mouseleave", "singapore-boarding-layer", function() {
+        if (hoveredCountryId) {
+          self.map.setFeatureState(
+            {
+              source: "singapore-boarding",
+              sourceLayer: "singapore_boardings-d3ks0b",
+              id: hoveredCountryId
+            },
+            {
+              hover: false
+            }
+          );
         }
-
-        self.map.on("mouseleave", "singapore-boarding", function() {
-          self.map.getCanvas().style.cursor = "";
-          popup.remove();
-        });
+        hoveredCountryId = null;
+        self.map.getCanvas().style.cursor = "";
+        popup.remove();
       });
 
       self.map.on("render", () => {
