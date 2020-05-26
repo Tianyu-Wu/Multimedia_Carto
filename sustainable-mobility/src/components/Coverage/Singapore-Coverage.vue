@@ -38,9 +38,10 @@
             <div class="py-3"></div>
 
             <span>
-              Note: the coverage levels of all the three cities are reclassified from kernel densities
-              using same intervals. Area unit of the density is based on the linear unit of the spatial
-              reference WGS84.
+              Note: the coverage levels of all the three cities are reclassified
+              from kernel densities using same intervals. Area unit of the
+              density is based on the linear unit of the spatial reference
+              WGS84.
             </span>
           </v-card-text>
         </v-card>

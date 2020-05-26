@@ -10,7 +10,9 @@
           width="70"
         />
 
-        <v-toolbar-title class="font-weight-black headline">Sustainable Mobility</v-toolbar-title>
+        <v-toolbar-title class="font-weight-black headline"
+          >Sustainable Mobility</v-toolbar-title
+        >
       </div>
       <v-spacer></v-spacer>
       <v-btn @click="$vuetify.goTo('#background')" text>
@@ -65,7 +67,12 @@
       <Summary />
     </v-content>
     <v-footer dark color="blue-grey darken-4" padless>
-      <v-card flat tile class="blue-grey darken-4 blue-grey--text text--lighten-5" width="100%">
+      <v-card
+        flat
+        tile
+        class="blue-grey darken-4 blue-grey--text text--lighten-5"
+        width="100%"
+      >
         <Sources />
 
         <v-divider></v-divider>

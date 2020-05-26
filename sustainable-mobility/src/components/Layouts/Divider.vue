@@ -2,9 +2,9 @@
   <section :class="colorclass">
     <v-container>
       <div class="py-5"></div>
-      <h2 class="display-3" :class="textcolor">{{heading}}</h2>
+      <h2 class="display-3" :class="textcolor">{{ heading }}</h2>
       <div class="py-2"></div>
-      <h3 class="headline" :class="textclass">{{subheading}}</h3>
+      <h3 class="headline" :class="textclass">{{ subheading }}</h3>
       <div class="py-5"></div>
     </v-container>
   </section>

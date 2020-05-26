@@ -15,19 +15,14 @@
           <v-card-text>
             In broad terms Green Mobility is a way to reduce the impact of
             mobility in differnt aspects:
-            <br />Greenhouse gas (GHG) emissions
-            <br />Air pollution
-            <br />Energy consume
-            <br />Noise
-            <br />Traffic congestion
+            <br />Greenhouse gas (GHG) emissions <br />Air pollution
+            <br />Energy consume <br />Noise <br />Traffic congestion
           </v-card-text>
           <v-card-text>
             One way to achieve it is the use of using differnt transpotation
             methods like electric vehicles and bikes.
             <br />In this map we will see part of the infrastructure that Zurich
-            has in the ambit of Green mobility.
-            <br />ELectric vehicle chargers
-            <br />Bike trials
+            has in the ambit of Green mobility. <br />ELectric vehicle chargers
             <br />Green areas
           </v-card-text>
         </v-card>
@@ -93,22 +88,6 @@ export default {
 
       self.map.on("style.load", function() {
         self.map.addLayer({
-          id: "Bikes trails",
-          type: "line",
-          color: "#d8b365",
-          source: {
-            type: "vector",
-            url: "mapbox://mmcartog01.axgin0r4"
-          },
-          layout: {
-            visibility: "visible"
-          },
-          "source-layer": "BikesTrails_ZH-0ue0zi"
-        });
-      });
-
-      self.map.on("style.load", function() {
-        self.map.addLayer({
           id: "Green areas",
           type: "symbol",
           source: {
@@ -124,7 +103,7 @@ export default {
         });
       });
 
-      var toggleableLayerIds = ["Green areas", "Bikes trails", "evChargers"];
+      var toggleableLayerIds = ["Green areas", "evChargers"];
 
       // set up the corresponding toggle button for each layer
       for (var i = 0; i < toggleableLayerIds.length; i++) {
@@ -172,7 +151,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 #zur-menu {
   background: #fff;
   position: relative;

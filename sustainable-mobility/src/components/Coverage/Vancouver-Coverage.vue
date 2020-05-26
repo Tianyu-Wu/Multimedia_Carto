@@ -11,10 +11,11 @@
             <div class="py-5"></div>
 
             <span>
-              The transport coverage in the downtown of Vancouver is significantly
-              higher than the remaining area, where the transport coverage is relatively
-              low. This also implies that private cars seem more pupular there given the
-              low coverage of public transport.
+              The transport coverage in the downtown of Vancouver is
+              significantly higher than the remaining area, where the transport
+              coverage is relatively low. This also implies that private cars
+              seem more pupular there given the low coverage of public
+              transport.
             </span>
 
             <div class="py-5"></div>
@@ -36,16 +37,17 @@
             <div class="py-3"></div>
 
             <span>
-              Note: the coverage levels of all the three cities are reclassified from kernel densities
-              using same intervals. Area unit of the density is based on the linear unit of the spatial
-              reference WGS84.
+              Note: the coverage levels of all the three cities are reclassified
+              from kernel densities using same intervals. Area unit of the
+              density is based on the linear unit of the spatial reference
+              WGS84.
             </span>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
   </div>
-</template> 
+</template>
 
 <script>
 import { mapboxgl } from "@/main";

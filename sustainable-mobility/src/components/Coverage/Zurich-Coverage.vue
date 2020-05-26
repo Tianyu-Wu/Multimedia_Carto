@@ -11,8 +11,8 @@
             <div class="py-5"></div>
 
             <span>
-              The public transport in Zurich covers almost every place of the city
-              with similar levels. The coverage of public transport in the
+              The public transport in Zurich covers almost every place of the
+              city with similar levels. The coverage of public transport in the
               downtown is slightly higher than the remaining area, and there are
               multiple transport centers in Zurich.
             </span>
@@ -36,9 +36,10 @@
             <div class="py-3"></div>
 
             <span>
-              Note: the coverage levels of all the three cities are reclassified from kernel densities
-              using same intervals. Area unit of the density is based on the linear unit of the spatial
-              reference WGS84.
+              Note: the coverage levels of all the three cities are reclassified
+              from kernel densities using same intervals. Area unit of the
+              density is based on the linear unit of the spatial reference
+              WGS84.
             </span>
           </v-card-text>
         </v-card>

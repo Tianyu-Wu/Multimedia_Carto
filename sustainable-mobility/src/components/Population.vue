@@ -10,10 +10,9 @@
         </v-card-text>
       </v-col>
       <v-col cols="3">
-        <v-card-text
-          class="display-2"
-          :class="textcolor"
-        >Driving force 1: The booming urban populations</v-card-text>
+        <v-card-text class="display-2" :class="textcolor"
+          >Driving force 1: The booming urban populations</v-card-text
+        >
         <v-card-text class="subtitle-1" :class="textcolor">
           In the last few decades there has been a tendency to move from rural
           areas all around the world.
@@ -21,7 +20,9 @@
           population.
           <div class="py-5"></div>
 
-          <h2 class="font-weight-regular" :class="textcolor">Percentage of Urban Population (%)</h2>
+          <h2 class="font-weight-regular" :class="textcolor">
+            Percentage of Urban Population (%)
+          </h2>
           <v-row>
             <v-col>
               <div class="legend-row legend-bar-pop center"></div>
@@ -39,7 +40,9 @@
             </v-col>
           </v-row>
           <div class="py-3"></div>
-          <span :class="textcolor">Note: the countries in black do not have available data.</span>
+          <span :class="textcolor"
+            >Note: the countries in black do not have available data.</span
+          >
         </v-card-text>
       </v-col>
     </v-row>

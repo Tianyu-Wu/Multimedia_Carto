@@ -44,8 +44,8 @@
             <div class="py-3"></div>
 
             <span>
-              Note: the black dots locates the stops without available
-              passenger volume data.
+              Note: the black dots locates the stops without available passenger
+              volume data.
             </span>
           </v-card-text>
         </v-card>
