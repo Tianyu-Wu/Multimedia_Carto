@@ -5,12 +5,7 @@
         <div id="van-frequency">Map</div>
       </v-col>
       <v-col cols="6" md="4">
-        <v-card
-          flat
-          class="d-flex flex-column justify-center"
-          shaped
-          height="600"
-        >
+        <v-card flat class="d-flex flex-column justify-center" shaped height="600">
           <v-card-text>
             <h2 class="display-2 font-weight-bold">Passenger Volume</h2>
             <div class="py-5"></div>

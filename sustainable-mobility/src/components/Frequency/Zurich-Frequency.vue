@@ -151,7 +151,7 @@ export default {
 
           // Populate the popup and set its coordinates
           // based on the feature found.
-          if (popvalue != null && popvalue != 0) {
+          if (popvalue != null) {
             popup
               .setLngLat(e.lngLat)
               .setHTML("Weekday boarding: " + popvalue)
