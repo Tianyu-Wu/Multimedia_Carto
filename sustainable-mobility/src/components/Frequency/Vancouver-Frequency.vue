@@ -88,6 +88,7 @@ export default {
           type: "circle",
           source: "vancouver-boarding",
           "source-layer": "vancouver_boarding_clip-6ak42g",
+          filter: ["all", [">=", ["get", "avg_daily_boarding_mf"], 0]],
           paint: {
             "circle-radius": [
               "interpolate",
@@ -154,7 +155,7 @@ export default {
 
           // Populate the popup and set its coordinates
           // based on the feature found.
-          if (popvalue != null && popvalue != 0) {
+          if (popvalue > 0) {
             popup
               .setLngLat(e.lngLat)
               .setHTML("Weekday boarding: " + popvalue)
@@ -162,7 +163,7 @@ export default {
           } else {
             popup
               .setLngLat(e.lngLat)
-              .setHTML("Data not available")
+              .setHTML("Weekday boarding: less than 5")
               .addTo(self.map);
           }
 
