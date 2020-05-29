@@ -14,11 +14,7 @@
           "
         >
           <v-hover v-slot:default="{ hover }">
-            <v-card
-              :elevation="hover ? 12 : 2"
-              :class="{ 'on-hover': hover }"
-              class="align-center"
-            >
+            <v-card :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }" class="align-center">
               <v-img
                 :src="require(`../assets/${city.name}.jpg`)"
                 :height="show == i + 1 ? 300 : 270"
@@ -28,35 +24,24 @@
                   <v-theme-provider dark>
                     <v-container fill-height>
                       <v-row class="white--text" justify="center">
-                        <v-col
-                          class="white--text text-center"
-                          cols="8"
-                          tag="h1"
-                        >
+                        <v-col class="white--text text-center" cols="8" tag="h1">
                           <span
                             :class="[hover ? 'display-2' : 'display-1']"
                             class="font-weight-regular"
-                            >{{ city.name }}</span
-                          >
+                          >{{ city.name }}</span>
                           <br />
 
                           <span
                             class="font-weight-light"
                             :class="[hover ? 'display-2' : 'display-1']"
-                            >{{ city.region }}</span
-                          >
+                          >{{ city.region }}</span>
                         </v-col>
                       </v-row>
                     </v-container>
                   </v-theme-provider>
                 </v-row>
                 <v-fade-transition>
-                  <v-overlay
-                    absolute
-                    color="#000000"
-                    :opacity="0.2 * hover + 0.4"
-                    z-index="-1"
-                  ></v-overlay>
+                  <v-overlay absolute color="#000000" :opacity="0.2 * hover + 0.4" z-index="-1"></v-overlay>
                 </v-fade-transition>
               </v-img>
             </v-card>
@@ -91,7 +76,7 @@ export default {
     cities: [
       {
         name: "Zurich",
-        region: "Euroupe"
+        region: "Europe"
       },
       {
         name: "Singapore",

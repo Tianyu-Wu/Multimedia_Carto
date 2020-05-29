@@ -14,15 +14,19 @@
 
           <v-card-text>
             In broad terms Green Mobility is a way to reduce the impact of
-            mobility in differnt aspects:
-            <br />Greenhouse gas (GHG) emissions <br />Air pollution
-            <br />Energy consume <br />Noise <br />Traffic congestion
+            mobility in different aspects:
+            <br />Greenhouse gas (GHG) emissions
+            <br />Air pollution
+            <br />Energy consumption
+            <br />Noise
+            <br />Traffic congestion
           </v-card-text>
           <v-card-text>
-            One way to achieve it is the use of using differnt transpotation
+            One way to achieve it is the use of different transpotation
             methods like electric vehicles and bikes.
             <br />In this map we will see part of the infrastructure that Zurich
-            has in the ambit of Green mobility. <br />ELectric vehicle chargers
+            has in the ambit of Green mobility.
+            <br />ELectric vehicle chargers
             <br />Green areas
           </v-card-text>
         </v-card>

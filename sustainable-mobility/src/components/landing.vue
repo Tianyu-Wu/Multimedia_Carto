@@ -15,24 +15,18 @@
                     $vuetify.breakpoint.smAndDown ? 'display-3' : 'display-4'
                   ]"
                   class="font-weight-black"
-                  >Sustainable Mobility</span
-                >
+                >Sustainable Mobility</span>
                 <div class="py-5"></div>
 
                 <p class="mx-auto title font-weight-regular mb-8 display-1">
-                  We live in a world of dynamics. Everyday, enumerous people and
-                  goods are transporting between cities and countries. With the
+                  We live in a world of dynamics. Everyday, numerous people and
+                  goods are being transported between cities and countries. With the
                   development of urbanization and globalization, sustainable
-                  mobility has become the most important steps towards the
+                  mobility has become the most important step towards the
                   development of sustainable cities and communities.
                 </p>
 
-                <v-btn
-                  class="align-self-end"
-                  fab
-                  outlined
-                  @click="$vuetify.goTo('#background')"
-                >
+                <v-btn class="align-self-end" fab outlined @click="$vuetify.goTo('#background')">
                   <v-icon>mdi-chevron-double-down</v-icon>
                 </v-btn>
               </v-col>

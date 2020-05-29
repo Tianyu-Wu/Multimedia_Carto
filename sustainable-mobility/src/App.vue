@@ -10,9 +10,7 @@
           width="70"
         />
 
-        <v-toolbar-title class="font-weight-black headline"
-          >Sustainable Mobility</v-toolbar-title
-        >
+        <v-toolbar-title class="font-weight-black headline">Sustainable Mobility</v-toolbar-title>
       </div>
       <v-spacer></v-spacer>
       <v-btn @click="$vuetify.goTo('#background')" text>
@@ -67,12 +65,7 @@
       <Summary />
     </v-content>
     <v-footer dark color="blue-grey darken-4" padless>
-      <v-card
-        flat
-        tile
-        class="blue-grey darken-4 blue-grey--text text--lighten-5"
-        width="100%"
-      >
+      <v-card flat tile class="blue-grey darken-4 blue-grey--text text--lighten-5" width="100%">
         <Sources />
 
         <v-divider></v-divider>
@@ -146,7 +139,7 @@ export default {
       color: "blue-grey lighten-5",
       heading: "Driving forces of modern transportation",
       subheading:
-        "Understand how cities change over the pass a few years and how these developments shape the future of urban transportation.",
+        "Understand how cities change over the past a few years and how these developments shape the future of urban transportation.",
       textcolor: "blue-grey--text text--darken-4"
     },
     population: {
@@ -161,7 +154,7 @@ export default {
       color: "blue-grey darken-4",
       heading: "Development of urban transportation",
       subheading:
-        "In response to the development in urban population, increasing GDP and growing international trade, the need for transportation grows rapidly throughout the years.",
+        "In response to the development of the urban population, increasing GDP and growing international trade, the need for transportation grows rapidly throughout the years.",
       textcolor: "blue-grey--text text--lighten-5"
     },
     challenges: {
@@ -175,21 +168,21 @@ export default {
       // color: "blue-grey lighten-5",
       heading: "Mobility vs. Livability",
       subheading:
-        "The development of urban transportation also leads us to the question of urban livability. See some of the side effects that carbon-intensive tranpsortation brings us."
+        "The development of urban transportation also leads us to the question of urban livability. See some of the side effects that carbon-intensive transportation brings us."
       // textcolor: "blue-grey--text text--darken-4"
     },
     statement: {
       color: "blue-grey darken-4",
       heading: "From carbon-intensive to sustainable",
       subheading:
-        "To mitigate the challenges of modern transportation, a shift from previous carbon-intensive mode of transportation to the future of sustainable mobility is urged.",
+        "To mitigate the challenges of modern transportation, a shift from previous carbon-intensive mode of transportation to the future of sustainable mobility is urgently needed.",
       textcolor: "blue-grey--text text--lighten-5"
     },
     overview: {
       color: "blue-grey lighten-5",
       heading: "Overview of global sustainable mobility",
       subheading:
-        "Assessing how countries and world are establishing their sustainable mobility systems through the three pillars: coverage, accessibility, and sustainability.",
+        "Assessing how countries and the whole world are establishing their sustainable mobility systems through the three pillars: coverage, accessibility, and sustainability.",
       textcolor: "blue-grey--text text--darken-4"
     },
     cases: {
