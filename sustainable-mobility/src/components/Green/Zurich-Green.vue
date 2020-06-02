@@ -58,12 +58,11 @@ export default {
         minZoom: 10.5
       });
 
-      /* Image: An image is loaded and added to the map. */
+      // Image: An image is loaded and added to the map. 
       self.map.loadImage(park, function(error, image) {
         if (error) throw error;
         self.map.addImage("parks_1", image);
       });
-      /* Image: An image is loaded and added to the map. */
       self.map.loadImage(evCharger, function(error, image) {
         if (error) throw error;
         self.map.addImage("evCharger_1", image);
@@ -72,7 +71,7 @@ export default {
       self.map.on("render", () => {
         self.map.resize();
       });
-
+      //add layers from mapbox
       self.map.on("style.load", function() {
         self.map.addLayer({
           id: "evChargers",

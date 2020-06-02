@@ -66,10 +66,12 @@ export default {
   },
   methods: {
     initMap: function() {
+      //set up access to mapbox
       mapboxgl.accessToken =
         "pk.eyJ1IjoibW1jYXJ0b2cwMSIsImEiOiJjazk2bHZlbW8wOW5xM250Y2ZkbXNnZGdjIn0.QS71DsIq1oSDNUgEmfA3kg";
 
       let self = this;
+      //add base map
       self.map = new mapboxgl.Map({
         container: "population",
         style: "mapbox://styles/mapbox/light-v10",
@@ -80,6 +82,7 @@ export default {
       });
       // add hover id
       var hoveredCountryId = null;
+      //add single source for all layers
       self.map.on("load", function() {
         self.map.addSource("population", {
           type: "vector",
@@ -87,10 +90,12 @@ export default {
           "source-layer": "urbanPopPercentage-3dmf08",
           generateId: true
         });
+        //add layers
         self.map.addLayer({
           id: "1960",
           type: "fill",
           layout: {
+            //set up default visibility to none
             visibility: "none"
           },
           source: "population",
@@ -121,6 +126,7 @@ export default {
             ],
             "fill-outline-color": "#800026",
             "fill-opacity": [
+              //hover function style
               "case",
               ["boolean", ["feature-state", "hover"], false],
               1,
@@ -408,7 +414,6 @@ export default {
               "#800026"
             ],
             "fill-outline-color": "#800026",
-            //change style for hover function
             "fill-opacity": [
               "case",
               ["boolean", ["feature-state", "hover"], false],
@@ -421,11 +426,13 @@ export default {
 
       // When the user moves their mouse over the 1960layer, we'll update the
       // feature state for the feature under the mouse.
+
+      //create empty popup
       var popup = new mapboxgl.Popup({
         closeButton: false,
         closeOnClick: false
       });
-
+      //check for every layer if there is any item hovered. 
       self.map.on("mousemove", "1960", function(e) {
         if (e.features.length > 0) {
           if (id) {
@@ -450,6 +457,7 @@ export default {
         }
         var country = e.features[0].properties.COUNTRY;
         var popvalue = e.features[0].properties.y_1960;
+        //set info in the popup
         popup
           .setLngLat(e.lngLat)
           .setHTML(country + " (" + popvalue + "%)")
@@ -659,7 +667,7 @@ export default {
           .setHTML(country + " (" + popvalue + "%)")
           .addTo(self.map);
       });
-      // When the mouse leaves the 1960 layer, update the feature state of the
+      // When the mouse leaves the layer, update the feature state of the
       // previously hovered feature.
       self.map.on("mouseleave", function() {
         if (hoveredCountryId) {
@@ -676,6 +684,8 @@ export default {
         popup.remove();
       });
 
+      //toggle  
+
       var toggleablePopIds = [
         "2015",
         "2010",
@@ -687,7 +697,8 @@ export default {
         "1960"
       ];
 
-      // set up the corresponding toggle button for each layer
+      // set up the corresponding toggle button for each layer 
+      // this toggle selection is set up to allow only one layer visible at time 
       for (var i = 0; i < toggleablePopIds.length; i++) {
         var id = toggleablePopIds[i];
 
@@ -700,7 +711,7 @@ export default {
           var clickedLayer = this.textContent;
           e.preventDefault();
           e.stopPropagation();
-
+        
           for (var j = 0; j < toggleablePopIds.length; j++) {
             if (clickedLayer === toggleablePopIds[j]) {
               layers.children[j].className = "active";
