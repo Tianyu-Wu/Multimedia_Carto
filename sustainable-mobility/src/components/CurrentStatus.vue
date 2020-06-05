@@ -1,12 +1,9 @@
 <template>
   <v-card flat>
-    <v-row no-gutters justify="center" align="center">
+    <v-row no-gutters justify="center" class="align-center">
       <v-col cols="3">
-        <v-card-text
-          class="display-2"
-          :class="textcolor"
-        >Transport-related carbon emission per capita</v-card-text>
-        <v-card-text class="subtitle-1" :class="textcolor">
+        <v-card-text class="display-2">Transport-related carbon emission per capita</v-card-text>
+        <v-card-text class="subtitle-1">
           This map displays the transport-related carbon emission per capita. It
           can be seen that the GHG per capita in developed countries is
           generally higher than what it is in developing countries. However, it
@@ -14,24 +11,7 @@
           higher than in Europe, despite that both are developed regions.
           <div class="py-5"></div>
 
-          <h2
-            class="font-weight-regular"
-            :class="textcolor"
-          >Green House Gas Emissions per Capita (tons)</h2>
-          <v-row>
-            <v-col>
-              <div class="legend-row legend-bar-ghg center"></div>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-              <div class="legend-row labels d-flex justify-space-between">
-                <div class="label">0</div>
-                <div class="label">9.622</div>
-              </div>
-            </v-col>
-          </v-row>
-          <div class="py-3"></div>
+          <base-legend v-bind="legendBar" />
         </v-card-text>
       </v-col>
       <v-col cols="8">
@@ -45,20 +25,22 @@
 
 <script>
 import { mapboxgl } from "@/main";
-// import mapboxgl from "mapbox-gl";
+import BaseLegend from "./Layouts/Legend";
 
 export default {
   name: "CurrentStatus",
-  data: () => ({
-    map: null
-  }),
-  props: {
-    color: String,
-    textcolor: {
-      type: String,
-      default: null
-    }
+  components: {
+    BaseLegend
   },
+  data: () => ({
+    map: null,
+    legendBar: {
+      heading: "Green House Gas Emissions per Capita (tons)",
+      colors: ["#b4d13d", "#f40101"],
+      labels: [0, 10]
+    }
+  }),
+
   methods: {
     initMap: function() {
       /* mapboxgl.accessToken =
@@ -181,15 +163,5 @@ export default {
 #map_GHG {
   width: 100%;
   height: 600px;
-}
-.legend-row {
-  width: 90%;
-  height: 12px;
-}
-/* TBD, how to change the color bar per to the map */
-.legend-bar-ghg {
-  height: 10px;
-  width: 100%;
-  background: linear-gradient(to right, #b4d13d, #f40101);
 }
 </style>

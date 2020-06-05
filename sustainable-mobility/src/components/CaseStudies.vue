@@ -20,7 +20,7 @@
                 :height="show == i + 1 ? 300 : 270"
                 class="align-center"
               >
-                <v-row no-gutters align="center">
+                <v-row no-gutters class="align-center">
                   <v-theme-provider dark>
                     <v-container fill-height>
                       <v-row class="white--text" justify="center">
@@ -57,16 +57,13 @@
 </template>
 
 <script>
-// import CaseStudyMap from "./CaseStudyMap";
 import ZurichMap from "./Cases/ZurichMap";
 import VancouverMap from "./Cases/VancouverMap";
 import SingaporeMap from "./Cases/SingaporeMap";
-import vuetify from "../plugins/vuetify";
 
 export default {
   name: "CaseStudies",
   components: {
-    // CaseStudyMap,
     ZurichMap,
     SingaporeMap,
     VancouverMap
@@ -87,13 +84,7 @@ export default {
         region: "North America"
       }
     ]
-  }),
-  methods: {
-    fireZurich: function() {
-      this.show = 1;
-      vuetify.goTo("#zur-map");
-    }
-  }
+  })
 };
 </script>
 
@@ -102,7 +93,7 @@ export default {
   opacity: 0.4;
 }
 
-span {
+.v-card {
   cursor: pointer;
 }
 </style>

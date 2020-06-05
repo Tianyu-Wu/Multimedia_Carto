@@ -1,11 +1,9 @@
 <template>
-  <v-card flat :class="color">
-    <v-row no-gutters justify="center" align="center">
+  <v-card flat>
+    <v-row no-gutters justify="center" class="align-center">
       <v-col cols="3">
-        <v-card-text class="display-2" :class="textcolor"
-          >Increasing demand for passenger transport</v-card-text
-        >
-        <v-card-text class="subtitle-1" :class="textcolor">
+        <v-card-text class="display-2">Increasing demand for passenger transport</v-card-text>
+        <v-card-text class="subtitle-1">
           <br />
           <br />According to the prediction by International Transport Forum
           (ITF) in their annual report Transport Outlook 2019, the demand for
@@ -23,21 +21,23 @@
 
 <script>
 import { GChart } from "vue-google-charts";
+
 export default {
-  name: "GDP",
-  props: {
-    color: String,
-    textcolor: String
-  },
+  name: "Demand",
   components: {
     GChart
   },
   methods: {
     onChartReady(chart, google) {
+      // store the ref to this
       let self = this;
+
+      // construct the query to demand for transportation google sheet
       const query = new google.visualization.Query(
         "https://docs.google.com/spreadsheets/d/1j-5LNLYUShev1fIwUmtqLW96z25hUeNMG4AMJwQnidU/edit?usp=sharing"
       );
+
+      // get the query response and render the chart
       query.send(response => {
         const options = {
           // some custom options
@@ -60,8 +60,11 @@ export default {
             }
           }
         };
+
+        // get the data table
         const data = response.getDataTable();
-        console.log(data);
+
+        // draw chart
         chart.draw(data, options);
       });
     }

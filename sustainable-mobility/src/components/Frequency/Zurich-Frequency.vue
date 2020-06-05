@@ -23,23 +23,7 @@
             </span>
             <div class="py-5"></div>
 
-            <h2 class="font-weight-regular">Average Weekday Boarding</h2>
-            <v-row>
-              <v-col>
-                <div class="legend-row legend-color center"></div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <div class="legend-row labels d-flex justify-space-between">
-                  <div class="label">0</div>
-                  <div class="label">2500</div>
-                  <div class="label">5000</div>
-                  <div class="label">7500</div>
-                  <div class="label">10000+</div>
-                </div>
-              </v-col>
-            </v-row>
+            <base-legend v-bind="legendBar"></base-legend>
           </v-card-text>
         </v-card>
       </v-col>
@@ -49,15 +33,27 @@
 
 <script>
 import { mapboxgl } from "@/main";
+import BaseLegend from "../Layouts/Legend";
 
 export default {
   name: "ZurichFrequency",
+  components: {
+    BaseLegend
+  },
   data: () => ({
-    map: null
+    map: null,
+    legendBar: {
+      heading: "Average Weekday Boarding",
+      colors: ["#8ab9d6", " #fed56c", "#f09f66", "#f2683a", "#f75555"],
+      labels: ["0", "2500", "5000", "7500", "10000+"]
+    }
   }),
   methods: {
     initMap: function() {
+      // store the ref to this
       let self = this;
+
+      // create a new mapbox object and render in map div
       self.map = new mapboxgl.Map({
         container: "zur-frequency",
         style: "mapbox://styles/mapbox/light-v10",
@@ -67,11 +63,7 @@ export default {
         minZoom: 10.5
       });
 
-      //   resize map
-      self.map.on("render", () => {
-        self.map.resize();
-      });
-
+      // add the zurich boarding source layer
       self.map.on("style.load", function() {
         self.map.addSource("zurich-boarding", {
           type: "vector",
@@ -80,6 +72,7 @@ export default {
           promoteId: "Haltestellennummer"
         });
 
+        // add the zurich boarding layer from the source and render with style
         self.map.addLayer({
           id: "zurich-boarding-layer",
           type: "circle",
@@ -131,7 +124,7 @@ export default {
       });
 
       //add hover id
-      var hoveredCountryId = null;
+      var hoveredId = null;
 
       // When the user moves their mouse over the layer, we'll update the
       // feature state for the feature under the mouse.
@@ -163,37 +156,41 @@ export default {
               .addTo(self.map);
           }
 
-          if (hoveredCountryId) {
+          // if another feature is already hovered, reset the hovering state of that feature
+          if (hoveredId) {
             self.map.removeFeatureState({
               source: "zurich-boarding",
               sourceLayer: "zurich_boardings-ahzhbf",
-              id: hoveredCountryId
+              id: hoveredId
             });
           }
-          hoveredCountryId = e.features[0].id;
+
+          // set the hovered id to the currently hovered feature
+          hoveredId = e.features[0].id;
           self.map.setFeatureState(
             {
               source: "zurich-boarding",
               sourceLayer: "zurich_boardings-ahzhbf",
-              id: hoveredCountryId
+              id: hoveredId
             },
             { hover: true }
           );
         }
       });
 
+      // when the mouse leaves the layer, reset the hovering state
       self.map.on("mouseleave", "zurich-boarding-layer", function() {
-        if (hoveredCountryId) {
+        if (hoveredId) {
           self.map.setFeatureState(
             {
               source: "zurich-boarding",
               sourceLayer: "zurich_boardings-ahzhbf",
-              id: hoveredCountryId
+              id: hoveredId
             },
             { hover: false }
           );
         }
-        hoveredCountryId = null;
+        hoveredId = null;
         self.map.getCanvas().style.cursor = "";
         popup.remove();
       });
@@ -209,21 +206,5 @@ export default {
 #zur-frequency {
   width: 100%;
   height: 600px;
-}
-
-.legend-row {
-  width: 90%;
-  height: 12px;
-}
-
-.legend-color {
-  background: linear-gradient(
-    to right,
-    #8ab9d6,
-    #fed56c,
-    #f09f66,
-    #f2683a,
-    #f75555
-  );
 }
 </style>

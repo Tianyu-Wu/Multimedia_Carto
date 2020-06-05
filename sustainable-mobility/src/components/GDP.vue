@@ -1,11 +1,9 @@
 <template>
-  <v-card flat :class="color">
-    <v-row no-gutters justify="center" align="center">
+  <v-card flat>
+    <v-row no-gutters justify="center" class="align-center">
       <v-col cols="3">
-        <v-card-text class="display-2" :class="textcolor"
-          >Driving force 2: Increasing GDP worldwide</v-card-text
-        >
-        <v-card-text class="subtitle-1" :class="textcolor">
+        <v-card-text class="display-2">Driving force 2: Increasing GDP worldwide</v-card-text>
+        <v-card-text class="subtitle-1">
           From 1960s, the world's GDP has grown steadily from 1.37 Trillion US
           Dollar to nearly 86 Trillion US Dollar.
           <br />
@@ -26,19 +24,20 @@
 import { GChart } from "vue-google-charts";
 export default {
   name: "GDP",
-  props: {
-    color: String,
-    textcolor: String
-  },
   components: {
     GChart
   },
   methods: {
     onChartReady(chart, google) {
+      // store the ref to this
       let self = this;
+
+      // construct the query to GDP google sheet
       const query = new google.visualization.Query(
         "https://docs.google.com/spreadsheets/d/1lARrVYXNGqIRp6PxEp60PzfhWSr5xdXxJycsDEI5x30/edit?usp=sharing"
       );
+
+      // get query result and render the plot
       query.send(response => {
         const options = {
           // some custom options
@@ -61,8 +60,11 @@ export default {
             }
           }
         };
+
+        // get the data table
         const data = response.getDataTable();
-        console.log(data);
+
+        // draw chart
         chart.draw(data, options);
       });
     }

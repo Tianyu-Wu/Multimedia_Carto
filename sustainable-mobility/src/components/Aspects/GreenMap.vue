@@ -27,7 +27,6 @@ export default {
     ZurichGreen,
     SingaporeGreen,
     VancouverGreen
-  },
-  data: () => ({})
+  }
 };
 </script>

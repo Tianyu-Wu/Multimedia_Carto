@@ -5,7 +5,7 @@
     :src="require('../assets/background1280.jpg')"
   >
     <v-overlay absolute opacity="0.6">
-      <v-row no-gutters align="center">
+      <v-row no-gutters class="align-center">
         <v-theme-provider dark>
           <v-container fill-height>
             <v-row align="center" class="white--text" justify="center">

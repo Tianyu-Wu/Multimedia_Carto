@@ -1,61 +1,57 @@
 <template>
-  <div>
-    <v-row no-gutters justify="center" align="center">
+  <v-card flat :class="color">
+    <v-row no-gutters justify="center" class="align-center">
       <v-col cols="8">
-        <v-card-text>
-          <div id="population" class="map pad2">
-            Map Loading
-            <div id="menuPop"></div>
-          </div>
-        </v-card-text>
+        <div id="population" class="map pad2">
+          Map Loading
+          <div id="menuPop"></div>
+        </div>
       </v-col>
       <v-col cols="3">
-        <v-card-text class="display-2" :class="textcolor"
-          >Driving force 1: The booming urban populations</v-card-text
-        >
+        <v-card-text
+          class="display-2"
+          :class="textcolor"
+        >Driving force 1: The booming urban populations</v-card-text>
         <v-card-text class="subtitle-1" :class="textcolor">
           In the last few decades there has been a tendency to move from rural
           areas all around the world.
           <br />This map shows this change through the percentage of urban
           population.
           <div class="py-5"></div>
-
-          <h2 class="font-weight-regular" :class="textcolor">
-            Percentage of Urban Population (%)
-          </h2>
-          <v-row>
-            <v-col>
-              <div class="legend-row legend-bar-pop center"></div>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-              <div class="legend-row labels d-flex justify-space-between">
-                <div class="label" :class="textcolor">0</div>
-                <div class="label" :class="textcolor">25</div>
-                <div class="label" :class="textcolor">50</div>
-                <div class="label" :class="textcolor">75</div>
-                <div class="label" :class="textcolor">100</div>
-              </div>
-            </v-col>
-          </v-row>
-          <div class="py-3"></div>
-          <span :class="textcolor"
-            >Note: the countries in black do not have available data.</span
-          >
+          <base-legend v-bind="legendBar" />
         </v-card-text>
       </v-col>
     </v-row>
-  </div>
+  </v-card>
 </template>
 
 <script>
 import { mapboxgl } from "@/main";
+import BaseLegend from "./Layouts/Legend";
 
 export default {
   name: "Population",
+  components: {
+    BaseLegend
+  },
   data: () => ({
-    map: null
+    map: null,
+    legendBar: {
+      heading: "Percentage of Urban Population (%)",
+      colors: [
+        "#ffffcc",
+        "#ffffcc",
+        "#fed976",
+        "#feb24c",
+        "#fd8d3c",
+        "#fc4e2a",
+        "#e31a1c",
+        "#bd0026",
+        "#800026"
+      ],
+      labels: [0, 25, 50, 75, 100],
+      notes: "Note: the countries in black do not have available data."
+    }
   }),
   props: {
     color: String,
@@ -432,7 +428,7 @@ export default {
         closeButton: false,
         closeOnClick: false
       });
-      //check for every layer if there is any item hovered. 
+      //check for every layer if there is any item hovered.
       self.map.on("mousemove", "1960", function(e) {
         if (e.features.length > 0) {
           if (id) {
@@ -684,7 +680,7 @@ export default {
         popup.remove();
       });
 
-      //toggle  
+      //toggle
 
       var toggleablePopIds = [
         "2015",
@@ -697,8 +693,8 @@ export default {
         "1960"
       ];
 
-      // set up the corresponding toggle button for each layer 
-      // this toggle selection is set up to allow only one layer visible at time 
+      // set up the corresponding toggle button for each layer
+      // this toggle selection is set up to allow only one layer visible at time
       for (var i = 0; i < toggleablePopIds.length; i++) {
         var id = toggleablePopIds[i];
 
@@ -711,7 +707,7 @@ export default {
           var clickedLayer = this.textContent;
           e.preventDefault();
           e.stopPropagation();
-        
+
           for (var j = 0; j < toggleablePopIds.length; j++) {
             if (clickedLayer === toggleablePopIds[j]) {
               layers.children[j].className = "active";

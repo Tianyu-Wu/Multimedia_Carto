@@ -51,7 +51,6 @@ export default {
   },
   data: () => ({
     features: {
-      color: null,
       heading: "Vancouver - North America",
       subheading: "A land of great sustainability.",
       textcolor: "blue-grey--text text--darken-4",

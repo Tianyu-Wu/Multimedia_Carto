@@ -16,31 +16,8 @@
               downtown is slightly higher than the remaining area, and there are
               multiple transport centers in Zurich.
             </span>
-
             <div class="py-5"></div>
-
-            <h2 class="font-weight-regular">Transport Coverage Levels</h2>
-            <v-row>
-              <v-col>
-                <div class="legend-row legend-color center"></div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <div class="legend-row labels d-flex justify-space-between">
-                  <div class="label">1</div>
-                  <div class="label">10</div>
-                </div>
-              </v-col>
-            </v-row>
-            <div class="py-3"></div>
-
-            <span>
-              Note: the coverage levels of all the three cities are reclassified
-              from kernel densities using same intervals. Area unit of the
-              density is based on the linear unit of the spatial reference
-              WGS84.
-            </span>
+            <base-legend v-bind="legendBar"></base-legend>
           </v-card-text>
         </v-card>
       </v-col>
@@ -50,11 +27,22 @@
 
 <script>
 import { mapboxgl } from "@/main";
+import BaseLegend from "../Layouts/Legend";
 
 export default {
   name: "ZurichCoverage",
+  components: {
+    BaseLegend
+  },
   data: () => ({
-    map: null
+    map: null,
+    legendBar: {
+      heading: "Transport Coverage Levels",
+      colors: ["#b8d0db", "#066aa7"],
+      labels: [1, 10],
+      notes:
+        "Note: the coverage levels of all the three cities are reclassified from kernel densities using same intervals. Area unit of the density is based on the linear unit of the spatial reference WGS84."
+    }
   }),
   methods: {
     initMap: function() {
@@ -175,13 +163,5 @@ export default {
 #zuri-coverage {
   width: 100%;
   height: 600px;
-}
-.legend-row {
-  width: 90%;
-  height: 12px;
-}
-
-.legend-color {
-  background: linear-gradient(to right, #b8d0db, #066aa7);
 }
 </style>

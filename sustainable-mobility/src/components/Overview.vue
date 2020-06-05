@@ -1,36 +1,13 @@
 <template>
-  <v-card flat :class="color">
+  <v-card flat>
     <v-container>
-      <v-row no-gutters justify="space-between" align="top">
-        <v-col cols="3">
+      <v-row no-gutters justify="space-between" class="align-top">
+        <v-col v-for="(aspect,i) in aspects" :key="i" cols="3">
           <v-card-title>
-            <div class="legend-div blue"></div>
-            <span class="title" :class="textcolor">Coverage</span>
+            <div class="legend-div" :class="aspect.color" />
+            <span class="title">{{aspect.title}}</span>
           </v-card-title>
-          <v-card-text class="subtitle-1" :class="textcolor"
-            >How good is the transit infrastructure scored in the given
-            country.</v-card-text
-          >
-        </v-col>
-        <v-col cols="3">
-          <v-card-title>
-            <div class="legend-div amber"></div>
-            <span class="title" :class="textcolor">Accessibility</span>
-          </v-card-title>
-          <v-card-text class="subtitle-1" :class="textcolor"
-            >How accessible is the public transport to citizens. E.g. Rapid
-            transit to resident ratio.</v-card-text
-          >
-        </v-col>
-        <v-col cols="3">
-          <v-card-title>
-            <div class="legend-div green"></div>
-            <span class="title" :class="textcolor">Sustainability</span>
-          </v-card-title>
-          <v-card-text class="subtitle-1" :class="textcolor"
-            >How much impact does the transportation have on the
-            environment.</v-card-text
-          >
+          <v-card-text class="subtitle-1">{{aspect.text}}</v-card-text>
         </v-col>
       </v-row>
       <div class="py-2"></div>
@@ -49,13 +26,30 @@
 import { GChart } from "vue-google-charts";
 export default {
   name: "Overview",
-  props: {
-    color: String,
-    textcolor: String
-  },
   components: {
     GChart
   },
+  data: () => ({
+    aspects: [
+      {
+        color: "blue",
+        title: "Coverage",
+        text:
+          "How good is the transit infrastructure scored in the given country."
+      },
+      {
+        color: "amber",
+        title: "Accessibility",
+        text:
+          "How accessible is the public transport to citizens. E.g. Rapid transit to resident ratio."
+      },
+      {
+        color: "green",
+        title: "Sustainability",
+        text: "How much impact does the transportation have on the environment."
+      }
+    ]
+  }),
   methods: {
     onChartReady(chart, google) {
       let self = this;

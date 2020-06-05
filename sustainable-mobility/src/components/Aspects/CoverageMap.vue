@@ -27,7 +27,6 @@ export default {
     ZurichCoverage,
     SingaporeCoverage,
     VancouverCoverage
-  },
-  data: () => ({})
+  }
 };
 </script>

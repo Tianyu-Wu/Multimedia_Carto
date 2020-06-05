@@ -9,33 +9,18 @@
           transition="scale-transition"
           width="70"
         />
-
         <v-toolbar-title class="font-weight-black headline">Sustainable Mobility</v-toolbar-title>
       </div>
       <v-spacer></v-spacer>
-      <v-btn @click="$vuetify.goTo('#background')" text>
-        <span class="mr-2">Driving forces</span>
-      </v-btn>
-      <v-btn @click="$vuetify.goTo('#challenges')" text>
-        <span class="mr-2">Challenges</span>
-      </v-btn>
-      <v-btn @click="$vuetify.goTo('#overview')" text>
-        <span class="mr-2">Overview</span>
-      </v-btn>
-      <v-btn @click="$vuetify.goTo('#case-studies')" text>
-        <span class="mr-2">Case Studies</span>
-      </v-btn>
-      <v-btn @click="$vuetify.goTo('#summary')" text>
-        <span class="mr-2">Summary</span>
+      <v-btn v-for="(tab,i) in tabs" :key="i" @click="$vuetify.goTo(`#${tab.id}`)" text>
+        <span class="mr-2">{{tab.title}}</span>
       </v-btn>
     </v-app-bar>
     <v-content>
-      <section id="landing">
-        <Landing />
-      </section>
+      <Landing id="landing" />
 
       <base-divider id="background" v-bind="driving_forces" />
-      <Population v-bind="population" />
+      <Population />
       <v-divider />
       <GDP />
 
@@ -48,6 +33,7 @@
       <CurrentStatus />
       <v-divider></v-divider>
       <Livability v-bind="livability" />
+
       <base-divider v-bind="statement" />
       <Statements />
 
@@ -61,15 +47,13 @@
       <ComparativeStudies />
 
       <base-divider id="summary" v-bind="summary" />
-      <SummaryText />
       <Summary />
     </v-content>
+
     <v-footer dark color="blue-grey darken-4" padless>
       <v-card flat tile class="blue-grey darken-4 blue-grey--text text--lighten-5" width="100%">
         <Sources />
-
         <v-divider></v-divider>
-
         <v-card-text class="blue-grey--text text--lighten-5 text-center">
           &copy; {{ new Date().getFullYear() }} —
           <strong>Tianyu Wu, María Pérez Ortega, Yihang She</strong>
@@ -80,8 +64,6 @@
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld";
-// import FrequencyVancouver from "./components/FrequencyVancouver";
 import Landing from "./components/Landing";
 import Population from "./components/Population";
 import GDP from "./components/GDP";
@@ -93,7 +75,6 @@ import CurrentStatus from "./components/CurrentStatus";
 import Overview from "./components/Overview";
 import CaseStudies from "./components/CaseStudies";
 import ComparativeStudies from "./components/ComparativeStudies";
-import SummaryText from "./components/SummaryText";
 import Summary from "./components/Summary";
 import BaseDivider from "./components/Layouts/Divider";
 import Sources from "./components/Layouts/Sources";
@@ -113,28 +94,36 @@ export default {
     Overview,
     CaseStudies,
     ComparativeStudies,
-    SummaryText,
     Summary,
     BaseDivider,
     Sources
   },
 
   data: () => ({
-    //titles and actions of background menu
-    background_items: [
+    //titles and actions of toolbar
+    tabs: [
       {
-        title: "Urban populations",
-        action: "$vuetify.goTo('#population')"
+        title: "Driving forces",
+        id: "background"
       },
       {
-        title: "Demand for transportation",
-        action: "$vuetify.goTo('#demand')"
+        title: "Challenges",
+        id: "challenges"
       },
       {
-        title: "Urban livability",
-        action: "$vuetify.goTo('#livability')"
+        title: "Overview",
+        id: "overview"
+      },
+      {
+        title: "Case Studies",
+        id: "case-studies"
+      },
+      {
+        title: "Summary",
+        id: "summary"
       }
     ],
+    // headings, subheadings, background color and text color of the sections
     driving_forces: {
       color: "blue-grey lighten-5",
       heading: "Driving forces of modern transportation",
@@ -165,11 +154,9 @@ export default {
       textcolor: "blue-grey--text text--darken-4"
     },
     livability: {
-      // color: "blue-grey lighten-5",
       heading: "Mobility vs. Livability",
       subheading:
         "The development of urban transportation also leads us to the question of urban livability. See some of the side effects that carbon-intensive transportation brings us."
-      // textcolor: "blue-grey--text text--darken-4"
     },
     statement: {
       color: "blue-grey darken-4",

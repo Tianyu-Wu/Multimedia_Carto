@@ -29,16 +29,16 @@
         <v-divider></v-divider>
         <v-card-text class="headline">Sustainable Mobility Score of {{ country }}</v-card-text>
         <v-row>
-          <v-col>
+          <v-col v-for="(aspect,i) in aspects" :key="i">
             <v-row>
-              <v-divider vertical class="coverage blue"></v-divider>
+              <v-divider vertical :class="aspect.color"></v-divider>
               <v-card flat>
-                <v-card-text class="title aspects text-uppercase">Coverage</v-card-text>
+                <v-card-text class="title aspects text-uppercase">{{aspect.title}}</v-card-text>
                 <v-card-text class="headline font-weight-light aspects">
                   Scored
                   <span class="display-1 font-weight-light">
                     {{
-                    score[0]
+                    score[i]
                     }}
                   </span>
                   / 100
@@ -47,59 +47,7 @@
                   Rank
                   <span class="headline font-weight-light">
                     {{
-                    ranking[0]
-                    }}
-                  </span>
-                  / 68 countries
-                </v-card-text>
-              </v-card>
-            </v-row>
-          </v-col>
-          <v-col>
-            <v-row>
-              <v-divider vertical class="access amber"></v-divider>
-              <v-card flat>
-                <v-card-text class="title aspects text-uppercase">Accessibility</v-card-text>
-                <v-card-text class="headline font-weight-light aspects">
-                  Scored
-                  <span class="display-1 font-weight-light">
-                    {{
-                    score[1]
-                    }}
-                  </span>
-                  / 100
-                </v-card-text>
-                <v-card-text class="title font-weight-light aspects">
-                  Rank
-                  <span class="headline font-weight-light">
-                    {{
-                    ranking[1]
-                    }}
-                  </span>
-                  / 68 countries
-                </v-card-text>
-              </v-card>
-            </v-row>
-          </v-col>
-          <v-col>
-            <v-row>
-              <v-divider vertical class="sustainable green"></v-divider>
-              <v-card flat>
-                <v-card-text class="title aspects text-uppercase">Sustainability</v-card-text>
-                <v-card-text class="headline font-weight-light aspects">
-                  Scored
-                  <span class="display-1 font-weight-light">
-                    {{
-                    score[2]
-                    }}
-                  </span>
-                  / 100
-                </v-card-text>
-                <v-card-text class="title font-weight-light aspects">
-                  Rank
-                  <span class="headline font-weight-light">
-                    {{
-                    ranking[2]
+                    ranking[i]
                     }}
                   </span>
                   / 68 countries
@@ -133,21 +81,27 @@ export default {
     ranking: Array,
     score: Array
   },
-  data() {
-    return {
-      chartOptions: {
-        height: 400,
-        legend: "none"
+  data: () => ({
+    aspects: [
+      {
+        color: "blue",
+        title: "Coverage"
+      },
+      {
+        color: "amber",
+        title: "Accessibility"
+      },
+      {
+        color: "green",
+        title: "Sustainability"
       }
-    };
-  },
+    ],
+    chartOptions: {
+      height: 400,
+      legend: "none"
+    }
+  }),
   computed: {
-    colorclass() {
-      return [this.color];
-    },
-    textclass() {
-      return [this.textcolor];
-    },
     chartData() {
       return [
         ["Aspect", "Score", { role: "style" }],

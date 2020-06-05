@@ -1,16 +1,14 @@
 <template>
-  <v-card flat :class="color">
+  <v-card flat>
     <div class="py-5"></div>
 
-    <v-row no-gutters justify="center" align="center">
+    <v-row no-gutters justify="center" class="align-center">
       <v-col cols="6">
         <v-img :src="require('../assets/sdg.png')" class="mb-4" contain />
       </v-col>
       <v-col cols="5">
-        <v-card-text class="display-2" :class="textcolor"
-          >SDG 11: sustainable cities and communities</v-card-text
-        >
-        <v-card-text class="subtitle-1" :class="textcolor">
+        <v-card-text class="display-2">SDG 11: sustainable cities and communities</v-card-text>
+        <v-card-text class="subtitle-1">
           In 2016, the UN proposes the SDG 11: sustainable cities and
           communities. As an indivisible dimension of our daily life, a
           transportation system has direct influences on not only the
@@ -27,13 +25,6 @@
 
 <script>
 export default {
-  name: "Statements",
-  props: {
-    color: String,
-    textcolor: {
-      type: String,
-      default: null
-    }
-  }
+  name: "Statements"
 };
 </script>

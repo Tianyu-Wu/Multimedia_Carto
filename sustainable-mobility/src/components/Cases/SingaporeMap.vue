@@ -51,7 +51,6 @@ export default {
   },
   data: () => ({
     features: {
-      color: null,
       heading: "Singapore - Asia",
       subheading: "A giant of public transport.",
       textcolor: "blue-grey--text text--darken-4",

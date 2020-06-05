@@ -15,19 +15,19 @@
           <v-card-text>
             In broad terms Green Mobility is a way to reduce the impact of
             mobility in different aspects:
-            <br />Greenhouse gas (GHG) emissions
-            <br />Air pollution
-            <br />Energy consumption
-            <br />Noise
-            <br />Traffic congestion
+            <br />- Greenhouse gas (GHG) emissions
+            <br />- Air pollution
+            <br />- Energy consumption
+            <br />- Noise
+            <br />- Traffic congestion
           </v-card-text>
           <v-card-text>
             One way to achieve it is the use of different transpotation
             methods like electric vehicles and bikes.
             <br />In this map we will see part of the infrastructure that Zurich
             has in the ambit of Green mobility.
-            <br />ELectric vehicle chargers
-            <br />Green areas
+            <br />- Electric vehicle chargers
+            <br />- Green areas
           </v-card-text>
         </v-card>
       </v-col>
@@ -48,7 +48,10 @@ export default {
   }),
   methods: {
     initMap: function() {
+      // store the ref to this
       let self = this;
+
+      // create a new mapbox object and render in the map div
       self.map = new mapboxgl.Map({
         container: "zh-green",
         style: "mapbox://styles/mapbox/light-v10",
@@ -58,7 +61,7 @@ export default {
         minZoom: 10.5
       });
 
-      // Image: An image is loaded and added to the map. 
+      // Image: An image is loaded and added to the map.
       self.map.loadImage(park, function(error, image) {
         if (error) throw error;
         self.map.addImage("parks_1", image);

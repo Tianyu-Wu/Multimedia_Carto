@@ -43,7 +43,6 @@ import BaseFeatures from "../Layouts/Features";
 
 export default {
   name: "ZurichMap",
-  // props: ["show"],
   components: {
     ZurichCoverage,
     ZurichFrequency,
@@ -52,7 +51,6 @@ export default {
   },
   data: () => ({
     features: {
-      color: null,
       heading: "Zurich - Europe",
       subheading: "A pioneer of sustainable transport.",
       textcolor: "blue-grey--text text--darken-4",

@@ -15,21 +15,21 @@
           <v-card-text>
             In broad terms Green Mobility is a way to reduce the impact of
             mobility in different aspects:
-            <br />Greenhouse gas (GHG) emissions
-            <br />Air pollution
-            <br />Energy consumption
-            <br />Noise
-            <br />Traffic congestion
+            <br />- Greenhouse gas (GHG) emissions
+            <br />- Air pollution
+            <br />- Energy consumption
+            <br />- Noise
+            <br />- Traffic congestion
           </v-card-text>
           <v-card-text>
             One way to achieve it is the use of different transpotation
             methods like electric vehicles and bikes.
             <br />In this map we will see part of the infrastructure that
             Vancouver has in the ambit of Green mobility.
-            <br />ELectric vehicle
+            <br />- Electric vehicle
             chargers
-            <br />Bike trials
-            <br />Green areas
+            <br />- Bike trials
+            <br />- Green areas
           </v-card-text>
         </v-card>
       </v-col>
@@ -50,7 +50,10 @@ export default {
   }),
   methods: {
     initMap: function() {
+      // store the ref to this
       let self = this;
+
+      // create a new mapbox object and render in the map div
       self.map = new mapboxgl.Map({
         container: "va-green",
         style: "mapbox://styles/mapbox/light-v10",
@@ -59,12 +62,12 @@ export default {
         maxZoom: 16,
         minZoom: 10.5
       });
-      // Image: An image is loaded and added to the map. 
+      // Image: An image is loaded and added to the map.
       self.map.loadImage(park, function(error, image) {
         if (error) throw error;
         self.map.addImage("parks_1", image);
       });
-      
+
       self.map.loadImage(evCharger, function(error, image) {
         if (error) throw error;
         self.map.addImage("evCharger_1", image);

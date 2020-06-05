@@ -23,30 +23,7 @@
               10000.
             </span>
             <div class="py-5"></div>
-
-            <h2 class="font-weight-regular">Average Weekday Boarding</h2>
-            <v-row>
-              <v-col>
-                <div class="legend-row legend-color center"></div>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <div class="legend-row labels d-flex justify-space-between">
-                  <div class="label">0</div>
-                  <div class="label">2500</div>
-                  <div class="label">5000</div>
-                  <div class="label">7500</div>
-                  <div class="label">10000+</div>
-                </div>
-              </v-col>
-            </v-row>
-            <div class="py-3"></div>
-
-            <span>
-              Note: the black dots locates the stops without available passenger
-              volume data.
-            </span>
+            <base-legend v-bind="legendBar"></base-legend>
           </v-card-text>
         </v-card>
       </v-col>
@@ -56,25 +33,39 @@
 
 <script>
 import { mapboxgl } from "@/main";
+import BaseLegend from "../Layouts/Legend";
 
 export default {
   name: "SingaporeFrequency",
+  components: {
+    BaseLegend
+  },
   data: () => ({
-    map: null
+    map: null,
+    legendBar: {
+      heading: "Average Weekday Boarding",
+      colors: ["#8ab9d6", " #fed56c", "#f09f66", "#f2683a", "#f75555"],
+      labels: ["0", "2500", "5000", "7500", "10000+"],
+      notes:
+        "Note: the black dots locates the stops without available passenger volume data."
+    }
   }),
   methods: {
     initMap: function() {
+      // store the ref
       let self = this;
+
+      // create a new mapbox object, rendered in map div
       self.map = new mapboxgl.Map({
         container: "sin-frequency",
         style: "mapbox://styles/mapbox/light-v10",
-        // style: "mapbox://styles/mmcartog01/ck98marof00vr1io3vqd4ehlb/draft",
         center: [103.82, 1.35],
         zoom: 10.5,
         maxZoom: 16,
         minZoom: 10.5
       });
 
+      // add the singapore boarding source layer
       self.map.on("style.load", function() {
         self.map.addSource("singapore-boarding", {
           type: "vector",
@@ -82,6 +73,7 @@ export default {
           promoteId: "BUS_STOP_N"
         });
 
+        // add the singapore boarding layer from the source layer
         self.map.addLayer({
           id: "singapore-boarding-layer",
           type: "circle",
@@ -133,7 +125,7 @@ export default {
       });
 
       //add hover id
-      var hoveredCountryId = null;
+      var hoveredId = null;
 
       // When the user moves their mouse over the layer, we'll update the
       // feature state for the feature under the mouse.
@@ -166,46 +158,45 @@ export default {
               .addTo(self.map);
           }
 
-          if (hoveredCountryId) {
+          // if another feature is already hovered, reset the state of that feature
+          if (hoveredId) {
             self.map.removeFeatureState({
               source: "singapore-boarding",
               sourceLayer: "singapore_boardings-d3ks0b",
-              id: hoveredCountryId
+              id: hoveredId
             });
           }
 
-          hoveredCountryId = e.features[0].id;
+          // set the current hovering feature as hoveredID
+          hoveredId = e.features[0].id;
           self.map.setFeatureState(
             {
               source: "singapore-boarding",
               sourceLayer: "singapore_boardings-d3ks0b",
-              id: hoveredCountryId
+              id: hoveredId
             },
             { hover: true }
           );
         }
       });
 
+      // when mouse leaves the layer, reset hover state
       self.map.on("mouseleave", "singapore-boarding-layer", function() {
-        if (hoveredCountryId) {
+        if (hoveredId) {
           self.map.setFeatureState(
             {
               source: "singapore-boarding",
               sourceLayer: "singapore_boardings-d3ks0b",
-              id: hoveredCountryId
+              id: hoveredId
             },
             {
               hover: false
             }
           );
         }
-        hoveredCountryId = null;
+        hoveredId = null;
         self.map.getCanvas().style.cursor = "";
         popup.remove();
-      });
-
-      self.map.on("render", () => {
-        self.map.resize();
       });
     }
   },
@@ -219,20 +210,5 @@ export default {
 #sin-frequency {
   width: 100%;
   height: 600px;
-}
-.legend-row {
-  width: 90%;
-  height: 12px;
-}
-
-.legend-color {
-  background: linear-gradient(
-    to right,
-    #8ab9d6,
-    #fed56c,
-    #f09f66,
-    #f2683a,
-    #f75555
-  );
 }
 </style>

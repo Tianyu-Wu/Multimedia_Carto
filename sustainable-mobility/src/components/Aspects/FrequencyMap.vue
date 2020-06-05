@@ -27,7 +27,6 @@ export default {
     ZurichFrequency,
     SingaporeFrequency,
     VancouverFrequency
-  },
-  data: () => ({})
+  }
 };
 </script>

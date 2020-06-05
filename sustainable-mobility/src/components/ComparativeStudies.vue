@@ -26,10 +26,7 @@
                   <v-avatar size="100px">
                     <v-icon size="100px" v-text="icon"></v-icon>
                   </v-avatar>
-                  <v-card-title
-                    class="justify-center white--text display-2"
-                    v-text="name"
-                  ></v-card-title>
+                  <v-card-title class="justify-center white--text display-2" v-text="name"></v-card-title>
                 </div>
               </v-theme-provider>
             </v-card>
@@ -38,10 +35,8 @@
       </template>
     </v-row>
 
-    <!-- <CaseStudyMap id="case-study-map" /> -->
     <CoverageMap v-if="show == 1" />
     <FrequencyMap v-if="show == 2" />
-
     <GreenMap v-if="show == 3" />
   </div>
 </template>
@@ -50,8 +45,6 @@
 import CoverageMap from "./Aspects/CoverageMap";
 import FrequencyMap from "./Aspects/FrequencyMap";
 import GreenMap from "./Aspects/GreenMap";
-
-import vuetify from "../plugins/vuetify";
 
 export default {
   name: "ComparativeStudies",
@@ -79,13 +72,7 @@ export default {
         icon: "mdi-molecule-co2"
       }
     ]
-  }),
-  methods: {
-    fireZurich: function() {
-      this.show = 1;
-      vuetify.goTo("#zur-map");
-    }
-  }
+  })
 };
 </script>
 
