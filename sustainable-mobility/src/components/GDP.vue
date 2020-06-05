@@ -1,7 +1,7 @@
 <template>
-  <v-card flat>
+  <v-card flat style="padding: 0px 50px 0px 50px">
     <v-row no-gutters justify="center" class="align-center">
-      <v-col cols="3">
+      <v-col cols="12" lg="4">
         <v-card-text class="display-2">Driving force 2: Increasing GDP worldwide</v-card-text>
         <v-card-text class="subtitle-1">
           From 1960s, the world's GDP has grown steadily from 1.37 Trillion US
@@ -13,7 +13,7 @@
           <div class="py-5"></div>
         </v-card-text>
       </v-col>
-      <v-col cols="8">
+      <v-col cols="12" lg="8">
         <GChart id="gdp-chart" type="LineChart" @ready="onChartReady" />
       </v-col>
     </v-row>

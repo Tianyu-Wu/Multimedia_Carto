@@ -1,7 +1,7 @@
 <template>
-  <v-card flat>
+  <v-card flat style="padding: 0px 50px 0px 50px">
     <v-row no-gutters justify="center" class="align-center">
-      <v-col cols="3">
+      <v-col cols="12" lg="4">
         <v-card-text class="display-2">Transport-related carbon emission per capita</v-card-text>
         <v-card-text class="subtitle-1">
           This map displays the transport-related carbon emission per capita. It
@@ -14,10 +14,8 @@
           <base-legend v-bind="legendBar" />
         </v-card-text>
       </v-col>
-      <v-col cols="8">
-        <v-card-text>
-          <div id="map_GHG">Map Loading</div>
-        </v-card-text>
+      <v-col cols="12" lg="8">
+        <div id="map_GHG">Map Loading</div>
       </v-col>
     </v-row>
   </v-card>

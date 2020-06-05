@@ -1,10 +1,10 @@
 <template>
   <div fill-height color="#F3EBE3">
     <v-row fluid no-gutters align="center">
-      <v-col cols="12" md="8">
+      <v-col cols="12" lg="8">
         <div id="zur-frequency">Map</div>
       </v-col>
-      <v-col cols="6" md="4">
+      <v-col cols="12" lg="4">
         <v-card flat class="d-flex flex-column justify-center" height="600">
           <v-card-text>
             <h2 class="display-2 font-weight-bold">Passenger Volume</h2>

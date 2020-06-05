@@ -1,5 +1,5 @@
 <template>
-  <v-card flat :class="color" style="height: 600px">
+  <v-card flat :class="color">
     <v-card-text class="display-2" :class="textcolor">
       {{
       heading
@@ -11,7 +11,7 @@
       }}
     </v-card-text>
     <v-row no-gutters justify="space-around" align="center">
-      <v-col cols="7">
+      <v-col cols="12" lg="8">
         <v-row>
           <v-col>
             <v-card flat>
@@ -29,8 +29,15 @@
         <v-divider></v-divider>
         <v-card-text class="headline">Sustainable Mobility Score of {{ country }}</v-card-text>
         <v-row>
-          <v-col v-for="(aspect,i) in aspects" :key="i">
-            <v-row>
+          <v-col
+            v-for="(aspect,i) in aspects"
+            :key="i"
+            cols="12"
+            lg="4"
+            md="4"
+            justify="space-around"
+          >
+            <v-row no-gutters>
               <v-divider vertical :class="aspect.color"></v-divider>
               <v-card flat>
                 <v-card-text class="title aspects text-uppercase">{{aspect.title}}</v-card-text>
@@ -57,7 +64,7 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="12" lg="4">
         <GChart id="feature-chart" type="ColumnChart" :data="chartData" :options="chartOptions" />
       </v-col>
     </v-row>

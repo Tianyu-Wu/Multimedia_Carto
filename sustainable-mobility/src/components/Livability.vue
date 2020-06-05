@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-card flat style="padding: 0px 50px 0px 50px">
     <v-row no-gutters justify="center" class="align-center">
-      <v-col cols="11">
+      <v-col cols="12">
         <v-card-text class="display-2">
           {{
           heading
@@ -16,21 +16,24 @@
     </v-row>
     <v-container>
       <v-row class="d-flex justify-space-around">
-        <v-col v-for="(image,i) in images" :key="i" cols="12" md="5">
-          <v-img
-            :src="require(`../assets/${image.name}.png`)"
-            class="mb-4"
-            height="275"
-            max-width="100%"
-          ></v-img>
+        <v-col v-for="(image,i) in images" :key="i" cols="12" lg="6" md="6">
+          <v-card flat>
+            <v-img
+              :src="require(`../assets/${image.name}.png`)"
+              class="mb-4"
+              height="275"
+              max-width="100%"
+            ></v-img>
+            <v-card-text>
+              <h3 class="font-weight-black mb-4 text-uppercase">{{image.title}}</h3>
 
-          <h3 class="font-weight-black mb-4 text-uppercase">{{image.title}}</h3>
-
-          <div class="subtitle-1 mb-5">{{image.text}}</div>
+              <div class="subtitle-1 mb-5">{{image.text}}</div>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </v-card>
 </template>
 
 <script>

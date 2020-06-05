@@ -1,13 +1,13 @@
 <template>
-  <v-card flat :class="color">
+  <v-card flat :class="color" style="padding: 0px 50px 0px 50px">
     <v-row no-gutters justify="center" class="align-center">
-      <v-col cols="8">
+      <v-col cols="12" lg="8" justify="center">
         <div id="population" class="map pad2">
           Map Loading
           <div id="menuPop"></div>
         </div>
       </v-col>
-      <v-col cols="3">
+      <v-col cols="12" lg="4">
         <v-card-text
           class="display-2"
           :class="textcolor"

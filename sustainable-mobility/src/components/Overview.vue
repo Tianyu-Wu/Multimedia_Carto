@@ -1,8 +1,8 @@
 <template>
-  <v-card flat>
+  <v-card flat style="padding: 0px 50px 0px 50px">
     <v-container>
       <v-row no-gutters justify="space-between" class="align-top">
-        <v-col v-for="(aspect,i) in aspects" :key="i" cols="3">
+        <v-col v-for="(aspect,i) in aspects" :key="i" cols="12" lg="4" md="4">
           <v-card-title>
             <div class="legend-div" :class="aspect.color" />
             <span class="title">{{aspect.title}}</span>

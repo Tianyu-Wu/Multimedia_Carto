@@ -10,10 +10,10 @@
 
       <v-container class="justify-center">
         <v-row no-gutters class="align-center" justify="space-between">
-          <v-col cols="4">
+          <v-col cols="12" lg="4" md="4">
             <v-card-text class="display-2">Checkout more in the video!</v-card-text>
           </v-col>
-          <v-col cols="8" class="align-right">
+          <v-col cols="12" lg="8" md="8" class="align-right">
             <iframe
               width="640"
               height="360"

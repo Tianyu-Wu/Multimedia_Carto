@@ -5,7 +5,7 @@
         <v-col
           :key="i"
           cols="12"
-          md="4"
+          lg="4"
           @click="
             show == i + 1
               ? (show = 0)

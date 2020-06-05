@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 .legend-row {
-  width: 90%;
+  width: 360px;
   height: 12px;
 }
 </style>

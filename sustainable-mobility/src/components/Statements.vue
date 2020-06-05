@@ -1,12 +1,12 @@
 <template>
-  <v-card flat>
+  <v-card flat style="padding: 0px 50px 0px 50px">
     <div class="py-5"></div>
 
     <v-row no-gutters justify="center" class="align-center">
-      <v-col cols="6">
+      <v-col cols="12" lg="6">
         <v-img :src="require('../assets/sdg.png')" class="mb-4" contain />
       </v-col>
-      <v-col cols="5">
+      <v-col cols="12" lg="6">
         <v-card-text class="display-2">SDG 11: sustainable cities and communities</v-card-text>
         <v-card-text class="subtitle-1">
           In 2016, the UN proposes the SDG 11: sustainable cities and
