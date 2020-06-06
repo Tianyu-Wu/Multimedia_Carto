@@ -2,17 +2,8 @@
   <div class="pa-4">
     <v-row class="align-center">
       <template v-for="(city, i) in cities">
-        <v-col
-          :key="i"
-          cols="12"
-          lg="4"
-          @click="
-            show == i + 1
-              ? (show = 0)
-              : ((show = 1 + i),
-                $vuetify.goTo('#case-studies', { offset: -250 }))
-          "
-        >
+        <v-col :key="i" cols="12" lg="4" @click="updateShow(i)
+          ">
           <v-hover v-slot:default="{ hover }">
             <v-card :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }" class="align-center">
               <v-img
@@ -50,9 +41,11 @@
       </template>
     </v-row>
 
-    <ZurichMap v-if="show == 1" />
-    <VancouverMap v-if="show == 3" />
-    <SingaporeMap v-if="show == 2" />
+    <div ref="caseStudyMap">
+      <ZurichMap v-if="show == 1" />
+      <VancouverMap v-if="show == 3" />
+      <SingaporeMap v-if="show == 2" />
+    </div>
   </div>
 </template>
 
@@ -84,7 +77,35 @@ export default {
         region: "North America"
       }
     ]
-  })
+  }),
+  mounted() {
+    var self = this;
+    // listen to event from comparative study, if a tab in comparative study is clicked,
+    // close up the case study
+    this.$parent.$on("compareOpen", () => {
+      self.show = 0;
+    });
+  },
+  methods: {
+    updateShow: function(id) {
+      var self = this;
+      // if click on the same opened tab, close up the case study
+      if (self.show == id + 1) {
+        self.show = 0;
+      } else {
+        // if click on the other tab, open the corresponding case study
+        self.show = id + 1;
+        // scroll to case study
+        self.$vuetify.goTo("#case-studies", { offset: -250 });
+
+        self.$nextTick(() => {
+          // emit an event to comparative study to close up the opened comparative study
+          // send the scrolling bias
+          self.$parent.$emit("caseOpen", self.$refs.caseStudyMap.clientHeight);
+        });
+      }
+    }
+  }
 };
 </script>
 

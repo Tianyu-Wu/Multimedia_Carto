@@ -2,17 +2,8 @@
   <div class="pa-4">
     <v-row class="align-center">
       <template v-for="({ name, icolor, icon }, i) in aspects">
-        <v-col
-          :key="i"
-          cols="12"
-          lg="4"
-          @click="
-            show == i + 1
-              ? (show = 0)
-              : ((show = 1 + i),
-                $vuetify.goTo('#comparative', { offset: -250 }))
-          "
-        >
+        <v-col :key="i" cols="12" lg="4" @click="updateShow(i)
+          ">
           <v-hover v-slot:default="{ hover }">
             <v-card
               :color="icolor"
@@ -55,6 +46,7 @@ export default {
   },
   data: () => ({
     show: 0,
+    bias: 0,
     aspects: [
       {
         name: "Coverage",
@@ -72,7 +64,35 @@ export default {
         icon: "mdi-molecule-co2"
       }
     ]
-  })
+  }),
+  methods: {
+    updateShow: function(id) {
+      var self = this;
+      // if clicking on the same opened tab, close up the comparative study
+      if (self.show == id + 1) {
+        self.show = 0;
+      } else {
+        // if clicking on the other tabs, open the corresponding comparative study
+        self.show = id + 1;
+        // emit an event to case study to close up the opened case studies
+        self.$parent.$emit("compareOpen");
+
+        // scroll to the comparative study
+        // take care of the bias if case study is open
+        self.$vuetify.goTo("#comparative", { offset: -250 + self.bias });
+        // reset scrolling bias
+        self.bias = 0;
+      }
+    }
+  },
+  mounted() {
+    var self = this;
+    this.$parent.$on("caseOpen", height => {
+      self.show = 0;
+      // if the case study is open, add a scrolling bias
+      self.bias = height;
+    });
+  }
 };
 </script>
 
