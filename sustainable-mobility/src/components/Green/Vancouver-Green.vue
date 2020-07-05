@@ -121,7 +121,8 @@ export default {
           layout: {
             "icon-image": "parks_1",
             "icon-allow-overlap": true,
-            visibility: "visible"
+            visibility: "visible",
+            'icon-size': 0.1
           },
           "source-layer": "Parks_VA-b1d8hw"
         });

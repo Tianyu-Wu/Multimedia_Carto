@@ -127,7 +127,8 @@ export default {
           },
           layout: {
             "icon-image": "parks_1",
-            "icon-allow-overlap": true
+            "icon-allow-overlap": true,
+            'icon-size': 0.1
           },
           "source-layer": "Green_SG-b50ju0"
         });
@@ -144,7 +145,8 @@ export default {
           layout: {
             "icon-image": "skyGreen_1",
             "icon-allow-overlap": true,
-            visibility: "visible"
+            visibility: "visible",
+            'icon-size': 0.1
           },
           "source-layer": "SkyGreen_SG_WGS84-3fzuwg"
         });
