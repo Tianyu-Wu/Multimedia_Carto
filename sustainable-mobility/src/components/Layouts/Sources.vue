@@ -103,8 +103,7 @@ export default {
       },
             {
         title: "Air Pollution",
-        link: "" ,
-        l: ""
+        link: "Photo by Carolina Pimenta on Unsplash" 
       },
       { title: "Zurich", link: "Photo by Viespire Travel on Unsplash" },
       {

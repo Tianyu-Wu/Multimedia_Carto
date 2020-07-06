@@ -19,7 +19,7 @@
         <v-col v-for="(image,i) in images" :key="i" cols="12" lg="6" md="6">
           <v-card flat>
             <v-img
-              :src="require(`../assets/${image.name}.png`)"
+              :src="require(`../assets/${image.name}.jpg`)"
               class="mb-4"
               height="275"
               max-width="100%"
