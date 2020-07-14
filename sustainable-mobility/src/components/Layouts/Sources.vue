@@ -41,7 +41,10 @@
           <v-col cols="6">
             <v-card flat color="blue-grey darken-4">
               <v-card-title>Images</v-card-title>
-              <v-card-text v-for="({ title, link,l }, i) in images" :key="i">{{ title }}: {{ link }} <a href="l">{{ l }}</a></v-card-text>
+              <v-card-text v-for="({ title, link,l }, i) in images" :key="i">
+                {{ title }}: {{ link }}
+                <a href="l">{{ l }}</a>
+              </v-card-text>
             </v-card>
             <div class="py-2"></div>
 
@@ -93,17 +96,21 @@ export default {
       "https://openchargemap.org"
     ],
     images: [
-            {
+      {
+        title: "Website logo",
+        l: "https://www.easyicon.net/language.en/1206975-cityscape_icon.html"
+      },
+      {
         title: "Landing page",
-        link: "Photo by ben o'bro on Unsplash" 
+        link: "Photo by ben o'bro on Unsplash"
       },
       {
         title: "Traffic Congestion",
-        link: "Photo by Rebekah Blocker on Unsplash" 
+        link: "Photo by Rebekah Blocker on Unsplash"
       },
-            {
+      {
         title: "Air Pollution",
-        link: "Photo by Carolina Pimenta on Unsplash" 
+        link: "Photo by Carolina Pimenta on Unsplash"
       },
       { title: "Zurich", link: "Photo by Viespire Travel on Unsplash" },
       {
@@ -116,7 +123,7 @@ export default {
       },
       {
         title: "Green Map tree Icons",
-        link: "Designed by Freepik" ,
+        link: "Designed by Freepik",
         l: "http://www.freepik.com"
       }
     ],
