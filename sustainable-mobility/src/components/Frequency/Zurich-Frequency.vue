@@ -63,6 +63,10 @@ export default {
         minZoom: 10.5
       });
 
+      self.map.on("render", () => {
+        self.map.resize();
+      });
+
       // add the zurich boarding source layer
       self.map.on("style.load", function() {
         self.map.addSource("zurich-boarding", {

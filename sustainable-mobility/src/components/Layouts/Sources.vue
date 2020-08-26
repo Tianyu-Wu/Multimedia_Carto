@@ -3,11 +3,38 @@
     <v-expansion-panel style="background-color: #263238 !important">
       <v-expansion-panel-header>
         <v-row no-gutters>
-          <v-col class="text-center">Data Sources</v-col>
+          <v-col class="text-center">Sources</v-col>
         </v-row>
       </v-expansion-panel-header>
       <v-expansion-panel-content>
         <v-row justify="space-around">
+          <v-col cols="6">
+            <v-card flat color="blue-grey darken-4">
+              <v-card-title>Images</v-card-title>
+              <v-card-text>
+                Website logo: Icons made by
+                <a
+                  href="https://www.flaticon.com/authors/eucalyp"
+                  title="Eucalyp"
+                >Eucalyp</a> from
+                <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+              </v-card-text>
+              <v-card-text v-for="({ title, link,l }, i) in images" :key="i">
+                {{ title }}: {{ link }}
+                <a href="l">{{ l }}</a>
+              </v-card-text>
+            </v-card>
+            <div class="py-2"></div>
+
+            <v-divider></v-divider>
+            <v-card flat color="blue-grey darken-4">
+              <v-card-title>Charts</v-card-title>
+              <v-card-text v-for="({ title, link }, i) in charts" :key="i">
+                {{ title }}:
+                <a href>{{ link }}</a>
+              </v-card-text>
+            </v-card>
+          </v-col>
           <v-col cols="6">
             <v-card flat color="blue-grey darken-4">
               <v-card-title>Map</v-card-title>
@@ -37,24 +64,12 @@
                 </v-row>
               </v-card-text>
             </v-card>
-          </v-col>
-          <v-col cols="6">
-            <v-card flat color="blue-grey darken-4">
-              <v-card-title>Images</v-card-title>
-              <v-card-text v-for="({ title, link,l }, i) in images" :key="i">
-                {{ title }}: {{ link }}
-                <a href="l">{{ l }}</a>
-              </v-card-text>
-            </v-card>
             <div class="py-2"></div>
 
             <v-divider></v-divider>
             <v-card flat color="blue-grey darken-4">
-              <v-card-title>Charts</v-card-title>
-              <v-card-text v-for="({ title, link }, i) in charts" :key="i">
-                {{ title }}:
-                <a href>{{ link }}</a>
-              </v-card-text>
+              <v-card-title>Software</v-card-title>
+              <v-card-text v-for="({ title, link }, i) in tools" :key="i">{{ title }}: {{ link }}</v-card-text>
             </v-card>
           </v-col>
         </v-row>
@@ -95,11 +110,18 @@ export default {
       "https://www.lemnet.org/en/downloads",
       "https://openchargemap.org"
     ],
-    images: [
+    tools: [
+      { title: "Data processing", link: "QGIS, ArcGIS, Pandas" },
       {
-        title: "Website logo",
-        l: "https://www.easyicon.net/language.en/1206975-cityscape_icon.html"
+        title: "Front-end design and development",
+        link: "Figma, Vue, Vuetify"
       },
+      {
+        title: "Visualization",
+        link: "Mapbox, Google Charts"
+      }
+    ],
+    images: [
       {
         title: "Landing page",
         link: "Photo by ben o'bro on Unsplash"
