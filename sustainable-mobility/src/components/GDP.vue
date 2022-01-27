@@ -14,62 +14,106 @@
         </v-card-text>
       </v-col>
       <v-col cols="12" lg="8">
-        <GChart id="gdp-chart" type="LineChart" @ready="onChartReady" />
+        <line-chart v-if="loaded" :chartdata="datacollection" :options="options"/>
       </v-col>
     </v-row>
   </v-card>
 </template>
 
 <script>
-import { GChart } from "vue-google-charts";
+import LineChart from '@/scripts/LineChart'
+import jsondata from '@/data/world_gdp.json'
+import {colors} from '@/scripts/Utils'
+
 export default {
   name: "GDP",
   components: {
-    GChart
+    LineChart
+  },
+  data() {
+      return {
+          datacollection: null,
+          options: null,
+          loaded: false
+      }
+  },
+  mounted() {
+      this.fillData()
   },
   methods: {
-    onChartReady(chart, google) {
-      // store the ref to this
-      let self = this;
+    fillData() {
+            // convert json to data object
+            this.datacollection = {
+                labels: jsondata.map(el => el.Year),
+                datasets: [{
+                    data: jsondata.map(el => el["GDP (Trillion US Dollar)"]),
+                    fill: false,
+                    backgroundColor: colors[0],
+                    borderColor:colors[0]
+                }]
+            };
 
-      // construct the query to GDP google sheet
-      const query = new google.visualization.Query(
-        "https://docs.google.com/spreadsheets/d/1lARrVYXNGqIRp6PxEp60PzfhWSr5xdXxJycsDEI5x30/edit?usp=sharing"
-      );
+            this.options = {
+                responsive: true,
+                title: {
+                        display: true,
+                        text: 'World GDP in US Dollars (Trillion)',
+                        fontColor: 'black',
+                        fontSize: 18
+                },
+                legend: {
+                    display: false,
+                    labels: {
+                      fontColor: 'black'
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            // Include a dollar sign in the ticks
+                            callback: function(value) {
+                                return '$' + value;
+                            },
+                            fontSize: 15,
+                            fontColor: 'black'
+                        }
+                    }],
+                    xAxes: [{
+                      ticks: {
+                        fontSize: 15,
+                        fontColor: 'black'
+                      }
+                    }]
+                },
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 80,
+                        right: 10,
+                        top: 10,
+                        bottom: 10
+                    }
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
 
-      // get query result and render the plot
-      query.send(response => {
-        const options = {
-          // some custom options
-          title: "World GDP in US Dollars (Trillion)",
-          titleTextStyle: {
-            color: self.textcolor
-          },
-          height: 600,
-          legend: "none",
-          backgroundColor: self.color,
-          vAxis: {
-            format: "currency",
-            textStyle: {
-              color: self.textcolor
-            }
-          },
-          hAxis: {
-            textStyle: {
-              color: self.textcolor
-            }
-          }
-        };
+                            var label = data.datasets[tooltipItem.datasetIndex].label || '';
 
-        // get the data table
-        const data = response.getDataTable();
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += 'GDP (Trillion US Dollar): '+tooltipItem.yLabel;
 
-        // draw chart
-        chart.draw(data, options);
-      });
-    }
-  },
-  mounted() {}
+                            return label;
+                        }
+                    }
+                }
+            };
+            this.loaded = true;
+
+        }
+  }
 };
 </script>
 

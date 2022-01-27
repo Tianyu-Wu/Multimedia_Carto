@@ -14,7 +14,7 @@
 
       <v-row>
         <v-col style="max-height: 600px" class="overflow-y-auto">
-          <GChart type="BarChart" @ready="onChartReady" />
+          <horizontal-bar-chart v-if="loaded" :chartdata="datacollection" :options="options"/>
         </v-col>
       </v-row>
       <div class="py-2"></div>
@@ -23,11 +23,14 @@
 </template>
 
 <script>
-import { GChart } from "vue-google-charts";
+import HorizontalBarChart from '@/scripts/HorizontalBarChart'
+import jsondata from '@/data/three_aspect_scaled.json'
+import {theme_colors} from '@/scripts/Utils'
+
 export default {
   name: "Overview",
   components: {
-    GChart
+    HorizontalBarChart
   },
   data: () => ({
     aspects: [
@@ -48,56 +51,73 @@ export default {
         title: "Sustainability",
         text: "How much impact does the transportation have on the environment."
       }
-    ]
+    ],
+    datacollection: null,
+    options: null,
+    loaded: false,
   }),
-  methods: {
-    onChartReady(chart, google) {
-      let self = this;
-      const query = new google.visualization.Query(
-        "https://docs.google.com/spreadsheets/d/1b24jZnK_kFAlrwU6Ti_9gQLxowdx3ACJlKZs0iO6LtI/edit?usp=sharing"
-      );
-      query.send(response => {
-        const data = response.getDataTable();
+  mounted() {
+        this.fillData()
+    },
+    methods: {
+        fillData() {
+            // convert json to data object
+            console.log(jsondata[0])
+            var columns = Object.keys(jsondata[0]);
+            columns.shift()
+            
+            this.datacollection = {
+                labels: jsondata.map(el => el.COUNTRY),
+                datasets: columns.map(col => ({
+                        label: col, 
+                        data: jsondata.map(el => el[col]), 
+                        backgroundColor: theme_colors[col], 
+                        borderColor: 'white',
+                        borderWidth: 1
+                    }))
+            };
 
-        var paddingHeight = 100;
-        var rowHeight = data.getNumberOfRows() * 20;
-        var chartHeight = rowHeight + paddingHeight;
-
-        const options = {
-          // some custom options
-          title: "Sustainable mobility score",
-          isStacked: true,
-          titleTextStyle: {
-            color: self.textcolor
-          },
-          legend: "none",
-          //   legend: { position: "top" },
-          height: chartHeight,
-          chartArea: {
-            height: rowHeight
-          },
-          backgroundColor: self.color,
-          vAxis: {
-            textStyle: {
-              color: self.textcolor
-            }
-          },
-          hAxis: {
-            textStyle: {
-              color: self.textcolor
-            }
-          },
-          series: {
-            0: { color: "#2196F3" },
-            1: { color: "#FFC107" },
-            2: { color: "#4CAF50" }
-          }
-        };
-        chart.draw(data, options);
-      });
-    }
-  },
-  mounted() {}
+            this.options = {
+                responsive: true,
+                title: {
+                        display: true,
+                        text: 'Sustainable Mobility Score',
+                        fontColor: 'black',
+                        fontSize: 18
+                },
+                legend: {
+                    display: false, 
+                },
+                scales: {
+                    yAxes: [{
+                        stacked: true,
+                        ticks: {
+                          fontSize: 13,
+                          fontColor: 'black'
+                        }
+                  
+                    }],
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                          fontSize: 15,
+                          fontColor: 'black'
+                        }
+                    }]
+                },
+                maintainAspectRatio: true,
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 10,
+                        top: 10,
+                        bottom: 10
+                    }
+                },
+            };
+            this.loaded = true;
+        }
+    },
 };
 </script>
 

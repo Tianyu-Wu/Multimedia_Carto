@@ -2,7 +2,7 @@
   <v-card flat style="padding: 0px 50px 0px 50px">
     <v-row no-gutters justify="center" class="align-center">
       <v-col cols="12" lg="8">
-        <GChart type="AreaChart" @ready="onChartReady" />
+        <line-chart v-if="loaded" :chartdata="datacollection" :options="options"/>
       </v-col>
       <v-col cols="12" lg="4">
         <v-card-text class="display-2">Carbon-intensive transport</v-card-text>
@@ -22,54 +22,98 @@
 </template>
 
 <script>
-import { GChart } from "vue-google-charts";
+import LineChart from '@/scripts/LineChart'
+import jsondata from '@/data/co2.json'
+import { colors, convertHexToRGBA } from '@/scripts/Utils'
+
 export default {
   name: "GDP",
   components: {
-    GChart
+    LineChart
   },
-  methods: {
-    onChartReady(chart, google) {
-      // store the ref to this
-      let self = this;
+  data() {
+        return {
+            datacollection: null,
+            options: null,
+            loaded: false,
+        }
+    },
+    mounted() {
+        this.fillData()
+    },
+    methods: {
+        fillData() {
+            // convert json to data object
+            // console.log(jsondata.map(el => ({"x": el.Year, "y": el["GDP (Trillion US Dollar)"]})));
+            console.log(jsondata[0])
+            var columns = Object.keys(jsondata[0]);
+            // const datasets = columns.map(col => ({label: col, data: jsondata.map(el => el[col]), fill: false}));
+            columns.shift()
+            // console.log(datasets);
+            
+            this.datacollection = {
+                labels: jsondata.map(el => el.Year),
+                datasets: columns.map((col, index) => ({
+                        label: col, 
+                        data: jsondata.map(el => el[col]), 
+                        fill: index == 0 ? true : "-1", 
+                        backgroundColor: convertHexToRGBA(colors[index % colors.length], 0.5), 
+                        borderColor: colors[index % colors.length],
+                        borderWidth: 1
+                    }))
+            };
 
-      // construct the query to CO2 emission by sector google sheet
-      const query = new google.visualization.Query(
-        "https://docs.google.com/spreadsheets/d/1EFUlfPIvzGkztvoxXd1CKPHEl7TRiAhqB2f4OOFbYzc/edit?usp=sharing&range=A5:J11"
-      );
+            console.log(this.datacollection.datasets);
 
-      // get the query response and render the chart
-      query.send(response => {
-        const options = {
-          // some custom options
-          title: "CO2 emission by sector",
-          isStacked: true,
-          titleTextStyle: {
-            color: self.textcolor
-          },
-          height: 600,
-          backgroundColor: self.color,
-          vAxis: {
-            title: "MT CO2",
-            textStyle: {
-              color: self.textcolor
-            }
-          },
-          hAxis: {
-            textStyle: {
-              color: self.textcolor
-            }
-          }
-        };
-
-        // get the data table
-        const data = response.getDataTable();
-
-        // draw chart
-        chart.draw(data, options);
-      });
+            this.options = {
+                responsive: true,
+                title: {
+                        display: true,
+                        text: 'CO2 Emission by Sector',
+                        fontColor: 'black',
+                        fontSize: 18
+                },
+                legend: {
+                    display: true, 
+                    position: 'right',
+                    labels: {
+                      fontColor: 'black'
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        stacked: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'MT C02',
+                            fontSize: 15,
+                            fontColor: 'black'
+                        },
+                        ticks: {
+                          fontSize: 15,
+                          fontColor: 'black'
+                        }
+                    }],
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                          fontSize: 15,
+                          fontColor: 'black'
+                        }
+                    }]
+                },
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 80,
+                        right: 10,
+                        top: 10,
+                        bottom: 10
+                    }
+                },
+            };
+            this.loaded = true;
+        }
     }
-  },
-  mounted() {}
 };
 </script>

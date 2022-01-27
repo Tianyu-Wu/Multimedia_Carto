@@ -13,62 +13,94 @@
         </v-card-text>
       </v-col>
       <v-col cols="12" lg="8">
-        <GChart type="BarChart" @ready="onChartReady" />
+        <horizontal-bar-chart v-if="loaded" :chartdata="datacollection" :options="options"/>
       </v-col>
     </v-row>
   </v-card>
 </template>
 
 <script>
-import { GChart } from "vue-google-charts";
+import HorizontalBarChart from '@/scripts/HorizontalBarChart'
+import jsondata from '@/data/demand.json'
+import { colors } from '@/scripts/Utils';
 
 export default {
   name: "Demand",
   components: {
-    GChart
+    HorizontalBarChart
   },
-  methods: {
-    onChartReady(chart, google) {
-      // store the ref to this
-      let self = this;
+  data() {
+        return {
+            datacollection: null,
+            options: null,
+            loaded: false,
+        }
+    },
+    mounted() {
+        this.fillData()
+    },
+    methods: {
+        fillData() {
+            // convert json to data object
+            var columns = Object.keys(jsondata[0]);
+            // remove the Year column from the array
+            columns.shift()
+            
+            this.datacollection = {
+                labels: jsondata.map(el => el.Year),
+                datasets: columns.map((col, index) => ({
+                        label: col, 
+                        data: jsondata.map(el => el[col]), 
+                        fill: false, 
+                        backgroundColor: colors[index % colors.length], 
+                        borderColor: 'white',
+                        borderWidth: 1
+                    }))
+            };
 
-      // construct the query to demand for transportation google sheet
-      const query = new google.visualization.Query(
-        "https://docs.google.com/spreadsheets/d/1j-5LNLYUShev1fIwUmtqLW96z25hUeNMG4AMJwQnidU/edit?usp=sharing"
-      );
-
-      // get the query response and render the chart
-      query.send(response => {
-        const options = {
-          // some custom options
-          title: "Demand for passenger transport by mode",
-          isStacked: true,
-          titleTextStyle: {
-            color: self.textcolor
-          },
-          height: 600,
-          backgroundColor: self.color,
-          vAxis: {
-            textStyle: {
-              color: self.textcolor
-            }
-          },
-          hAxis: {
-            title: "Billion passenger-kilometres",
-            textStyle: {
-              color: self.textcolor
-            }
-          }
-        };
-
-        // get the data table
-        const data = response.getDataTable();
-
-        // draw chart
-        chart.draw(data, options);
-      });
+            this.options = {
+                responsive: true,
+                title: {
+                        display: true,
+                        text: 'Demand for Passenger Transport by Mode',
+                        fontColor: 'black',
+                        fontSize: 18
+                },
+                legend: {
+                    display: true, 
+                    position: 'right',
+                    labels: {
+                      fontColor: 'black',
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        stacked: true,
+                        ticks: {
+                          fontSize: 15,
+                          fontColor: 'black'
+                        }
+                    }],
+                    xAxes: [{
+                        stacked: true,
+                        ticks: {
+                          fontSize: 15,
+                          fontColor: 'black'
+                        }
+                    }]
+                },
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 80,
+                        right: 10,
+                        top: 10,
+                        bottom: 10
+                    }
+                },
+            };
+            this.loaded = true;
+        }
     }
-  },
-  mounted() {}
 };
 </script>

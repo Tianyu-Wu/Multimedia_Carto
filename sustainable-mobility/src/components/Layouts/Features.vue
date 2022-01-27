@@ -65,13 +65,16 @@
         </v-row>
       </v-col>
       <v-col cols="12" lg="4">
-        <GChart id="feature-chart" type="ColumnChart" :data="chartData" :options="chartOptions" />
+        <bar-chart id="feature-chart" v-if="loaded" :chartdata="datacollection" :options="options"/>
       </v-col>
     </v-row>
   </v-card>
 </template>
 
 <script>
+import BarChart from '@/scripts/BarChart'
+import { theme_colors } from '@/scripts/Utils';
+
 export default {
   name: "BaseFeatures",
   props: {
@@ -87,6 +90,9 @@ export default {
     area: Number,
     ranking: Array,
     score: Array
+  },
+  components: {
+    BarChart
   },
   data: () => ({
     aspects: [
@@ -106,17 +112,40 @@ export default {
     chartOptions: {
       height: 400,
       legend: "none"
-    }
+    },
+    datacollection: null,
+    options: null,
+    loaded: false
   }),
-  computed: {
-    chartData() {
-      return [
-        ["Aspect", "Score", { role: "style" }],
-        ["Coverage", this.score[0], "#2196F3"],
-        ["Accessibility", this.score[1], "#FFC107"],
-        ["Sustainability", this.score[2], "#4CAF50"]
-      ];
+  methods: {
+    fillData() {
+      this.datacollection = {
+          labels: this.aspects.map(el => el.title),
+          datasets: [{
+            data: this.score,
+            backgroundColor: this.aspects.map(el => theme_colors[el.title])
+          }]
+      };
+      this.options = {
+          responsive: true,
+          legend: {
+              display: false, 
+          },
+          maintainAspectRatio: false,
+          layout: {
+              padding: {
+                  left: 10,
+                  right: 10,
+                  top: 10,
+                  bottom: 10
+              }
+          },
+      };
+      this.loaded = true;
     }
+  },
+  mounted() {
+      this.fillData()
   }
 };
 </script>

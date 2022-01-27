@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import Landing from "./components/Landing";
+import Landing from "./components/landing";
 import Population from "./components/Population";
 import GDP from "./components/GDP";
 import Demand from "./components/Demand";

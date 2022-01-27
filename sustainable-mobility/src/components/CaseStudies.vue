@@ -7,7 +7,7 @@
           <v-hover v-slot:default="{ hover }">
             <v-card :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }" class="align-center">
               <v-img
-                :src="require(`../assets/${city.name}.jpg`)"
+                :src="require(`../assets/${city.name.toLowerCase()}.jpg`)"
                 :height="show == i + 1 ? 300 : 270"
                 class="align-center"
               >
